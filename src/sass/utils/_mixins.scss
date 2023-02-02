@@ -1,0 +1,34 @@
+@mixin font($fs, $fw, $lh, $ls) {
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+    letter-spacing: $ls;
+  }
+  
+  @mixin flex($dis, $jc, $ali) {
+    display: $dis;
+    justify-content: $jc;
+    align-items: $ali;
+  }
+
+// container
+
+@mixin min480 {
+    @media screen and (min-width: 480px) {
+      @content;
+    }
+  }
+
+  @mixin min768 {
+    @media screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  
+  @mixin min1280 {
+    @media screen and (min-width: 1280px) {
+      @content;
+    }
+  }
+
+

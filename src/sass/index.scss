@@ -1,2 +1,12 @@
-@import './common';
+// Base and Utils
+@import './utils/normalize';
+@import './utils/reset';
+@import './base/fonts';
+@import './utils/visually-hidden';
+@import './utils/vars';
+@import './utils/mixins';
+@import './base/container';
+
+// Layout
+
 

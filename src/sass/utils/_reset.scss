@@ -1,0 +1,38 @@
+// Основной шрифт
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+// Сброс отступов
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+// сброс стиля у ссылки
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// сброс стиля у списка
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// сброс отступа у картинок и базовая отзывчивость
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
