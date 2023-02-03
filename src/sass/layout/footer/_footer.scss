@@ -34,6 +34,7 @@
     padding-bottom: 30;
   }
   display: block;
+  position: relative;
   margin-right: 34px;
   font-family: $primary-font;
   font-weight: 400;
@@ -41,6 +42,23 @@
   line-height: 16px;
   color: $footerTextColor;
 }
+
+.authors-list__authors-description::after {
+  @media screen and(max-width:767px) {
+    top: 14%;
+  }
+  content: '';
+  position: absolute;
+  top: 49%;
+  left: 118.5%;
+  transform: translate(-50%, -50%);
+  background-image: url(../images/heart-icon.svg);
+  background-repeat: no-repeat;
+  width: 14px;
+  height: 13px;
+  background-size: contain;
+}
+
 
 .authors-list__authors-link {
   @media screen and (max-width: 767px) {
@@ -50,7 +68,6 @@
     padding: 30 0;
   }
   display: block;
-  position: relative;
   font-family: $primary-font;
   font-weight: 400;
   font-size: 14px;
@@ -61,18 +78,4 @@
 .authors-list__authors-link--underline {
   text-decoration: underline;
 }
-.authors-list__authors-link::before {
-  @media screen and(max-width:767px) {
-    top: 14%;
-  }
-  content: '';
-  position: absolute;
-  top: 49%;
-  left: -17px;
-  transform: translate(-50%, -50%);
-  background-image: url(../images/heart-icon.svg);
-  background-repeat: no-repeat;
-  width: 14px;
-  height: 13px;
-  background-size: contain;
-}
+

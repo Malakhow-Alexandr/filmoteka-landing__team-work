@@ -7,7 +7,18 @@
 @import './utils/mixins';
 @import './base/container';
 
+//spinner
+@import './components/spinner';
+
 // Layout
 
+// Layout // Layout
+
+// footer
 @import './layout/footer/footer';
 @import './layout/card-movies';
+@import './layout/footer/footer-modal';
+
+// film-modal
+
+@import './layout/film-modal.scss';
