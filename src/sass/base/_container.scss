@@ -1,19 +1,19 @@
 .container {
-    padding: 0 20px;
-    margin: 0 auto;
-    //   width: 100vw;
-  
-    @include min480 {
-      width: 480px;
-    }
-  
-    @include min768 {
-      width: 768px;
-      padding: 0 30px;
-    }
-  
-    @include min1280 {
-      width: 1280px;
-      padding: 0 30px;
-    }
+  padding: 0 20px;
+  margin: 0 auto;
+  //   width: 100vw;
+
+  @include min480 {
+    width: 480px;
   }
+
+  @include min768 {
+    width: 768px;
+    padding: 0 30px;
+  }
+
+  @include min1280 {
+    width: 1280px;
+    padding: 0 30px;
+  }
+}
