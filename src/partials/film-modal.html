@@ -1,7 +1,11 @@
 
-<div class="backdrop">
+<div class="backdrop is-hidden">
     <div class="modal">
-        <button class="modal__btn--close">close</button>
+        <button class="modal__btn--close">
+            <svg width="30" height="30">
+                <use href="./images/film-modal-close.svg"></use>
+            </svg>
+        </button>
         <div class="modal-card">
             <div class="modal-card__img">
                 <img src="https://pixabay.com/photos/cat-young-animal-kitten-gray-cat-2083492/" alt="film name" />
@@ -9,7 +13,7 @@
 
             <div>
                 <h2 class="modal-card__title  card-uppertext">Avatar</h2>
-                <table>
+                <table modal-card__table>
                     <tbody  class="modal-card__info">
                         <tr>
                             <td class="modal-card__info-name">Vote / Votes</td>
@@ -17,7 +21,8 @@
                         </tr>
                     </tbody>
 
-                       
+                     
+                    
                     <tbody class="modal-card__info">
                         <tr>
                             <td class="modal-card__info-name">Popularity</td>
@@ -28,14 +33,14 @@
                     <tbody class="modal-card__info">
                         <tr>
                             <td class="modal-card__info-name">Original Title</td>
-                            <td class="modal-card__info-value">A FISTFUL OF LEAD</td>
+                            <td class="modal-card__info-value  modal-card__info-value--lh">A FISTFUL OF LEAD</td>
                         </tr>
                     </tbody>
 
                     <tbody>
                         <tr>
                             <td class="modal-card__info-name">Genre</td>
-                            <td class="modal-card__info-value">Western</td>
+                            <td class="modal-card__info-value modal-card__info-value--lh">Western</td>
                         </tr>
                     </tbody>
                 </table>
