@@ -139,3 +139,5 @@ class AccountManagment {
   //     get(child(databaseRef, `${userName}${user.uid}`));
   //   }
 }
+
+export const authentitification = new AccountManagment()
