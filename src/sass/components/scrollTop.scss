@@ -1,0 +1,15 @@
+#scrollTop {
+  position: fixed;
+  bottom: 150px;
+  right: 70px;
+  font-size: 40px;
+  z-index: 9999;
+  color: red;
+}
+.isShownBtn {
+  opacity: 1;
+
+  &_hide {
+    opacity: 0;
+  }
+}
