@@ -1,0 +1,81 @@
+.footer {
+  background-color: $footer-bg-color;
+}
+.footer-container {
+  @media screen and(max-width:767px) {
+    text-align: center;
+  }
+  @media screen and(min-width:768px) {
+    @include flex(flex, center, center);
+  }
+}
+
+.authors-list__description {
+  @media screen and (max-width: 767px) {
+    margin-bottom: 10px;
+    padding-top: 30px;
+  }
+  @media screen and(min-width:768px) {
+    margin-right: 3px;
+  }
+  display: block;
+  font-family: $primary-font;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: $footerTextColor;
+}
+.authors-list__meta-container {
+  @include flex(flex, center, center);
+}
+
+.authors-list__authors-description {
+  @media screen and (max-width: 767px) {
+    padding-bottom: 30;
+  }
+  display: block;
+  position: relative;
+  margin-right: 34px;
+  font-family: $primary-font;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: $footerTextColor;
+}
+
+.authors-list__authors-description::after {
+  @media screen and(max-width:767px) {
+    top: 14%;
+  }
+  content: '';
+  position: absolute;
+  top: 49%;
+  left: 118.5%;
+  transform: translate(-50%, -50%);
+  background-image: url(../images/heart-icon.svg);
+  background-repeat: no-repeat;
+  width: 14px;
+  height: 13px;
+  background-size: contain;
+}
+
+
+.authors-list__authors-link {
+  @media screen and (max-width: 767px) {
+    padding-bottom: 30;
+  }
+  @media screen and(min-width:768px) {
+    padding: 30 0;
+  }
+  display: block;
+  font-family: $primary-font;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: $footerTextColor;
+}
+
+.authors-list__authors-link--underline {
+  text-decoration: underline;
+}
+
