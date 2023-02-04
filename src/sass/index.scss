@@ -7,6 +7,7 @@
 @import './utils/mixins';
 @import './base/container';
 
+
 @import './partials/header';
 //components
 @import './components/backdrop';
@@ -17,13 +18,11 @@
 
 // Layout // Layout
 
-
 // footer
 @import './layout/footer/footer';
 @import './layout/footer/footer-modal';
 
 // film-modal
 
-@import './layout/film-modal.scss'
-
-
+@import './layout/film-modal.scss';
+@import './components/scrollTop.scss';
