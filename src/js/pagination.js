@@ -73,7 +73,7 @@ function cleanInnerMarkup(element) {
 
 
 
-/// пока тут(перенести в апи)
+/// пока тут(конект в наш апи )
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
