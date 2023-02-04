@@ -10,7 +10,7 @@ import './js/moviesApiService';
 
 
 
-
+import './js/pagination';
 // footer
 import './js/footer/footer-heart';
 import './js/footer/footer-modal';

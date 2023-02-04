@@ -7,7 +7,8 @@ const previousArrow = document.querySelector('.js-previous')
 const nextArrow = document.querySelector('.js-next')
 const paginationRightDots = document.querySelector('.js-right-dots')
 const paginationLeftDots = document.querySelector('.js-left-dots')
-//нужно запихнуть в рефсы
+//в рефсы
+
 
 
 
@@ -36,7 +37,7 @@ function renderImages(query) {
 /////////////////////////////////////////////////////
 
 
-
+///слушатель на лист с кнопками 
 paginationList.addEventListener('click', onPaginationBtnClick);
 
 let searchQuery = '';
@@ -44,3 +45,10 @@ let onClickPage = 1;
 let totalPages = 0;
 let btnSummary = 2;
 
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////
