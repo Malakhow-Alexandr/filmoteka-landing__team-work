@@ -15,6 +15,10 @@ import './js/footer/footer-heart';
 import './js/footer/footer-modal';
 
 
+// pagination
+import './js/pagination';
+
 // scroll to top
 import './js/scrollToTop';
+
 
