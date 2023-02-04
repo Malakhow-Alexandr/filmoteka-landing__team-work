@@ -8,21 +8,29 @@
 @import './base/container';
 
 
-@import './partials/header';
+
 //components
 @import './components/backdrop';
+
 //spinner
 @import './components/spinner';
 
-// Layout
+//buttons
+@import './components/button'; 
+
+//scrollTop
+@import './components/scrollTop.scss';
 
 // Layout // Layout
+
+// header
+@import './partials/header';
 
 // footer
 @import './layout/footer/footer';
 @import './layout/footer/footer-modal';
 
 // film-modal
-
 @import './layout/film-modal.scss';
-@import './components/scrollTop.scss';
+
+
