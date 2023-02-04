@@ -1,48 +1,36 @@
 import MoviesApiService from '../moviesApiService';
+import { filmIndex } from '../renderMoviesGallery';
 
-const filmModalBackdrop = document.querySelector('.film-backdrop')
-const filmModalInfo = document.querySelector('.modal-card')
-const targetFilm = document.querySelector('body')
-targetFilm.addEventListener('click', onFilmClick)
+const filmModalBackdrop = document.querySelector('.film-backdrop');
+const filmModalInfo = document.querySelector('.modal-card');
 
-const moviesApiService = new MoviesApiService();
+const filmModalOpen = document.querySelector('.film-modal--open');
 
-console.dir(moviesApiService)
-
-// let id = 'id';
-
-// const data = moviesApiService.getMovieInfo(3456);
-
-// console.log(data);
-
-
-
-function renderFilmModalCard(id) {
-    moviesApiService.getMovieInfo(id).then(data => {
-        console.log(data);
-        // createFilmModalCardMarkup(data)
-    }).catch(error => {
-        console.log(error)
-    })  
-}
-
+filmModalOpen.addEventListener('click', onFilmClick);
 
 function onFilmClick(event) {
-    console.log(event.target.dataset)
+  event.preventDefault();
 
-    id = event.target.dataset.id;
-    filmModalBackdrop.classList.remove('is-hidden')
-    
-    renderFilmModalCard(id)
+  const { id } = event.target.closest('li');
+  //   console.log(event.target.closest('li'));
+  //   console.log(id);
+
+  const numberId = Number(id);
+  //   console.log(filmIndex.arr[numberId]);
+
+  const filmIndexArr = [];
+  const filmCardObject = filmIndex.arr[numberId];
+  filmIndexArr.push(filmCardObject);
+
+  createFilmModalCardMarkup(filmIndexArr);
+
+  filmModalBackdrop.classList.remove('is-hidden');
 }
-
-const modalCardEl = document.querySelector('.modal-card')
-
 
 function createFilmModalCardMarkup(arr) {
   const markup = arr
     .map(
-        ({
+      ({
         id,
         poster_path,
         title,
@@ -54,7 +42,7 @@ function createFilmModalCardMarkup(arr) {
         genre_ids,
       }) => `
             <div class="modal-card__img">
-                <img src="${poster_path}" alt="${title}" loading="lazy"/>
+                <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" loading="lazy"/>
             </div>
 
             <div>
@@ -98,7 +86,7 @@ function createFilmModalCardMarkup(arr) {
                 </p>
             `
     )
-        .join('');
-    
-    filmModalInfo.innerHTML = markup;
+    .join('');
+
+  filmModalInfo.innerHTML = markup;
 }
