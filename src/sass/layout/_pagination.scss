@@ -1,3 +1,15 @@
+.js-previous {
+  background-image: url(..//images/arrow-left.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.js-next {
+  background-image: url(..//images/arrow-right.svg);
+  fill: white;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 .pagination {
   display: flex;
   justify-content: center;
@@ -7,7 +19,7 @@
     width: 40px;
     height: 40px;
 
-    // background-color: $secondary-bg-color;
+    //bg
     border: none;
     border-radius: 5px;
   }
@@ -18,7 +30,7 @@
 
   &__arrow:hover,
   :focus {
-    // background-color: $accent-hover-color;
+    //bg
     color: $secondary-text-color;
   }
 
@@ -33,7 +45,7 @@
 
     &-item {
       margin-right: 16px;
-      //   background-color: transparent;
+      //bg
       padding-left: 10px;
       padding-right: 10px;
       border: none;
@@ -41,36 +53,23 @@
     }
     &-item:hover,
     :focus {
-      //   background-color: $accent-hover-color;
+      //bg
       color: $secondary-text-color;
       border-radius: 5px;
     }
 
     &-item.pagination__current-btn:hover,
     :focus {
-      //   background-color: $focus-color;
+      //bg
       color: $secondary-text-color;
     }
   }
 
   &__current-btn {
-    // background-color: $accent-color;
+    // bg
     height: 40px;
     width: 40px;
     border-radius: 5px;
     color: $secondary-text-color;
   }
-}
-
-.js-previous {
-  background-image: url(..//images/arrow-left.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.js-next {
-  background-image: url(..//images/arrow-right.svg);
-  fill: white;
-  background-repeat: no-repeat;
-  background-position: center;
 }
