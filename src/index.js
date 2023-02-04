@@ -18,3 +18,7 @@ import './js/footer/footer-modal';
 // scroll to top
 import './js/scrollToTop';
 
+// film-modal
+
+import './js/film-modal/film-modal-opener';
+import './js/film-modal/film-modal-render-card';
