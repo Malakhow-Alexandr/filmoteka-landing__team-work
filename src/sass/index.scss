@@ -9,8 +9,8 @@
 
 
 
-//components
 @import './components/backdrop';
+
 
 //spinner
 @import './components/spinner';
@@ -26,11 +26,12 @@
 // header
 @import './partials/header';
 
+
 // footer
 @import './layout/footer/footer';
+@import './layout/card-movies';
 @import './layout/footer/footer-modal';
 
-// film-modal
-@import './layout/film-modal.scss';
 
+@import './layout/film-modal.scss';
 
