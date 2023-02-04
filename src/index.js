@@ -3,14 +3,22 @@ import throttle from "lodash.throttle";
 import debounce from "lodash.debounce";
 
 
+// header
+// import './js/header.js';
 
 // fetch function
-
 import './js/moviesApiService';
+import './js/entryPoint';
 
-
-
-import './js/pagination';
 // footer
 import './js/footer/footer-heart';
 import './js/footer/footer-modal';
+
+
+// pagination
+import './js/pagination';
+
+// scroll to top
+import './js/scrollToTop';
+
+

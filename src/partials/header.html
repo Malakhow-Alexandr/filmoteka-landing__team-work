@@ -1,25 +1,43 @@
-<header class="header">
-  <div class="navigation container">
-    <a href="#" class="navigation_logo" id="navigation-logo">
-      <svg width="24" heigth="24">
+<header class="header container">
+  <div class="navigation ">
+    <div class="wrapper-logo">
+    <a href="#" class="navigation_logo logo" id="navigation-logo">
+      <svg class="" width="24" heigth="24">
         <use href="./images/sprite-svg.svg#film-icon"></use>
       </svg>
-      <h1 class="navigation_logo-title">Filmoteka</h1>
+      <h1 class="page-title">Filmoteka</h1>
     </a>
-    <ul class="navigation_list">
-      <li class="navigation_list-item">
-        <a href="#" class="navigation_list-item-link nav__btn-active home"
-          >HOME</a
-        >
-      </li>
-      <li class="navigation_list-item">
-        <a href="#" class="navigation_list-item-link library">MY LIBRARY</a>
-      </li>
-    </ul>
-  </div>
-  <div class="home-page">
-    <form class="search-form" autocomplete="off">
-      <input type="text" name="search" placeholder="Search film" />
+    </div>
+    <div class="header_form">
+    <form class="header-form__search" autocomplete="off">
+      <input class="header-form__input" type="text" name="search" placeholder="Search film..." />
+      <button class="header-form__btn" type="submit" aria-label="Search">
+        <svg class="header-form__icon" width="12" height="12">
+          <use href="./images/sprite-svg.svg#icon-search-2"></use>
+        </svg>
+      </button>
     </form>
   </div>
+  <ul class="navigation_list">
+    <li class="navigation_list-item">
+      <a href="#" class="navigation_list-item-link current home"
+        >HOME</a
+      >
+    </li>
+    <li class="navigation_list-item">
+      <a href="#" class="navigation_list-item-link library">MY LIBRARY</a>
+    </li>
+  </ul>
+
+    
+    <div class="autorization">
+    <button type="button" class="entry-btn">SignIn</button>
+    <button type="button" class="register-btn">SignUp</button>
+    <ul class="profile_menu">
+      <li class="profile_menu-child">Profile</li>
+      <ul class="profile_menu-dropdown">
+        <li class="dropdown_child"><a href="#" class="btn-exit">LogOut</a></li>
+        <li class="dropdown_child"><a  href="#" class="btn-delete">deleteAccount</a></li>
+      </ul>
+    </ul></div>
 </header>
