@@ -1,6 +1,5 @@
 .footer-backdrop {
   overflow-y: scroll;
-  transition: opacity 250ms $cubic;
   @media screen and (max-width: 599px) {
     padding: 95px 15px;
   }
