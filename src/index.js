@@ -1,7 +1,7 @@
 import axios from "axios";
 import throttle from "lodash.throttle";
 import debounce from "lodash.debounce";
-
+import './js/header.js';
 
 
 // fetch function
