@@ -9,8 +9,9 @@
 
 
 
-@import './components/backdrop';
 
+// Components // Components
+// Components // Components 
 
 //spinner
 @import './components/spinner';
@@ -21,17 +22,24 @@
 //scrollTop
 @import './components/scrollTop.scss';
 
+// backdrop
+@import './components/backdrop';
+
+
+// Layout // Layout 
 // Layout // Layout
 
 // header
-@import './partials/header';
+@import './layout/header/header';
 
+// main
+@import './layout/main/card-movies';
+@import './layout/main/film-modal';
 
 // footer
 @import './layout/footer/footer';
-@import './layout/card-movies';
 @import './layout/footer/footer-modal';
 
 
-@import './layout/film-modal.scss';
+
 
