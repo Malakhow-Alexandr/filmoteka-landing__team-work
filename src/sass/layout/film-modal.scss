@@ -56,12 +56,16 @@
   top: 8px;
   right: 8px;
   padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border: none;
+ 
+  
 }
+
 
 .modal__btn--close:hover,
 .modal__btn--close:focus {
-  fill: #724b10;
+  fill: #ff6b08;
 }
 
 .modal-card {
