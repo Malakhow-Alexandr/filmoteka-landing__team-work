@@ -122,7 +122,7 @@ export default class AccountManagment {
   checkStatusAcc() {
     const authe = getAuth();
     const refs = {
-      profile: document.querySelector('.profileJs'),
+      profile: document.querySelector('.profile_menu'),
       checkInButton: document.querySelector('.openRegisterModalJs'),
     };
     return onAuthStateChanged(authe, user => {
@@ -132,6 +132,7 @@ export default class AccountManagment {
         }
         refs.profile.classList.remove('visually-hidden');
       } else {
+        refs.profile.classList.add('visually-hidden');
         refs.checkInButton.classList.remove('visually-hidden');
       }
     });
