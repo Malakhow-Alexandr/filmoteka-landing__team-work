@@ -1,0 +1,28 @@
+.modal-trailer {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.trailer-iframe {
+  @media screen and (min-width: 321px) and (max-width: 479.5px) {
+    width: 280px;
+  }
+
+  @media screen and (min-width: 480px) {
+    width: 280px;
+    height: 250px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 660px;
+    height: 500px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1000px;
+    height: 800px;
+  }
+}
