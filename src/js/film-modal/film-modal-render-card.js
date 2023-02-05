@@ -1,23 +1,23 @@
 import MoviesApiService from '../moviesApiService';
 import { filmIndex } from '../renderMoviesGallery';
 
+
 const filmModalBackdrop = document.querySelector('.film-backdrop');
 const filmModalInfo = document.querySelector('.modal-card');
-
+const filmModalCloseBtn = document.querySelector('.modal__btn--close');
 const filmModalOpen = document.querySelector('.film-modal--open');
 
-filmModalOpen.addEventListener('click', onFilmClick);
+window.addEventListener('keydown', onEscBtn);
+filmModalOpen.addEventListener('click', onFilmModalOpen);
+filmModalCloseBtn.addEventListener('click', onFilmModalClose);
+filmModalBackdrop.addEventListener('click', onFilmModalBackdrop);
 
-function onFilmClick(event) {
+
+function onFilmModalOpen(event) {
   event.preventDefault();
-
   const { id } = event.target.closest('li');
-  //   console.log(event.target.closest('li'));
-  //   console.log(id);
-
   const numberId = Number(id);
   //   console.log(filmIndex.arr[numberId]);
-
   const filmIndexArr = [];
   const filmCardObject = filmIndex.arr[numberId];
   filmIndexArr.push(filmCardObject);
@@ -25,9 +25,30 @@ function onFilmClick(event) {
   createFilmModalCardMarkup(filmIndexArr);
 
   filmModalBackdrop.classList.remove('is-hidden');
+  document.body.classList.add('modal-open');
 }
 
-function createFilmModalCardMarkup(arr) {
+
+function onFilmModalClose(event) {
+  filmModalBackdrop.classList.add('is-hidden');
+  document.body.classList.remove('modal-open');
+  window.removeEventListener('keydown', onEscBtn);
+}
+
+
+function onFilmModalBackdrop(event) {
+ onFilmModalClose();
+}
+
+
+function onEscBtn(event) {
+  if (event.code === 'Escape') {
+    onFilmModalClose();
+  }
+}
+
+
+ function createFilmModalCardMarkup(arr) {
   const markup = arr
     .map(
       ({
@@ -53,7 +74,7 @@ function createFilmModalCardMarkup(arr) {
                             <td class="modal-card__info-name">Vote / Votes</td>
                             <td class="modal-card__info-value  modal-card__info-value--mod"> 
                             <span class="vote-value">${vote_average}</span> 
-                            <span class="${vote_count}">1260</span> </td>
+                            <span class="votes-value">${vote_count}</span> </td>
                         </tr>
                     </tbody>
 
