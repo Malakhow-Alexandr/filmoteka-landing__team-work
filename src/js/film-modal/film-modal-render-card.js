@@ -1,7 +1,6 @@
 import MoviesApiService from '../moviesApiService';
 import { filmIndex } from '../renderMoviesGallery';
 
-
 const filmModalBackdrop = document.querySelector('.film-backdrop');
 const filmModalInfo = document.querySelector('.modal-card');
 const filmModalCloseBtn = document.querySelector('.modal__btn--close');
@@ -12,7 +11,6 @@ filmModalOpen.addEventListener('click', onFilmModalOpen);
 filmModalCloseBtn.addEventListener('click', onFilmModalClose);
 filmModalBackdrop.addEventListener('click', onFilmModalBackdrop);
 
-
 function onFilmModalOpen(event) {
   event.preventDefault();
   const { id } = event.target.closest('li');
@@ -21,13 +19,14 @@ function onFilmModalOpen(event) {
   const filmIndexArr = [];
   const filmCardObject = filmIndex.arr[numberId];
   filmIndexArr.push(filmCardObject);
+  console.log(filmCardObject);
 
   createFilmModalCardMarkup(filmIndexArr);
 
+  window.addEventListener('keydown', onEscBtn);
   filmModalBackdrop.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
 }
-
 
 function onFilmModalClose(event) {
   filmModalBackdrop.classList.add('is-hidden');
@@ -35,11 +34,11 @@ function onFilmModalClose(event) {
   window.removeEventListener('keydown', onEscBtn);
 }
 
-
 function onFilmModalBackdrop(event) {
- onFilmModalClose();
+  if (event.currentTarget === event.target) {
+    onFilmModalClose();
+  }
 }
-
 
 function onEscBtn(event) {
   if (event.code === 'Escape') {
@@ -47,8 +46,7 @@ function onEscBtn(event) {
   }
 }
 
-
- function createFilmModalCardMarkup(arr) {
+function createFilmModalCardMarkup(arr) {
   const markup = arr
     .map(
       ({
@@ -62,8 +60,21 @@ function onEscBtn(event) {
         overview,
         genre_ids,
       }) => `
-            <div class="modal-card__img">
-                <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" loading="lazy"/>
+     
+
+  <button class="btn-trailer" type="button" data-id="/${id}" data-action="open-modal">
+                YouTube
+            </button>
+            <div class="backdrop is-hidden js-backdrop">
+                <div class="modal-trailer">
+                    <div class="trailer-box"></div>
+                </div>
+            </div>
+
+
+
+            <div class="modal-card__poster">
+                <img class="modal-card__poster--img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" loading="lazy"/>
             </div>
 
             <div>

@@ -16,22 +16,6 @@
   visibility: hidden;
 }
 
-// .modal {
-
-//     position: absolute;
-//     overflow: auto;
-//     max-width: 280px;
-//     min-height: 940px;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     background-color:#FFFFFF;
-//     border: none;
-//     border-radius: 4px;
-//     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-//         0px 2px 1px rgba(0, 0, 0, 0.2);
-// }
-
 .modal {
   position: absolute;
   overflow: auto;
@@ -43,6 +27,17 @@
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #fff;
   border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  @include min768 {
+    width: 704px;
+    height: 552px;
+  }
+
+  @include min1280 {
+    width: 806px;
+    height: 558px;
+  }
 }
 
 .modal__btn--close {
@@ -58,8 +53,6 @@
   padding: 0;
   background-color: #fff;
   border: none;
- 
-  
 }
 
 .modal__btn--close:hover,
@@ -67,20 +60,61 @@
   fill: #ff6b08;
 }
 
-.modal-card {
+.modal-container{
   padding-top: 48px;
-  padding-bottom: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @include min768 {
+      padding-top: 40px;
+        padding-left: 36px;
+          padding-right: 72px;
+      }
 }
 
-.modal-card__img {
+.modal-card {
+@include min768 {
+   display: flex;
+   gap: 68px;
+  }
+}
+
+
+
+.modal-card__poster {
   width: 240px;
   height: 357px;
   margin-bottom: 20px;
-  outline: 1px solid grey;
   border-radius: 5px;
+
+  @include min768 {
+      width: 264px;
+        height: 374px;
+    }
+  
+    @include min1280 {
+      width: 375px;
+      height: 478px;
+    }
 }
+
+// .modal-card__poster--img{
+//   width: 240px;
+//     height: 357px;
+//     margin-bottom: 20px;
+//     border-radius: 5px;
+  
+//     @include min768 {
+//       width: 264px;
+//       height: 374px;
+//     }
+  
+//     @include min1280 {
+//       width: 375px;
+//       height: 478px;
+//     }
+// }
 
 .modal-card__title {
   margin-bottom: 20px;
@@ -188,4 +222,8 @@
 //   display: none;
 // }
 
-
+.btn-trailer {
+  position: absolute;
+  top: 9%;
+  left: 9%;
+}
