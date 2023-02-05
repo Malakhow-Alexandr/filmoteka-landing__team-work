@@ -2,9 +2,10 @@
   position: fixed;
   bottom: 150px;
   right: 70px;
-  font-size: 40px;
+  font-size: 50px;
   z-index: 9999;
   color: red;
+  cursor: pointer;
 }
 .isShownBtn {
   opacity: 1;
@@ -12,4 +13,13 @@
   &_hide {
     opacity: 0;
   }
+}
+.fa-circle-arrow-up::before {
+  bottom: 0;
+  border-radius: 50% 50% 00;
+}
+.fa-circle-arrow-up:hover {
+  transition: 0.5s;
+  transform: scale(0.9);
+  color: black;
 }

@@ -1,4 +1,12 @@
-import { authentitification } from './authentitificatiom';
+import { async } from '@firebase/util';
+import { ref } from 'firebase/database';
+import AccountManagment from './authentitificatiom';
+
+const authentitification = new AccountManagment();
+
+authentitification.auth();
+authentitification.database();
+authentitification.checkStatusAcc();
 
 const refs = {
   openRegisterModal: document.querySelector('.openRegisterModalJs'),
@@ -24,6 +32,8 @@ refs.signInButton.addEventListener('click', onSignInButtonClick);
 refs.signOut.addEventListener('click', onSignOutClick);
 refs.removeAccount.addEventListener('click', onRemoveClick);
 
+refs.formSign.addEventListener('submit', onFormSignSubmit);
+
 function onOpenRegisterModalButtonClick(e) {
   e.preventDefault();
 
@@ -44,26 +54,16 @@ function onSignInButtonClick(e) {
   refs.hiddenSignUp.forEach(el => el.classList.add('visually-hidden'));
 }
 
-// refs.buttonSignUp.addEventListener('click', onSignUpButtonClick);
-// refs.buttonSignIn.addEventListener('click', onSignInButtonClick);
-// refs.formSign.addEventListener('submit', onFormSignSubmit);
-
-// function onSignUpButtonClick(e) {}
-
-// function onSignInButtonClick(e) {}
-
-// function onFormSignSubmit(e) {}
-
-// authentitification.auth();
 function onSignOutClick(e) {
   e.preventDefault();
 
   refs.profile.classList.add('visually-hidden');
+  refs.openRegisterModal.classList.remove('visually-hidden');
 
   authentitification.logOut();
-  authentitification.online(false);
+  authentitification.userOnline(false);
 
-  authentitification.writeToDataBase();
+  // authentitification.writeToDataBase();
 }
 
 function onRemoveClick(e) {
@@ -73,9 +73,9 @@ function onRemoveClick(e) {
     try {
       const removeUser = await authentitification.deleteAccount();
       refs.profile.classList.add('visually-hidden');
-      authentitification.hasAccountTrueOrFalse(false);
-      authentitification.online(false);
-      authentitification.writeToDataBase();
+      authentitification.userHasAccount(false);
+      authentitification.userOnline(false);
+      // authentitification.writeToDataBase();
       return removeUser;
     } catch (error) {
       console.log(error.code);
@@ -84,4 +84,82 @@ function onRemoveClick(e) {
   };
 
   removeAccount();
+}
+
+function onFormSignSubmit(e) {
+  e.preventDefault();
+
+  const { email, password, createAccount, login, google } =
+    e.currentTarget.elements;
+
+  console.log(e.currentTarget.elements);
+
+  authentitification.setEmailAndPassword(email.value, password.value);
+
+  if (e.submitter === createAccount) {
+    return signUp();
+  }
+  if (e.submitter === login) {
+    return signIn();
+  }
+  if (e.submitter === google) {
+    return googleLogin();
+  }
+}
+
+async function signUp() {
+  try {
+    const createAcc = await authentitification.createUser();
+
+    authentitification.state.user = createAcc.user;
+    authentitification.userOnline(true);
+    authentitification.userHasAccount(true);
+    // writeToDataBase();
+
+    refs.profile.classList.remove('visually-hidden');
+    refs.formSign.classList.add('visually-hidden');
+    refs.openRegisterModal.classList.add('visually-hidden');
+
+    return createAcc;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function signIn() {
+  try {
+    const loginUser = await authentitification.loginWithEmailAndPassword();
+
+    authentitification.state.user = loginUser.user;
+    authentitification.userOnline(true);
+    authentitification.userHasAccount(true);
+    // authentitification.writeToDataBase();
+
+    refs.profile.classList.remove('visually-hidden');
+    refs.formSign.classList.add('visually-hidden');
+    refs.openRegisterModal.classList.add('visually-hidden');
+
+    return loginUser;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function googleLogin() {
+  try {
+    const signWithGoogle = await authentitification.loginWithGoogle();
+
+    authentitification.state.user = signWithGoogle.user;
+    authentitification.userOnline(true);
+    authentitification.userHasAccount(true);
+    // authentitification.writeToDataBase();
+
+    refs.profile.classList.remove('visually-hidden');
+    refs.formSign.classList.add('visually-hidden');
+    refs.openRegisterModal.classList.add('visually-hidden');
+
+    return signWithGoogle;
+  } catch (error) {
+    console.log(error);
+  }
 }

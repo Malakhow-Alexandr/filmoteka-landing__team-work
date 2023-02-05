@@ -12,7 +12,7 @@ import {
   signOut,
 } from 'firebase/auth';
 
-class AccountManagment {
+export default class AccountManagment {
   constructor() {
     this.state = {
       email: '',
@@ -65,7 +65,7 @@ class AccountManagment {
   async createUser() {
     const { email, password } = this.state;
 
-    const response = await signInWithEmailAndPassword(
+    const response = await createUserWithEmailAndPassword(
       this.auth(),
       email,
       password
@@ -120,13 +120,19 @@ class AccountManagment {
   }
 
   checkStatusAcc() {
-    const auth = getAuth();
-
-    return onAuthStateChanged(auth, user => {
+    const authe = getAuth();
+    const refs = {
+      profile: document.querySelector('.profileJs'),
+      checkInButton: document.querySelector('.openRegisterModalJs'),
+    };
+    return onAuthStateChanged(authe, user => {
       if (user) {
-        console.log(user);
+        if (!refs.checkInButton.classList.value.includes('visually-hidden')) {
+          refs.checkInButton.classList.add('visually-hidden');
+        }
+        refs.profile.classList.remove('visually-hidden');
       } else {
-        console.log('not user');
+        refs.checkInButton.classList.remove('visually-hidden');
       }
     });
   }
@@ -139,5 +145,3 @@ class AccountManagment {
   //     get(child(databaseRef, `${userName}${user.uid}`));
   //   }
 }
-
-export const authentitification = new AccountManagment()

@@ -1,5 +1,7 @@
 import Glide from '@glidejs/glide';
-import {MoviesApiService}  from './moviesApiService';
+
+import  MoviesApiService  from './moviesApiService';
+
 // import renderMoviesCard from './renderMoviesGallery';
 // import trailer from '';
 // import { axios } from '';
