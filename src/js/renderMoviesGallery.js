@@ -1,13 +1,21 @@
 import { refs } from "./refs"
+import FilmIndex from "./film-index"
+
+ export const filmIndex = new FilmIndex;
+
 export function renderMoviesCard(movies) {
     // console.log(title, poster_path, genre_ids, release_date, vote_average);
 
-    const markup = movies.map(({ id, title, poster_path, genre_ids, release_date, vote_average }) => {
+  filmIndex.newArr(movies);
+
+ 
+
+  const markup = movies.map(({ id, title, poster_path, genre_ids, release_date, vote_average }, index) => {
         const releasedDate = release_date.slice(0,4) || '';
         const poster = poster_path === null ? 'http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg' : poster_path; 
         const movieRating = vote_average.toFixed(1) || '';
         return `
-<li class="movie-card__item" data-card-id="${id}">
+<li class="movie-card__item" id="${index}" data-card-id="${id}">
             <div class="movie-card__image-container">
               <img
               

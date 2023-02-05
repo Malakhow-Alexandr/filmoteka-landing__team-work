@@ -7,17 +7,17 @@
 @import './utils/mixins';
 @import './base/container';
 
-
-
-
 // Components // Components
-// Components // Components 
+// Components // Components
+
+// Slider
+@import './components/slider-trailer';
 
 //spinner
 @import './components/spinner';
 
 //buttons
-@import './components/button'; 
+@import './components/button';
 
 //scrollTop
 @import './components/scrollTop.scss';
@@ -25,8 +25,10 @@
 // backdrop
 @import './components/backdrop';
 
+// pagination
+@import './layout/pagination';
 
-// Layout // Layout 
+// Layout // Layout
 // Layout // Layout
 
 // header
@@ -35,11 +37,9 @@
 // main
 @import './layout/main/card-movies';
 @import './layout/main/film-modal';
+@import './layout/main/trailer';
 
 // footer
 @import './layout/footer/footer';
 @import './layout/footer/footer-modal';
-
-
-
-
+@import './layout/footer/footer-authors-list';
