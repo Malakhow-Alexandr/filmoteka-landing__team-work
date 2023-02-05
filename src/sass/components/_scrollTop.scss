@@ -8,7 +8,7 @@
 }
 .isShownBtn {
   opacity: 1;
-
+  transition: 0.5s;
   &_hide {
     opacity: 0;
   }

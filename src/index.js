@@ -2,6 +2,9 @@ import axios from 'axios';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
 
+// scrollToTopFunction
+import './js/scrollToTop';
+
 // header
 // import './js/header.js';
 
@@ -24,3 +27,4 @@ import './js/film-modal/film-modal-render-card';
 
 // trailer;
 import './js/trailer';
+
