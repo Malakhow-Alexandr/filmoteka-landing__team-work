@@ -4,6 +4,7 @@ import debounce from 'lodash.debounce';
 
 // scrollToTopFunction
 import './js/scrollToTop';
+
 // header
 // import './js/header.js';
 
@@ -23,3 +24,7 @@ import './js/scrollToTop';
 
 // film-modal
 import './js/film-modal/film-modal-render-card';
+
+// trailer;
+import './js/trailer';
+
