@@ -16,7 +16,7 @@ const refs = {
   hiddenSignIn: document.querySelectorAll('.hiddenSignIn'),
 
   formSign: document.querySelector('.formSignJs'),
-  profile: document.querySelector('.profileJs'),
+  profile: document.querySelector('.profile_menu'),
   signOut: document.querySelector('.logOutJs'),
   removeAccount: document.querySelector('.removeAccountJs'),
 };
@@ -91,8 +91,6 @@ function onFormSignSubmit(e) {
 
   const { email, password, createAccount, login, google } =
     e.currentTarget.elements;
-
-  console.log(e.currentTarget.elements);
 
   authentitification.setEmailAndPassword(email.value, password.value);
 
