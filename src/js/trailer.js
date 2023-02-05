@@ -75,3 +75,6 @@ function disabledStart(params) {
 function disabledStop(params) {
   refs.openModalBtn.disabled = params;
 }
+
+
+export {onClickTrailer}
