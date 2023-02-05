@@ -46,6 +46,7 @@ function onOpenModal() {
   window.addEventListener('keydown', onEscKeydown);
   refs.backdrop.classList.remove('is-hidden');
   disabledStart(true);
+  onClickTrailer();
 }
 
 function onCloseModal() {
