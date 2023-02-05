@@ -25,9 +25,13 @@
 // backdrop
 @import './components/backdrop';
 
+// pagination
+@import './layout/pagination';
+
 
 // Layout // Layout 
 // Layout // Layout
+
 
 // header
 @import './layout/header/header';
@@ -39,7 +43,5 @@
 // footer
 @import './layout/footer/footer';
 @import './layout/footer/footer-modal';
-
-
-
+@import './layout/footer/footer-authors-list';
 

@@ -4,6 +4,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 // Сброс отступов
 
 h1,
