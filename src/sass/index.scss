@@ -8,8 +8,10 @@
 @import './base/container';
 
 // Components // Components
-@import './components/slider-trailer.';
 // Components // Components
+
+// Slider
+@import './components/slider-trailer';
 
 //spinner
 @import './components/spinner';
@@ -35,6 +37,7 @@
 // main
 @import './layout/main/card-movies';
 @import './layout/main/film-modal';
+@import './layout/main/trailer';
 
 // footer
 @import './layout/footer/footer';
