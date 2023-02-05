@@ -6,6 +6,9 @@ import debounce from "lodash.debounce";
 // header
 // import './js/header.js';
 
+// slider-trailer
+import './js/slider-trailer';
+
 // fetch function
 import './js/moviesApiService';
 import './js/entryPoint';
