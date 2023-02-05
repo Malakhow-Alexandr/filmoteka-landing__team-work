@@ -1,5 +1,6 @@
 import MoviesApiService from '../moviesApiService';
 import { filmIndex } from '../renderMoviesGallery';
+import { refs } from '../refs';
 
 const filmModalBackdrop = document.querySelector('.film-backdrop');
 const filmModalInfo = document.querySelector('.modal-card');
@@ -11,6 +12,7 @@ filmModalOpen.addEventListener('click', onFilmModalOpen);
 filmModalCloseBtn.addEventListener('click', onFilmModalClose);
 filmModalBackdrop.addEventListener('click', onFilmModalBackdrop);
 
+
 function onFilmModalOpen(event) {
   event.preventDefault();
   const { id } = event.target.closest('li');
@@ -20,8 +22,11 @@ function onFilmModalOpen(event) {
   const filmCardObject = filmIndex.arr[numberId];
   filmIndexArr.push(filmCardObject);
   console.log(filmCardObject);
+  console.log(filmCardObject.id);
 
   createFilmModalCardMarkup(filmIndexArr);
+
+  refs.btnTrailer.setAttribute('data-id', `${filmCardObject.id}`);
 
   window.addEventListener('keydown', onEscBtn);
   filmModalBackdrop.classList.remove('is-hidden');
@@ -60,24 +65,11 @@ function createFilmModalCardMarkup(arr) {
         overview,
         genre_ids,
       }) => `
-     
-
-  <button class="btn-trailer" type="button" data-id="/${id}" data-action="open-modal">
-                YouTube
-            </button>
-            <div class="backdrop is-hidden js-backdrop">
-                <div class="modal-trailer">
-                    <div class="trailer-box"></div>
-                </div>
-            </div>
-
-
-
             <div class="modal-card__poster">
                 <img class="modal-card__poster--img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" loading="lazy"/>
             </div>
 
-            <div>
+            <div class="modal-card__layout" >
                 <h2 class="modal-card__title  card-uppertext">${title}</h2>
                 <table modal-card__table>
                     <tbody class="modal-card__info">
@@ -122,3 +114,5 @@ function createFilmModalCardMarkup(arr) {
 
   filmModalInfo.innerHTML = markup;
 }
+
+// export {onFilmModalOpen}

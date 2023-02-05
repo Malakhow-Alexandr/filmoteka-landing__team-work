@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import { refs } from './refs';
-import MoviesApiService from '../js/moviesApiService';
+import MoviesApiService from './moviesApiService';
 
 refs.openModalBtn.addEventListener('click', onOpenModal);
 refs.btnTrailer.addEventListener('click', onClickTrailer);
@@ -75,3 +75,6 @@ function disabledStart(params) {
 function disabledStop(params) {
   refs.openModalBtn.disabled = params;
 }
+
+
+export {onClickTrailer}

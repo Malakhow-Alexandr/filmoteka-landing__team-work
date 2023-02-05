@@ -60,27 +60,25 @@
   fill: #ff6b08;
 }
 
-.modal-container{
+.modal-container {
   padding-top: 48px;
-    padding-bottom: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
 
-    @include min768 {
-      padding-top: 40px;
-        padding-left: 36px;
-          padding-right: 72px;
-      }
-}
-
-.modal-card {
-@include min768 {
-   display: flex;
-   gap: 68px;
+  @include min768 {
+    padding-top: 40px;
+    padding-left: 36px;
+    padding-right: 72px;
   }
 }
 
-
+.modal-card {
+  @include min768 {
+    display: flex;
+    gap: 68px;
+  }
+}
 
 .modal-card__poster {
   width: 240px;
@@ -89,14 +87,14 @@
   border-radius: 5px;
 
   @include min768 {
-      width: 264px;
-        height: 374px;
-    }
-  
-    @include min1280 {
-      width: 375px;
-      height: 478px;
-    }
+    width: 264px;
+    height: 374px;
+  }
+
+  @include min1280 {
+    width: 375px;
+    height: 478px;
+  }
 }
 
 // .modal-card__poster--img{
@@ -104,17 +102,23 @@
 //     height: 357px;
 //     margin-bottom: 20px;
 //     border-radius: 5px;
-  
+
 //     @include min768 {
 //       width: 264px;
 //       height: 374px;
 //     }
-  
+
 //     @include min1280 {
 //       width: 375px;
 //       height: 478px;
 //     }
 // }
+
+
+.modal-card__layout{
+padding-bottom: 20px;
+}
+
 
 .modal-card__title {
   margin-bottom: 20px;
@@ -202,7 +206,7 @@
 .modal-card__desc-text {
   overflow: auto;
   width: 240px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   font-weight: 500;
   font-size: 12px;
   line-height: 20px;
@@ -212,6 +216,16 @@
 .modal__btn {
   display: flex;
   gap: 20px;
+}
+
+.modal__btn--watched {
+  @extend %color-Modal-Button;
+width: 110px;
+  height: 44px;
+}
+
+.modal__btn--queue {
+  @extend %transparent_Modal_Button;
 }
 
 .card-uppertext {
