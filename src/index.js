@@ -22,3 +22,7 @@ import './js/pagination';
 import './js/scrollToTop';
 
 
+// film-modal
+import './js/film-modal/film-modal-opener';
+import './js/film-modal/film-modal-render-card';
+

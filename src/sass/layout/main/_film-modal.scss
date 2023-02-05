@@ -1,4 +1,4 @@
-.backdrop {
+.film-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -56,12 +56,15 @@
   top: 8px;
   right: 8px;
   padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border: none;
+ 
+  
 }
 
 .modal__btn--close:hover,
 .modal__btn--close:focus {
-  fill: #724b10;
+  fill: #ff6b08;
 }
 
 .modal-card {
@@ -107,11 +110,30 @@
   color: #000000;
 }
 
-.modal-card__info-value--lh{
-line-height: 16px;
+.modal-card__info-value--mod {
+  display: flex;
+  align-items: center;
+}
+
+.modal-card__info-value--mod::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 11px;
+  margin-left: 6px;
+  margin-right: 6px;
+  line-height: 16px;
+
+  background-color: #8c8c8c;
+  transform: skew(-20deg);
+}
+
+.modal-card__info-value--lh {
+  line-height: 16px;
 }
 
 .vote-value {
+  height: 16px;
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 10px;
@@ -119,6 +141,19 @@ line-height: 16px;
   color: #fff;
   background-color: #ff6b08;
   border-radius: 5px;
+  order: -1;
+}
+
+.votes-value {
+  height: 16px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #000000;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(82, 81, 81, 0.25);
 }
 
 .modal-card__desc {
@@ -152,3 +187,5 @@ line-height: 16px;
 .is-hidden {
   display: none;
 }
+
+
