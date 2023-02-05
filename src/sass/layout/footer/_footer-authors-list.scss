@@ -1,0 +1,79 @@
+.authors-list {
+  @include flex(flex, center, center);
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.authors-list__item-thumb {
+  max-width: 200px;
+  box-shadow: $card-shadow;
+  border-radius: 5px;
+}
+
+.authors-list__overlay-thumb {
+  position: relative;
+  overflow: hidden;
+  max-height: 200px;
+}
+
+.authors-list__card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  backdrop-filter: blur(4px);
+  background-color: rgba(10, 15, 11, 0.3);
+  transform: translateY(100%);
+  transition: transform 250ms $cubic;
+  .authors-list__overlay-thumb:hover &,
+  .authors-list__overlay-thumb:focus & {
+    transform: translateY(0);
+  }
+}
+.author-list__author-picture {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.authors-list__meta-container {
+  @include flex(flex, center, center);
+  flex-direction: column;
+  padding: 3px
+}
+
+.authors-list__meta-container-responsibilities{
+    margin-bottom: 3px;
+    font-family: $primary-font;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: calc(19 / 14);
+    letter-spacing: 0.02em;
+}
+
+
+.authors-list__link-list {
+  @include flex(flex, center, center);
+  gap: 3px;
+}
+
+.authors-list__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.authors-list__link-icon {
+  fill: $primary-text-color;
+  transition: fill 250ms $cubic;
+  .authors-list__link:hover &,
+  .authors-list__link:focus & {
+    fill: $accent-color;
+  }
+}
