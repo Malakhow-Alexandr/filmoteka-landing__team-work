@@ -31,3 +31,5 @@ import './js/film-modal/film-modal-render-card';
 // trailer;
 import './js/trailer';
 
+// register modal
+import './js/account';
