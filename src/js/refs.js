@@ -1,4 +1,5 @@
 export const refs = {
+
     gallery: document.querySelector('.gallery'),
     paginationList: document.querySelector('.pagination'),
     paginationBtnList: document.querySelector('.pagination__list'),
@@ -9,4 +10,13 @@ export const refs = {
     paginationRightDots: document.querySelector('.js-right-dots'),
     paginationLeftDots: document.querySelector('.js-left-dots'),
     filmsEl: document.querySelector('.films'),
-}
+    btnTrailer: document.querySelector('.btn-trailer'),
+    trailerBox: document.querySelector('.trailer-box'),
+    openModalBtn: document.querySelector('[data-action="open-modal"]'),
+    backdrop: document.querySelector('.js-backdrop'),
+};
+
+  
+
+
+
