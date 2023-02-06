@@ -45,7 +45,7 @@ function onFilmModalBackdrop(event) {
   }
 }
 
-function onEscBtn(event) {
+  export function onEscBtn(event) {
   if (event.code === 'Escape') {
     onFilmModalClose();
   }

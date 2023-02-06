@@ -1,55 +1,63 @@
-<form action="" class="form formSignJs visually-hidden">
-  <h2 class="form__title visually-hidden hiddenSignUp">Sign Up</h2>
-  <h2 class="form__title hiddenSignIn">Sign In</h2>
+<div class="backdrop_form is-hidden">
+  <form action="" class="form formSignJs visually-hidden">
+    <h2 class="form__title visually-hidden hiddenSignUp">Sign Up</h2>
+    <h2 class="form__title hiddenSignIn">Sign In</h2>
+    <button class="close__sign-in">
+      <svg width="30" height="30">
+        <use href="./images/sprite-svg.svg#film-modal-btn"></use>
+      </svg>
+    </button>
+    <label for="" class="form__field">
+      <span class="form__label">Email</span>
+      <input
+        type="email"
+        class="form__input"
+        name="email"
+        placeholder="example@ex.com"
+      />
+    </label>
 
-  <label for="" class="form__field">
-    <span class="form__label">Email</span>
-    <input
-      type="email"
-      class="form__input"
-      name="email"
-      placeholder="example@ex.com"
-    />
-  </label>
+    <label for="" class="form__field">
+      <span class="form__label">Password</span>
+      <input
+        type="password"
+        class="form__input"
+        name="password"
+        placeholder="example@ex.com"
+      />
+    </label>
 
-  <label for="" class="form__field">
-    <span class="form__label">Password</span>
-    <input
-      type="password"
-      class="form__input"
-      name="password"
-      placeholder="example@ex.com"
-    />
-  </label>
+    <label class="form__field checkbox hiddenSignUp visually-hidden">
+      <input
+        class="checkbox__input"
+        type="checkbox"
+        name="topic"
+        value="check-label"
+      />
+      <span class="checkbox__label"
+        >Погоджуююся з розсилкою та приймаю
+        <a class="checkbox__link" href="">Умови договору</a></span
+      >
+    </label>
 
-  <label class="form__field checkbox hiddenSignUp visually-hidden">
-    <input
-      class="checkbox__input"
-      type="checkbox"
-      name="topic"
-      value="check-label"
-    />
-    <span class="checkbox__label"
-      >Погоджуююся з розсилкою та приймаю
-      <a class="checkbox__link" href="">Умови договору</a></span
+    <button
+      type="subit"
+      name="createAccount"
+      class="hiddenSignUp visually-hidden"
     >
-  </label>
+      Create Acccount
+    </button>
+    <button type="subit" name="login" class="login__btn hiddenSignIn">
+      Login
+    </button>
 
-  <button
-    type="subit"
-    name="createAccount"
-    class="hiddenSignUp visually-hidden"
-  >
-    Create Acccount
-  </button>
-  <button type="subit" name="login" class="hiddenSignIn">Login</button>
+    <h3>Login with:</h3>
+    <button type="subit" name="google" class="">Google</button>
 
-  <h3>Login with:</h3>
-  <button type="subit" name="google" class="">Google</button>
-
-  <h3>Or</h3>
-  <button type="submit" class="signUpJs hiddenSignIn">Sign Up</button>
-  <button type="submit" class="visually-hidden signInJs hiddenSignUp">
-    Sign In
-  </button>
-</form>
+    <h3>Or</h3>
+    <button type="submit" class="signUpJs hiddenSignIn">Sign Up</button>
+    <button type="submit" class="visually-hidden signInJs hiddenSignUp">
+      Sign In
+    </button>
+  </form>
+</div>

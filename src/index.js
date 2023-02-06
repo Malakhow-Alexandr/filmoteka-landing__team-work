@@ -34,3 +34,4 @@ import './js/trailer';
 
 // register modal
 import './js/account';
+import './js/sign-in';
