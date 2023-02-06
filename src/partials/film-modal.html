@@ -6,25 +6,46 @@
       </svg>
     </button>
 
-    
-   <div class="modal-container">
-    <button class="btn-trailer" type="button" data-action="open-modal">
-      YouTube
-    </button>
-    <div class="backdrop is-hidden js-backdrop">
-      <div class="modal-trailer">
-        <div class="trailer-box"></div>
+    <div class="modal-container">
+      <button class="btn-trailer" type="button" data-action="open-modal">
+        YouTube
+      </button>
+      <div class="backdrop is-hidden js-backdrop">
+        <div class="modal-trailer">
+          <div class="trailer-box"></div>
+        </div>
+      </div>
+      <div class="modal-card"></div>
+      <div class="modal__btn color-button add-remove-watched-queue-js">
+        <button
+          type="button"
+          name="addToWatched"
+          class="modal__btn--watched add-watched-js"
+        >
+          add to Watched
+        </button>
+        <button
+          type="button"
+          name="removeFromWatched"
+          class="modal__btn--watched remove-watched-js visually-hidden"
+        >
+          remove from Watched
+        </button>
+        <button
+          type="button"
+          name="addToQueue"
+          class="modal__btn--queue add-queue-js"
+        >
+          add to queue
+        </button>
+        <button
+          type="button"
+          name="removeFromQueue"
+          class="modal__btn--queue remove-queue-js visually-hidden"
+        >
+          remove from queue
+        </button>
       </div>
     </div>
-    <div class="modal-card"></div>
-    <div class="modal__btn color-button">
-        <button type="button" class="modal__btn--watched">add to Watched</button>
-        <button type="button" class="modal__btn--queue">add to queue</button>
-    </div>
-   </div>
-
   </div>
 </div>
-
-
-
