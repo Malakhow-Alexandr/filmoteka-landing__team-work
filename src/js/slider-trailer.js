@@ -37,7 +37,8 @@ function renderTrendy() {
     })
     .then(renderSliderFilms)
     .catch(err => {
-      sliderContainer.innerHTML = `<img class="catch-error-pagination" src="${errorUrl}" />`;
+      console.log(err)
+      // sliderContainer.innerHTML = `<img class="catch-error-pagination" src="${errorUrl}" />`;
     });
 }
 
