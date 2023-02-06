@@ -11,7 +11,8 @@ export function renderMoviesCard(movies) {
  
 
   const markup = movies.map(({ id, title, poster_path, genre_ids, release_date, vote_average }, index) => {
-        const releasedDate = release_date.slice(0,4) || '';
+    const releasedDate = release_date === undefined ? 'No release date provided' : release_date.slice(0, 4);
+    console.log(releasedDate);
         const poster = poster_path === null ? 'http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg' : `https://image.tmdb.org/t/p/w500/${poster_path}`; 
         const movieRating = vote_average.toFixed(1) || '';
         return `
