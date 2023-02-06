@@ -14,6 +14,7 @@ const refs = {
   signUpButton: document.querySelector('.signUpJs'),
   hiddenSignUp: document.querySelectorAll('.hiddenSignUp'),
   hiddenSignIn: document.querySelectorAll('.hiddenSignIn'),
+  backdropForm: document.querySelector('.backdrop_form'),
 
   formSign: document.querySelector('.formSignJs'),
   profile: document.querySelector('.profile_menu'),
@@ -38,6 +39,8 @@ function onOpenRegisterModalButtonClick(e) {
   e.preventDefault();
 
   refs.formSign.classList.remove('visually-hidden');
+  refs.backdropForm.classList.remove('is-hidden')
+
 }
 
 function onSignUpButtonClick(e) {
