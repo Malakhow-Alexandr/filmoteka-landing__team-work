@@ -1,6 +1,6 @@
 import Glide from '@glidejs/glide';
 import filmsCardSliderTpl from '../templates/card-films-slider.hbs';
-import trailer from './trailer.js';
+import trailer from './trailer';
 
 const sliderContainer = document.querySelector('.js-slider-container');
 renderTrendy();
