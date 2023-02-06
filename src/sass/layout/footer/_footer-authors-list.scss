@@ -1,11 +1,12 @@
 .authors-list {
   @include flex(flex, center, center);
-  gap: 10px;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
 .authors-list__item-thumb {
   max-width: 200px;
+  overflow:hidden;
   box-shadow: $card-shadow;
   border-radius: 5px;
 }

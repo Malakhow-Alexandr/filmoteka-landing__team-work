@@ -1,4 +1,5 @@
-<header class="header container">
+<header class="header">
+  <div class="container">
   <div class="navigation ">
     <div class="wrapper-logo">
     <a href="#" class="navigation_logo logo" id="navigation-logo">
@@ -8,7 +9,27 @@
       <h1 class="page-title">Filmoteka</h1>
     </a>
     </div>
-    <div class="header_form">
+   
+  <ul class="navigation_list">
+    <li class="navigation_list-item">
+      <a href="#" class="navigation_list-item-link home"
+        >HOME</a
+      >
+    </li>
+    <li class="navigation_list-item">
+      <a href="" class="navigation_list-item-link library">MY LIBRARY</a>
+    </li>
+  </ul>
+
+    <div class="autorization">
+    <button type="button" class="header-movie_button openRegisterModalJs">Check In</button>
+      <ul class="profile_menu">
+        <button type="button" class="profile_menu-child logOutJs"><a href="#" class="btn-exit">LogOut</a></li>
+        <button type="button" class="profile_menu-child removeAccountJs"><a  href="#" class="btn-delete">deleteAccount</a></li>
+      </ul>
+    </ul></div>
+    </div>
+     <div class="header_form">
     <form class="header-form__search" autocomplete="off">
       <input class="header-form__input" type="text" name="search" placeholder="Search film..." />
       <button class="header-form__btn" type="submit" aria-label="Search">
@@ -18,23 +39,5 @@
       </button>
     </form>
   </div>
-  <ul class="navigation_list">
-    <li class="navigation_list-item">
-      <a href="#" class="navigation_list-item-link current home"
-        >HOME</a
-      >
-    </li>
-    <li class="navigation_list-item">
-      <a href="#" class="navigation_list-item-link library">MY LIBRARY</a>
-    </li>
-  </ul>
-
-    
-    <div class="autorization">
-    <button type="button" class="entry-btn openRegisterModalJs">Check In</button>
-      <ul class="profile_menu">
-        <button type="button" class="profile_menu-child logOutJs"><a href="#" class="btn-exit">LogOut</a></li>
-        <button type="button" class="profile_menu-child removeAccountJs"><a  href="#" class="btn-delete">deleteAccount</a></li>
-      </ul>
-    </ul></div>
+</div>
 </header>

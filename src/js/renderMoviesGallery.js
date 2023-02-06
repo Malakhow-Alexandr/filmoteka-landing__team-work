@@ -8,17 +8,14 @@ export function renderMoviesCard(movies) {
   refs.gallery.innerHTML = '';
   filmIndex.newArr(movies);
 
-  const markup = movies
-    .map(
-      (
-        { id, title, poster_path, genre_ids, release_date, vote_average },
-        index
-      ) => {
-        const releasedDate = release_date.slice(0, 4) || '';
-        const poster =
-          poster_path === null
-            ? 'http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg'
-            : `https://image.tmdb.org/t/p/w500/${poster_path}`;
+
+ 
+
+  const markup = movies.map(({ id, title, poster_path, genre_ids, release_date, vote_average }, index) => {
+    const releasedDate = release_date === undefined ? 'No release date provided' : release_date.slice(0, 4);
+    console.log(releasedDate);
+        const poster = poster_path === null ? 'http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg' : `https://image.tmdb.org/t/p/w500/${poster_path}`; 
+
         const movieRating = vote_average.toFixed(1) || '';
         return `
 <li class="movie-card__item" id="${index}" data-card-id="${id}">
