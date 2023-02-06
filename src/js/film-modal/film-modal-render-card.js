@@ -1,5 +1,6 @@
 import MoviesApiService from '../moviesApiService';
 import { filmIndex } from '../renderMoviesGallery';
+import { filmIndexWatchedQueue } from '../watchQueueBtns';
 import { refs } from '../refs';
 //*=================
 import LocalStorage from '../localStorage';
@@ -51,38 +52,50 @@ function onFilmModalOpen(event) {
   event.preventDefault();
   const { id } = event.target.closest('li');
   const numberId = Number(id);
-  //   console.log(filmIndex.arr[numberId]);
-  const filmIndexArr = [];
-  const filmCardObject = filmIndex.arr[numberId];
-  filmIndexArr.push(filmCardObject);
-  // console.log(filmCardObject);
-  // console.log(filmCardObject.id);
 
-  createFilmModalCardMarkup(filmIndexArr);
+  if (
+    !refs.btnWatched.className.includes('isOpenWatched') &&
+    !refs.btnQueue.className.includes('isOpenQueue')
+  ) {
+    const filmIndexArr = [];
 
-  refs.btnTrailer.setAttribute('data-id', `${filmCardObject.id}`);
+    const filmCardObject = filmIndex.arr[numberId];
+
+    filmIndexArr.push(filmCardObject);
+    filmIndex.id = numberId;
+
+    createFilmModalCardMarkup(filmIndexArr);
+
+    refs.btnTrailer.setAttribute('data-id', `${filmCardObject.id}`);
+
+    chekButton(filmCardObject);
+  }
+
+  if (
+    refs.btnWatched.className.includes('isOpenWatched') ||
+    refs.btnQueue.className.includes('isOpenQueue')
+  ) {
+    const filmArrWatchedQueue = [];
+
+    filmIndexWatchedQueue.id = numberId;
+
+    const filmCardObjWatchQueue = filmIndexWatchedQueue.arr[numberId];
+
+    filmArrWatchedQueue.push(filmCardObjWatchQueue);
+
+    createFilmModalCardMarkup(filmArrWatchedQueue);
+
+    refs.btnTrailer.setAttribute('data-id', `${filmCardObjWatchQueue.id}`);
+
+    chekButton(filmCardObjWatchQueue);
+  }
 
   window.addEventListener('keydown', onEscBtn);
   filmModalBackdrop.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
 
   //* =======================================
-  if (localStorage.load('watched') !== undefined) {
-    localStorage.load('watched').map(el => {
-      if (el.id === filmCardObject.id) {
-        refs.addWatchedBtn.classList.add('visually-hidden');
-        refs.removeWatchedBtn.classList.remove('visually-hidden');
-      }
-    });
-  }
-  if (localStorage.load('queue') !== undefined) {
-    localStorage.load('queue').map(el => {
-      if (el.id === filmCardObject.id) {
-        refs.addQueue.classList.add('visually-hidden');
-        refs.removeQueue.classList.remove('visually-hidden');
-      }
-    });
-  }
+
   //*========================================
 }
 
@@ -186,6 +199,7 @@ function addToLocalStorage(keyToLocalStorage) {
   }
   filmIndex.newObject();
   array.push(filmIndex.object);
+
   localStorage.save(keyToLocalStorage, array);
 }
 
@@ -207,3 +221,22 @@ function removeFromStorage(keyFromLocalStorage) {
   localStorage.save(keyFromLocalStorage, array);
 }
 //*=====================================================
+
+function chekButton(filmObj) {
+  if (localStorage.load('watched') !== undefined) {
+    localStorage.load('watched').map(el => {
+      if (el.id === filmObj.id) {
+        refs.addWatchedBtn.classList.add('visually-hidden');
+        refs.removeWatchedBtn.classList.remove('visually-hidden');
+      }
+    });
+  }
+  if (localStorage.load('queue') !== undefined) {
+    localStorage.load('queue').map(el => {
+      if (el.id === filmObj.id) {
+        refs.addQueue.classList.add('visually-hidden');
+        refs.removeQueue.classList.remove('visually-hidden');
+      }
+    });
+  }
+}

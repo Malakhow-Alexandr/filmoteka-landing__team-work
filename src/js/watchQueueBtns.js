@@ -1,5 +1,8 @@
 import { renderMoviesCard } from './renderMoviesGallery';
 import { refs } from './refs';
+import FilmIndex from './film-index';
+
+export const filmIndexWatchedQueue = new FilmIndex();
 
 refs.btnWatched.addEventListener('click', onBtnWatchedClick);
 refs.btnQueue.addEventListener('click', onBtnQueueClick);
@@ -20,8 +23,9 @@ function onBtnWatchedClick() {
 
   if (!array || array.length === 0) {
     clearLibrary();
+  } else {
+    createLibralyWatchedQueueMarkup(array);
   }
-  createLibralyWatchedQueueMarkup(array);
 }
 
 function onBtnQueueClick() {
@@ -31,9 +35,9 @@ function onBtnQueueClick() {
 
   if (!array || array.length === 0) {
     clearLibrary();
+  } else {
+    createLibralyWatchedQueueMarkup(array);
   }
-
-  createLibralyWatchedQueueMarkup(array);
 }
 
 function clearLibrary() {
@@ -46,6 +50,7 @@ function clearLibrary() {
 
 function createLibralyWatchedQueueMarkup(arr) {
   refs.gallery.innerHTML = ' ';
+  filmIndexWatchedQueue.newArr(arr);
 
   const markup = arr
     .map(
