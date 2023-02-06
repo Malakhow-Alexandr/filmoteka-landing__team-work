@@ -1,16 +1,17 @@
 export default class FilmIndex {
   constructor() {
     this.id = 0;
-    this.object = [];
+    this.object = {};
     this.arr = [];
   }
 
   newId(number) {
-    this.id = number;
+    this.id = Number(number);
   }
 
   newObject() {
-    this.object.push(this.arr[this.id]);
+    const id = this.id;
+    this.object = this.arr[id];
   }
 
   newArr(arr) {
