@@ -1,6 +1,7 @@
 import Glide from '@glidejs/glide';
 import filmsCardSliderTpl from '../templates/card-films-slider.hbs';
-import onClickTrailer from './trailer';
+import {onClickTrailer} from './trailer.js';
+
 
 const sliderContainer = document.querySelector('.js-slider-container');
 renderTrendy();
@@ -18,12 +19,12 @@ const glide = new Glide('.glide', {
   animationDuration: 800,
   breakpoints: {
     768: {
-      perView: 2
+      perView: 2,
     },
     480: {
-      perView: 1
-    }
-  }
+      perView: 1,
+    },
+  },
 });
 
 glide.mount();
@@ -37,20 +38,17 @@ function renderTrendy() {
     })
     .then(renderSliderFilms)
     .catch(err => {
-      console.log(err)
+      console.log(err);
       // sliderContainer.innerHTML = `<img class="catch-error-pagination" src="${errorUrl}" />`;
     });
 }
 
 function renderSliderFilms(articles) {
   sliderContainer.innerHTML = filmsCardSliderTpl(articles);
-  onClickTrailer.createTrailerLink(document.querySelectorAll('.btn-youtube-slider'));
+  trailer.createTrailerLink(
+    document.querySelectorAll('.btn-youtube-slider')
+  );
 }
-
-
-
-
-
 
 // import Glide from '@glidejs/glide';
 
@@ -95,4 +93,3 @@ function renderSliderFilms(articles) {
 //     console.log(error);
 //   }
 // }
-
