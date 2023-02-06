@@ -7,6 +7,7 @@ import './js/scrollToTop';
 
 // header
 // import './js/header.js';
+import './js/movieSearch';
 
 
 // slider-trailer
