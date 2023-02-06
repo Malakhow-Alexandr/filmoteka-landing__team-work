@@ -1,6 +1,12 @@
 import MoviesApiService from '../moviesApiService';
 import { filmIndex } from '../renderMoviesGallery';
+import { filmIndexWatchedQueue } from '../watchQueueBtns';
 import { refs } from '../refs';
+//*=================
+import LocalStorage from '../localStorage';
+
+export const localStorage = new LocalStorage();
+//*=====================
 
 const filmModalBackdrop = document.querySelector('.film-backdrop');
 const filmModalInfo = document.querySelector('.modal-card');
@@ -12,31 +18,98 @@ filmModalOpen.addEventListener('click', onFilmModalOpen);
 filmModalCloseBtn.addEventListener('click', onFilmModalClose);
 filmModalBackdrop.addEventListener('click', onFilmModalBackdrop);
 
+//*======================================================
+refs.addRemoveWatchedQueueBtn.addEventListener('click', onAddWatchedBtnClick);
+
+function onAddWatchedBtnClick(e) {
+  e.preventDefault();
+
+  if (e.target.name === 'addToWatched') {
+    addToLocalStorage('watched');
+    refs.addWatchedBtn.classList.add('visually-hidden');
+    refs.removeWatchedBtn.classList.remove('visually-hidden');
+  }
+  if (e.target.name === 'addToQueue') {
+    addToLocalStorage('queue');
+    refs.addQueue.classList.add('visually-hidden');
+    refs.removeQueue.classList.remove('visually-hidden');
+  }
+  if (e.target.name === 'removeFromWatched') {
+    removeFromStorage('watched');
+    refs.addWatchedBtn.classList.remove('visually-hidden');
+    refs.removeWatchedBtn.classList.add('visually-hidden');
+  }
+  if (e.target.name === 'removeFromQueue') {
+    removeFromStorage('queue');
+
+    refs.addQueue.classList.remove('visually-hidden');
+    refs.removeQueue.classList.add('visually-hidden');
+  }
+}
+//*=======================================================
 
 function onFilmModalOpen(event) {
   event.preventDefault();
   const { id } = event.target.closest('li');
   const numberId = Number(id);
-  //   console.log(filmIndex.arr[numberId]);
-  const filmIndexArr = [];
-  const filmCardObject = filmIndex.arr[numberId];
-  filmIndexArr.push(filmCardObject);
-  console.log(filmCardObject);
-  console.log(filmCardObject.id);
 
-  createFilmModalCardMarkup(filmIndexArr);
+  if (
+    !refs.btnWatched.className.includes('isOpenWatched') &&
+    !refs.btnQueue.className.includes('isOpenQueue')
+  ) {
+    const filmIndexArr = [];
 
-  refs.btnTrailer.setAttribute('data-id', `${filmCardObject.id}`);
+    const filmCardObject = filmIndex.arr[numberId];
+
+    filmIndexArr.push(filmCardObject);
+    filmIndex.id = numberId;
+
+    createFilmModalCardMarkup(filmIndexArr);
+
+    refs.btnTrailer.setAttribute('data-id', `${filmCardObject.id}`);
+
+    chekButton(filmCardObject);
+  }
+
+  if (
+    refs.btnWatched.className.includes('isOpenWatched') ||
+    refs.btnQueue.className.includes('isOpenQueue')
+  ) {
+    const filmArrWatchedQueue = [];
+
+    filmIndexWatchedQueue.id = numberId;
+
+    const filmCardObjWatchQueue = filmIndexWatchedQueue.arr[numberId];
+
+    filmArrWatchedQueue.push(filmCardObjWatchQueue);
+
+    createFilmModalCardMarkup(filmArrWatchedQueue);
+
+    refs.btnTrailer.setAttribute('data-id', `${filmCardObjWatchQueue.id}`);
+
+    chekButton(filmCardObjWatchQueue);
+  }
 
   window.addEventListener('keydown', onEscBtn);
   filmModalBackdrop.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
+
+  //* =======================================
+
+  //*========================================
 }
 
 function onFilmModalClose(event) {
   filmModalBackdrop.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
   window.removeEventListener('keydown', onEscBtn);
+
+  //*===============================================
+  refs.addWatchedBtn.classList.remove('visually-hidden');
+  refs.removeWatchedBtn.classList.add('visually-hidden');
+  refs.addQueue.classList.remove('visually-hidden');
+  refs.removeQueue.classList.add('visually-hidden');
+  //*===============================================
 }
 
 function onFilmModalBackdrop(event) {
@@ -116,3 +189,54 @@ function createFilmModalCardMarkup(arr) {
 }
 
 // export {onFilmModalOpen}
+
+//*==========================================
+
+function addToLocalStorage(keyToLocalStorage) {
+  const array = [];
+  if (localStorage.load(keyToLocalStorage) !== undefined) {
+    localStorage.load(keyToLocalStorage).map(el => array.push(el));
+  }
+  filmIndex.newObject();
+  array.push(filmIndex.object);
+
+  localStorage.save(keyToLocalStorage, array);
+}
+
+function removeFromStorage(keyFromLocalStorage) {
+  const array = [];
+  let index = 0;
+  localStorage.load(keyFromLocalStorage).map(el => array.push(el));
+  filmIndex.newObject();
+
+  array.map((el, idx) => {
+    if (el.id === filmIndex.object.id) {
+      index = idx;
+      return index;
+    }
+  });
+
+  array.splice(index, 1);
+  console.log(array);
+  localStorage.save(keyFromLocalStorage, array);
+}
+//*=====================================================
+
+function chekButton(filmObj) {
+  if (localStorage.load('watched') !== undefined) {
+    localStorage.load('watched').map(el => {
+      if (el.id === filmObj.id) {
+        refs.addWatchedBtn.classList.add('visually-hidden');
+        refs.removeWatchedBtn.classList.remove('visually-hidden');
+      }
+    });
+  }
+  if (localStorage.load('queue') !== undefined) {
+    localStorage.load('queue').map(el => {
+      if (el.id === filmObj.id) {
+        refs.addQueue.classList.add('visually-hidden');
+        refs.removeQueue.classList.remove('visually-hidden');
+      }
+    });
+  }
+}

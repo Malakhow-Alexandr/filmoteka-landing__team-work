@@ -2,35 +2,21 @@
 @import 'node_modules/@glidejs/glide/src/assets/sass/glide.theme';
 
 .slider-wrapper {
-  background-color: inherit;
+  background-color: rgb(247, 247, 247);
   padding-bottom: 20px;
   font-size: 13px;
 
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1023px) {
     display: none;
   }
 }
 
 .glide__arrow {
-  font-family: $primary-font;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.3;
-
-  text-align: center;
-  text-transform: uppercase;
-  background-color: $bg-color;
-  color: $primary-text-color;
+  background-color: $accent-color;
 }
 
 .slider-card {
   margin-right: 8px;
-}
-
-.slider-card {
-  display: inline-block;
-  text-align: center;
 }
 
 .slider-image {
@@ -48,53 +34,13 @@
 
   width: 38px;
   height: 18px;
+  font-family: $primary-font;
   font-weight: 500;
   font-size: 13px;
   line-height: 1.1;
-  color: $bg-color;
+  color: $secondary-text-color;
   background-color: $accent-color;
   border-radius: 5px;
 }
 
-// // from trailler
-
-// .slider-card .btn-youtube-slider {
-//   width: 100px;
-// }
-
-// .slider-card .overlay-btn-youtube-text {
-//   position: absolute;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   flex-direction: column;
-//   height: 19px;
-//   width: 70px;
-
-//   pointer-events: none;
-
-//   background-color: rgba(255, 255, 255, 0.8);
-
-//   border-radius: 5px;
-//   top: 5px;
-//   left: 75px;
-//   z-index: 2;
-//   opacity: 0;
-//   transform: translateX(-63%);
-//   transition: all 400ms ease-in;
-// }
-
-// .slider-card:hover .overlay-btn-youtube-text {
-//   display: flex;
-//   opacity: 1;
-//   transform: translateX(-63%);
-// }
-
-// .btn-youtube-text-slider {
-//   position: absolute;
-//   font-size: 16px;
-//   color: #c4302b;
-//   cursor: pointer;
-//   margin: 0;
-//   z-index: 5;
-// }
+// styles for trailler
