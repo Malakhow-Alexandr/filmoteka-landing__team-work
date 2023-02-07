@@ -102,6 +102,11 @@ animation: flipInY;
     display: flex;
     align-items: baseline;
   }
+  .profile_menu-child{
+    background-color: $accent-color;
+    border-radius: 5;
+    height: 50px;
+  }
   .header-form__input {
     width: 100%;
     outline: transparent;
