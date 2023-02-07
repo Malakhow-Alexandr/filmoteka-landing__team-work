@@ -7,7 +7,7 @@ import './js/scrollToTop';
 
 // header
 // import './js/header.js';
-
+import './js/movieSearch';
 
 // slider-trailer
 import './js/slider-trailer';
@@ -34,4 +34,11 @@ import './js/trailer';
 
 // register modal
 import './js/account';
+
 import './js/sign-in';
+
+
+import './js/localStorage';
+
+import './js/watchQueueBtns';
+

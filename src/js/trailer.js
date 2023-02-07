@@ -3,14 +3,17 @@ import Notiflix from 'notiflix';
 import { refs } from './refs';
 import MoviesApiService from './moviesApiService';
 
-refs.openModalBtn.addEventListener('click', onOpenModal);
-refs.btnTrailer.addEventListener('click', onClickTrailer);
-refs.backdrop.addEventListener('click', onBackdropClick);
+refs.btnTrailer.addEventListener('click', onShowTrailer);
+refs.backdrop.addEventListener('click', onBackdropTrailer);
+refs.backdrop.addEventListener('click', onCloseModalTrailer);
 
 const moviesApiService = new MoviesApiService();
 
-function onClickTrailer(e) {
+function onShowTrailer(e) {
   let id = e.currentTarget.dataset.id;
+
+  window.addEventListener('keydown', onEscBtn);
+  refs.backdrop.classList.remove('is-hidden');
 
   moviesApiService
     .getMovieVideos(id)
@@ -21,13 +24,10 @@ function onClickTrailer(e) {
         }
       });
     })
-    .catch(() => {
-      return Notiflix.Notify.failure('This film has no one trailer');
-    });
+    .catch(() => Notiflix.Notify.failure('This film has no one trailer'));
 }
 
 function createMarkupTrailer(key) {
-  //   console.log(key);
   refs.trailerBox.innerHTML = `
   <iframe
    class="trailer-iframe"
@@ -42,40 +42,24 @@ function createMarkupTrailer(key) {
   `;
 }
 
-function onOpenModal() {
-  window.addEventListener('keydown', onEscKeydown);
-  refs.backdrop.classList.remove('is-hidden');
-  disabledStart(true);
-  onClickTrailer();
-}
-
-function onCloseModal() {
-  window.removeEventListener('keydown', onEscKeydown);
+function onCloseModalTrailer(e) {
+  window.removeEventListener('keydown', onEscBtn);
   refs.backdrop.classList.add('is-hidden');
-  disabledStop();
+  refs.trailerBox.innerHTML = '';
+
+  console.log('target', e.target);
+  console.log('currentTarget', e.currentTarget);
 }
 
-function onBackdropClick(e) {
-  disabledStop(true);
+function onBackdropTrailer(e) {
   if (e.currentTarget === e.target) {
-    onCloseModal();
+    onCloseModalTrailer();
   }
 }
 
-function onEscKeydown(e) {
+function onEscBtn(e) {
   const ESC_KEY_CODE = 'Escape';
   if (e.code === ESC_KEY_CODE) {
-    onCloseModal();
+    onCloseModalTrailer();
   }
 }
-
-function disabledStart(params) {
-  refs.openModalBtn.disabled = params;
-}
-
-function disabledStop(params) {
-  refs.openModalBtn.disabled = params;
-}
-
-
-export {onClickTrailer}
