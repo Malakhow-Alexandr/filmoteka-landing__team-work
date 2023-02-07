@@ -53,8 +53,10 @@ function onFilmModalOpen(event) {
   event.preventDefault();
   const { id } = event.target.closest('li');
   const numberId = Number(id);
-
-  if (
+  
+createFilmModalCardMarkup(filmIndexArr);
+  
+ if (
     !refs.btnWatched.className.includes('isOpenWatched') &&
     !refs.btnQueue.className.includes('isOpenQueue')
   ) {
@@ -150,12 +152,12 @@ function createFilmModalCardMarkup(arr) {
                     <tbody class="modal-card__info">
                         <tr>
                             <td class="modal-card__info-name">Vote / Votes</td>
-                            <td class="modal-card__info-value  modal-card__info-value--mod"> 
+                    
+                          <td class="modal-card__info-value  modal-card__info-value--mod"> 
                             <span class="vote-value">${vote_average}</span> 
                             <span class="votes-value">${vote_count}</span> </td>
                         </tr>
                     </tbody>
-
 
                     <tbody class="modal-card__info">
                         <tr>
@@ -188,6 +190,7 @@ function createFilmModalCardMarkup(arr) {
     .join('');
 
   filmModalInfo.innerHTML = markup;
+
 }
 
 // export {onFilmModalOpen}
