@@ -1,11 +1,18 @@
 .authors-list {
   @include flex(flex, center, center);
-  gap: 10px;
+  gap: 15px;
   flex-wrap: wrap;
+  @media screen and (max-width: 479px) {
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 200px;
+  }
 }
 
 .authors-list__item-thumb {
-  max-width: 200px;
+  max-width: 175px;
+  overflow: hidden;
   box-shadow: $card-shadow;
   border-radius: 5px;
 }
@@ -13,7 +20,7 @@
 .authors-list__overlay-thumb {
   position: relative;
   overflow: hidden;
-  max-height: 200px;
+  height: 175px;
 }
 
 .authors-list__card-overlay {
@@ -42,18 +49,17 @@
 .authors-list__meta-container {
   @include flex(flex, center, center);
   flex-direction: column;
-  padding: 3px
+  padding: 3px;
 }
 
-.authors-list__meta-container-responsibilities{
-    margin-bottom: 3px;
-    font-family: $primary-font;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: calc(19 / 14);
-    letter-spacing: 0.02em;
+.authors-list__meta-container-responsibilities {
+  margin-bottom: 3px;
+  font-family: $primary-font;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: calc(19 / 14);
+  letter-spacing: 0.02em;
 }
-
 
 .authors-list__link-list {
   @include flex(flex, center, center);
