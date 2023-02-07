@@ -6,23 +6,21 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    width: 200px;
   }
 }
 
 .authors-list__item-thumb {
-  max-width: 200px;
+  max-width: 175px;
   overflow: hidden;
   box-shadow: $card-shadow;
   border-radius: 5px;
-  @media screen and (min-width: 320px) and (max-width: 360px) {
-    width: 180 px;
-  }
 }
 
 .authors-list__overlay-thumb {
   position: relative;
   overflow: hidden;
-  max-height: 200px;
+  height: 175px;
 }
 
 .authors-list__card-overlay {

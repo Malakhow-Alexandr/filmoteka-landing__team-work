@@ -1,4 +1,5 @@
 .container {
+  
   padding: 0 20px;
   margin: 0 auto;
   //   width: 100vw;
@@ -8,8 +9,8 @@
   }
 
   @include min768 {
-    width: 768px;
-    padding: 0 30px;
+    width: 720px;
+    padding: 0 32px;
   }
 
   @include min1280 {
