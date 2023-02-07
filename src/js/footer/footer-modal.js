@@ -1,5 +1,5 @@
 const refs = {
-  openModalLink: document.querySelector('.authors-list__authors-link'),
+  openModalLink: document.querySelector('.footer-authors-list__authors-link'),
   closeModalBtn: document.querySelector('.footer-modal__button-close'),
   backdrop: document.querySelector('.footer-backdrop'),
   scrollToTop: document.querySelector('.isShownBtn_hide'),

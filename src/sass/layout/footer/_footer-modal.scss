@@ -8,8 +8,12 @@
 }
 
 .footer-modal {
+  @include flex(flex, center, center);
+  flex-direction: column;
   position: relative;
   padding: 24px;
+  margin-left: auto;
+  margin-right: auto;
   overflow-y: scroll;
   border-radius: 15px;
   transform: translate(-50%, -50%), scale(1);
@@ -22,36 +26,37 @@
     outline: 1px solid slategrey;
   }
   @media screen and (max-width: 479px) {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-
     width: 260px;
     padding: 10px;
   }
-  @media screen and (min-width: 480px) and (max-width: 600px) {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
+  @media screen and (min-width: 480px) and (max-width: 510px) {
     width: 400px;
     padding: 10px;
+  
   }
-  @media screen and (min-width: 768px) and (max-width: 1199) {
+  @media screen and (min-width:511px) and (max-width:767px) {
+    width: 450px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279) {
     width: 710px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     width: 1000px;
     height: 90%;
   }
   .backdrop.is-hidden & {
-    transform: translate(-50%, -50%) scale(0.3);
+    transform: translate(0%, 0%) scale(0.3);
   }
+}
+.footer-modal__title {
+  margin-bottom: 20px;
 }
 .footer-modal__button-close {
   color: black;
   position: absolute;
-  top: -8px;
-  right: -8px;
+  z-index: 1000;
+  top: 8px;
+  right: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
