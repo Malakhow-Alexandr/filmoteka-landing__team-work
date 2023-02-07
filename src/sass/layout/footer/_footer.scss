@@ -25,11 +25,11 @@
   line-height: 16px;
   color: $footerTextColor;
 }
-.authors-list__meta-container {
-  @include flex(flex, center, center);
+.footer-authors-list__meta-container {
+ @include flex(flex,center,center)
 }
 
-.authors-list__authors-description {
+.footer-authors-list__authors-description {
   @media screen and (max-width: 767px) {
     padding-bottom: 30;
   }
@@ -43,7 +43,8 @@
   color: $footerTextColor;
 }
 
-.authors-list__authors-description::after {
+
+.footer-authors-list__authors-description::after {
   @media screen and(max-width:767px) {
     top: 14%;
   }
@@ -56,11 +57,26 @@
   background-repeat: no-repeat;
   width: 14px;
   height: 13px;
+  
   background-size: contain;
+  animation-name: beat;
+  animation-duration: 1.1s;
+  animation-iteration-count: infinite;
 }
 
+@keyframes beat {
+  0% {
+    transform: scale(1) translate(-50%,-50%) ;
+  }
+  50% {
+    transform: scale(0.7) translate(-60%,-60%) ;
+  }
+  100%{
+    transform: scale(1) translate(-50%,-50%) ;
+  }
+}
 
-.authors-list__authors-link {
+.footer-authors-list__authors-link {
   @media screen and (max-width: 767px) {
     padding-bottom: 30;
   }
@@ -75,7 +91,7 @@
   color: $footerTextColor;
 }
 
-.authors-list__authors-link--underline {
+.footer-authors-list__authors-link--underline {
   text-decoration: underline;
 }
 
