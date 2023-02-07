@@ -2,7 +2,7 @@
   overflow-y: scroll;
   background: rgba(0, 0, 0, 0.7);
   @media screen and (max-width: 599px) {
-    padding: 95px 15px;
+    padding: 70px 15px;
   }
   transition: opacity 500ms $cubic, visibility 500ms $cubic;
 }
@@ -12,34 +12,36 @@
   padding: 24px;
   overflow-y: scroll;
   border-radius: 15px;
-  height: 90%;
-  max-width: 90%;
-  width: 80%;
   transform: translate(-50%, -50%), scale(1);
   transition: transform 300ms $cubic;
   background-color: #fff;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-    &-webkit-scrollbar-thumb {
-      background-color: darkgrey;
-      outline: 1px solid slategrey;
-    }
+  &-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+  }
   @media screen and (max-width: 479px) {
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    transform: translate(0%, 0%);
+
+    width: 260px;
+    padding: 10px;
   }
-  @media screen and (min-width: 480px) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 450px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
+  @media screen and (min-width: 480px) and (max-width: 600px) {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    padding: 10px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199) {
+    width: 710px;
   }
   @media screen and (min-width: 1200px) {
-    min-width: 528px;
+    width: 1000px;
+    height: 90%;
   }
   .backdrop.is-hidden & {
     transform: translate(-50%, -50%) scale(0.3);
