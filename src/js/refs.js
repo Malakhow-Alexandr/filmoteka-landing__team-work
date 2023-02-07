@@ -16,12 +16,12 @@ export const refs = {
   addRemoveWatchedQueueBtn: document.querySelector(
     '.add-remove-watched-queue-js'
   ),
-
+  openModalBtn: document.querySelector('[data-action="open-modal"]'),
+  backdropForm: document.querySelector('.backdrop_form'),
   addWatchedBtn: document.querySelector('.add-watched-js'),
   addQueue: document.querySelector('.add-queue-js'),
   removeWatchedBtn: document.querySelector('.remove-watched-js'),
   removeQueue: document.querySelector('.remove-queue-js'),
-
   btnWatched: document.querySelector('.js-btnWatched'),
   btnQueue: document.querySelector('.js-btnQueue'),
 };

@@ -17,6 +17,7 @@ window.addEventListener('keydown', onEscBtn);
 filmModalOpen.addEventListener('click', onFilmModalOpen);
 filmModalCloseBtn.addEventListener('click', onFilmModalClose);
 filmModalBackdrop.addEventListener('click', onFilmModalBackdrop);
+refs.backdropForm.addEventListener('click', onFilmModalBackdrop)
 
 //*======================================================
 refs.addRemoveWatchedQueueBtn.addEventListener('click', onAddWatchedBtnClick);
@@ -100,6 +101,7 @@ function onFilmModalOpen(event) {
 }
 
 function onFilmModalClose(event) {
+  refs.backdropForm.classList.add('is-hidden')
   filmModalBackdrop.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
   window.removeEventListener('keydown', onEscBtn);
@@ -112,7 +114,7 @@ function onFilmModalClose(event) {
   //*===============================================
 }
 
-function onFilmModalBackdrop(event) {
+export function onFilmModalBackdrop(event) {
   if (event.currentTarget === event.target) {
     onFilmModalClose();
   }
