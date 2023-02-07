@@ -3,7 +3,7 @@ export default class FilmIndex {
     this.id = 0;
     this.object = {};
     this.arr = [];
-    this.genres = [];
+    // this.genres = [];
   }
 
   newId(number) {
@@ -19,7 +19,7 @@ export default class FilmIndex {
     this.arr = arr;
   }
 
-  newGenres(arr) {
-    this.genres = arr;
-  }
+  // newGenres(arr) {
+  //   this.genres = arr;
+  // }
 }

@@ -7,13 +7,14 @@ export function renderMoviesCard(movies, genres) {
   
   refs.gallery.innerHTML = '';
   filmIndex.newArr(movies);
-  filmIndex.newGenres(genres);
+  // filmIndex.newGenres(genres);
 
+  
   const markup = movies.map(({ id, title, poster_path, genre_ids, release_date, vote_average }, index) => {
 
      // додано для відображення жанрів
     const genresList = genre_ids.map(genreId => genres.find(item => item.id === genreId).name);
-    console.log(genresList)
+    
     const releasedDate = release_date === undefined ? 'No release date provided' : release_date.slice(0, 4);
         const poster = poster_path === null ? 'http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg' : `https://image.tmdb.org/t/p/w500/${poster_path}`; 
 

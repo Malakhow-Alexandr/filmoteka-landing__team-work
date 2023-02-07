@@ -128,7 +128,7 @@ export function onFilmModalBackdrop(event) {
   }
 }
 
-function createFilmModalCardMarkup(arr, genres) {
+function createFilmModalCardMarkup(arr) {
   const markup = arr
     .map(
       ({
@@ -141,8 +141,8 @@ function createFilmModalCardMarkup(arr, genres) {
         popularity,
         overview,
         genre_ids,
-      }) => {  const genresList = genre_ids.map(genreId => genres.find(item => item.id === genreId).name);
-        return
+      }) => 
+       
         `
             <div class="modal-card__poster">
                 <img class="modal-card__poster--img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" loading="lazy"/>
@@ -178,7 +178,7 @@ function createFilmModalCardMarkup(arr, genres) {
                     <tbody>
                         <tr>
                             <td class="modal-card__info-name">Genre</td>
-                            <td class="modal-card__info-value modal-card__info-value--lh"> ${genresList.join(', ')} </td>
+                            <td class="modal-card__info-value modal-card__info-value--lh"> ${genre_ids} </td>
                         </tr>
                     </tbody>
                 </table>
@@ -187,7 +187,9 @@ function createFilmModalCardMarkup(arr, genres) {
                 <p class="modal-card__desc-text">
                     ${overview}
                 </p>
-            `}
+            `
+      
+
     )
     .join('');
 
