@@ -1,6 +1,7 @@
 import { async } from '@firebase/util';
 import { ref } from 'firebase/database';
 import AccountManagment from './authentitificatiom';
+import { onEscBtn } from './film-modal/film-modal-render-card';
 
 const authentitification = new AccountManagment();
 
@@ -27,6 +28,8 @@ refs.openRegisterModal.addEventListener(
   onOpenRegisterModalButtonClick
 );
 
+console.log(refs.openRegisterModal)
+
 refs.signUpButton.addEventListener('click', onSignUpButtonClick);
 refs.signInButton.addEventListener('click', onSignInButtonClick);
 
@@ -37,7 +40,10 @@ refs.formSign.addEventListener('submit', onFormSignSubmit);
 
 function onOpenRegisterModalButtonClick(e) {
   e.preventDefault();
-
+  
+  window.addEventListener('keydown', onEscBtn);
+  document.body.classList.add('modal-open');
+  
   refs.formSign.classList.remove('visually-hidden');
   refs.backdropForm.classList.remove('is-hidden')
 

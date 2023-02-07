@@ -14,6 +14,7 @@ export const refs = {
     trailerBox: document.querySelector('.trailer-box'),
     openModalBtn: document.querySelector('[data-action="open-modal"]'),
     backdrop: document.querySelector('.js-backdrop'),
+    backdropForm: document.querySelector('.backdrop_form')
 };
 
   
