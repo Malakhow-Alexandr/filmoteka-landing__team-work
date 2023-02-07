@@ -9,5 +9,7 @@ closeModalSignIn.addEventListener('click', closelSignIn)
 
 function closelSignIn() {
   backdropForm.classList.add('is-hidden')
+  document.body.classList.remove('modal-open');
+
 }
 
