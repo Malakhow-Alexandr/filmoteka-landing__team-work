@@ -7,25 +7,67 @@
 }
 
 .trailer-iframe {
-  @media screen and (min-width: 321px) and (max-width: 479.5px) {
-    width: 280px;
+  border-radius: 4px;
+
+  @media screen and (min-width: 320px) {
+    width: 300px;
   }
 
   @media screen and (min-width: 480px) {
-    width: 280px;
-    height: 250px;
+    width: 450px;
+    height: 315px;
   }
 
   @media screen and (min-width: 768px) {
-    width: 660px;
-    height: 500px;
+    width: 700px;
+    height: 515px;
   }
 
   @media screen and (min-width: 1200px) {
-    width: 1000px;
-    height: 800px;
+    width: 780px;
   }
 }
+
 .js-backdrop {
   z-index: 5000;
+}
+
+.btn__trailer--close {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  right: 8px;
+  padding: 0;
+  fill: #fff;
+  background-color: transparent;
+  border: none;
+
+  @media screen and (max-width: 480px) {
+    top: 2px;
+    right: 2px;
+  }
+}
+
+.btn__trailer--close:focus,
+.btn__trailer--close:hover {
+  fill: #ff6b08;
+}
+
+.icon__trailer-close {
+  @media screen and (max-width: 480px) {
+    width: 15px;
+    height: 15px;
+  }
+
+  @media screen and (min-width: 480px) and (max-width: 768px) {
+    width: 23px;
+    height: 23px;
+  }
 }
