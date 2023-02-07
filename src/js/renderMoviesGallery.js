@@ -3,17 +3,16 @@ import FilmIndex from './film-index';
 
 export const filmIndex = new FilmIndex();
 
-export function renderMoviesCard(movies) {
-  // console.log(title, poster_path, genre_ids, release_date, vote_average);
+export function renderMoviesCard(movies, genres) {
+  
   refs.gallery.innerHTML = '';
   filmIndex.newArr(movies);
 
-
- 
-
   const markup = movies.map(({ id, title, poster_path, genre_ids, release_date, vote_average }, index) => {
+
+     // додано для відображення жанрів
+  const genresList = genre_ids.map(genreId => genres.find(item => item.id === genreId).name);
     const releasedDate = release_date === undefined ? 'No release date provided' : release_date.slice(0, 4);
-    console.log(releasedDate);
         const poster = poster_path === null ? 'http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg' : `https://image.tmdb.org/t/p/w500/${poster_path}`; 
 
         const movieRating = vote_average.toFixed(1) || '';
@@ -31,7 +30,7 @@ export function renderMoviesCard(movies) {
             <div class="movie-card__info">
               <h2 class="movie-card__title">${title}</h2>
               <p class="movie-card__text">
-                ${genre_ids}  |  ${releasedDate}
+                ${genresList.join(', ')}   |  ${releasedDate}
                 <span class="movie-card__rating">${movieRating}</span>
               </p>
             </div>

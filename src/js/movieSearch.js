@@ -4,14 +4,19 @@ import { renderMoviesCard } from "./renderMoviesGallery";
 
 
 refs.headerForm.addEventListener('submit', onSearchFormSubmit);
-function onSearchFormSubmit(e) {
+async function onSearchFormSubmit(e) {
     e.preventDefault();
     const searchInput = e.currentTarget.elements.search.value.trim();
     moviesApiService.searchQuery = searchInput;
     
     if (searchInput !== '') {
-        moviesApiService.fetchMoviesByName(searchInput)
-        .then(data => renderMoviesCard(data.results))
-        .catch(error => console.log(error));
+
+        try {
+            const genres = await moviesApiService.fetchGenres();
+            const data = await moviesApiService.fetchMoviesByName(searchInput);
+            renderMoviesCard(data.results, genres);
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
