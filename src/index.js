@@ -37,8 +37,9 @@ import './js/account';
 
 import './js/sign-in';
 
-
 import './js/localStorage';
 
 import './js/watchQueueBtns';
 
+// Notifikashka
+import './js/notofikashka';
