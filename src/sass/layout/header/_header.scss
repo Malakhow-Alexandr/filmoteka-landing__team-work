@@ -54,6 +54,7 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    height: 100px;
     &_list-item{
       font-size: 14px;}
     &_list-item:hover, &_list-item:focus {
@@ -75,7 +76,8 @@ header {
     border: 0;
     color: $secondary-text-color;
     font-family: $primary-font;
-    
+    font-size: 14px;
+
     &:hover,&:focus{
     transform: scale(1.1);
     text-decoration: 2px underline solid $accent-color;
@@ -136,6 +138,7 @@ animation: flipInY;
     border: 0;
     color: $secondary-text-color;
     font-family: $primary-font;
+    font-size: 14px;
     &:hover,&:focus{
     transform: scale(1.1);
     text-decoration: 2px underline solid $accent-color;
@@ -156,7 +159,8 @@ animation: flipInY;
       display:none;
     }
   } 
-  .profile > button:focus .profile-menu_child{
+  .profile > button:focus .profile-menu_child, 
+  .profile > button:hover .profile-menu_child{
     display: block;
     background-color: $accent-color;
   }
@@ -169,6 +173,7 @@ background-color: transparent;
     &:hover, &:focus{
       color:$primary-text-color;
       transform: scale(1.1);
+      background-color: $accent-color;
     }
   }
   .header-form__input {
