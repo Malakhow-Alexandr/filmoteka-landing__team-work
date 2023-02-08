@@ -7,7 +7,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -304,4 +304,20 @@
     top: 9%;
     left: 2%;
   }
+}
+
+.trailer__btn {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.trailer__icon {
+  fill: red;
+}
+
+.trailer__icon:focus,
+.trailer__icon:hover {
+  fill: #ff6b08;
 }
