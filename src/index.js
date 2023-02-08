@@ -17,6 +17,7 @@ import './js/moviesApiService';
 import './js/entryPoint';
 
 // footer
+import './js/footer/footer-heart';
 import './js/footer/footer-modal';
 
 // pagination
