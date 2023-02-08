@@ -1,6 +1,7 @@
 import MoviesApiService from '../moviesApiService';
 import { filmIndex } from '../renderMoviesGallery';
 import { filmIndexWatchedQueue } from '../watchQueueBtns';
+import { onOpenTrailer } from '../trailer';
 import { refs } from '../refs';
 //*=================
 import LocalStorage from '../localStorage';
@@ -17,7 +18,8 @@ window.addEventListener('keydown', onEscBtn);
 filmModalOpen.addEventListener('click', onFilmModalOpen);
 filmModalCloseBtn.addEventListener('click', onFilmModalClose);
 filmModalBackdrop.addEventListener('click', onFilmModalBackdrop);
-refs.backdropForm.addEventListener('click', onFilmModalBackdrop)
+refs.backdropForm.addEventListener('click', onFilmModalBackdrop);
+refs.trailerBtn.addEventListener('click', onOpenTrailer);
 
 //*======================================================
 refs.addRemoveWatchedQueueBtn.addEventListener('click', onAddWatchedBtnClick);
@@ -65,11 +67,9 @@ function onFilmModalOpen(event) {
     filmIndexArr.push(filmCardObject);
     filmIndex.id = numberId;
 
-    
-
     createFilmModalCardMarkup(filmIndexArr);
 
-    refs.btnTrailer.setAttribute('data-id', `${filmCardObject.id}`);
+    refs.trailerBtn.setAttribute('data-id', `${filmCardObject.id}`);
 
     chekButton(filmCardObject);
   }
@@ -103,7 +103,7 @@ function onFilmModalOpen(event) {
 }
 
 function onFilmModalClose(event) {
-  refs.backdropForm.classList.add('is-hidden')
+  refs.backdropForm.classList.add('is-hidden');
   filmModalBackdrop.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
   window.removeEventListener('keydown', onEscBtn);
@@ -122,7 +122,7 @@ export function onFilmModalBackdrop(event) {
   }
 }
 
-  export function onEscBtn(event) {
+export function onEscBtn(event) {
   if (event.code === 'Escape') {
     onFilmModalClose();
   }
@@ -141,8 +141,7 @@ function createFilmModalCardMarkup(arr) {
         popularity,
         overview,
         genre_ids,
-      }) => 
-       
+      }) =>
         `
             <div class="modal-card__poster">
                 <img class="modal-card__poster--img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" loading="lazy"/>
@@ -154,8 +153,8 @@ function createFilmModalCardMarkup(arr) {
                     <tbody class="modal-card__info">
                         <tr>
                             <td class="modal-card__info-name">Vote / Votes</td>
-                            <td class="modal-card__info-value  modal-card__info-value--mod"> 
-                            <span class="vote-value">${vote_average}</span> 
+                            <td class="modal-card__info-value  modal-card__info-value--mod">
+                            <span class="vote-value">${vote_average}</span>
                             <span class="votes-value">${vote_count}</span> </td>
                         </tr>
                     </tbody>
@@ -188,8 +187,6 @@ function createFilmModalCardMarkup(arr) {
                     ${overview}
                 </p>
             `
-      
-
     )
     .join('');
 

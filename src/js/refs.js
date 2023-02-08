@@ -9,9 +9,10 @@ export const refs = {
   paginationRightDots: document.querySelector('.js-right-dots'),
   paginationLeftDots: document.querySelector('.js-left-dots'),
   filmsEl: document.querySelector('.films'),
-  btnTrailer: document.querySelector('.btn-trailer'),
-  trailerBox: document.querySelector('.trailer-box'),
-  backdrop: document.querySelector('.js-backdrop'),
+  trailerBtn: document.querySelector('.trailer__btn'),
+  trailerBox: document.querySelector('.trailer__box'),
+  trailerBackdrop: document.querySelector('.trailer__backdrop'),
+  trailerBtnClose: document.querySelector('.trailer__btn-close'),
   headerForm: document.querySelector('.header-form__search'),
   addRemoveWatchedQueueBtn: document.querySelector(
     '.add-remove-watched-queue-js'
