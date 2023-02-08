@@ -15,9 +15,8 @@ async function onSearchFormSubmit(e) {
     if (searchInput !== '') {
 
         try {
-            const genres = await moviesApiService.fetchGenres();
             const data = await moviesApiService.fetchMoviesByName(searchInput);
-            renderMoviesCard(data.results, genres);
+            renderMoviesCard(data.results);
             createAPagination(data);
         } catch (error) {
             console.log(error)

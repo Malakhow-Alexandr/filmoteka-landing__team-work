@@ -1,23 +1,25 @@
 import { refs } from './refs';
 import FilmIndex from './film-index';
+import { GENRES } from './fetch-genres';
 
 export const filmIndex = new FilmIndex();
 
-export function renderMoviesCard(movies, genres) {
-  
+export function renderMoviesCard(movies) {
   refs.gallery.innerHTML = '';
   filmIndex.newArr(movies);
-  // filmIndex.newGenres(genres);
 
   
   const markup = movies.map(({ id, title, poster_path, genre_ids, release_date, vote_average }, index) => {
 
 
-     // array id of genres transform to array of genres
-    let genresList = genre_ids.map(genreId => genres.find(item => item.id === genreId).name);
+        // array id of genres transform to array of genres
+    let genresList = genre_ids.map(genreId => GENRES.find(item => item.id === genreId).name);
     genresList.length === 0 ? genresList.push('unknown genre') : genresList;
+        
+        genresList.length === 0
+          ? genresList.push('unknown genre')
+          : genresList.join(', ');
 
-    
     const releasedDate = release_date === undefined ? 'No release date provided' : release_date.slice(0, 4);
 
         const poster = poster_path === null ? 'http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg' : `https://image.tmdb.org/t/p/w500/${poster_path}`; 
@@ -35,7 +37,7 @@ export function renderMoviesCard(movies, genres) {
             <div class="movie-card__info">
               <h2 class="movie-card__title">${title}</h2>
               <p class="movie-card__text">
-                ${genresList.join(', ')}  |  ${releasedDate}
+                ${genresList}  |  ${releasedDate}
                 <span class="movie-card__rating">${movieRating}</span>
               </p>
             </div>
