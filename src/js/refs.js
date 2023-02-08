@@ -24,4 +24,5 @@ export const refs = {
   removeQueue: document.querySelector('.remove-queue-js'),
   btnWatched: document.querySelector('.js-btnWatched'),
   btnQueue: document.querySelector('.js-btnQueue'),
+  spinner: document.querySelector('.spinner'),
 };

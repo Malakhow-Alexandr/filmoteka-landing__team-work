@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { refs } from './refs';
 
 const API_URL = 'https://api.themoviedb.org/3/';
 const API_USER_KEY = 'ea73d929c285b7e8f7948351eebc9766';
@@ -18,6 +19,8 @@ export default class MoviesApiService {
     } else {
       try {
         const url = `${API_URL}genre/movie/list?api_key=${API_USER_KEY}`;
+        refs.spinner.classList.remove('is-hidden');
+
         const response = await axios.get(url);
 
         MoviesApiService.GenresList = response.data.genres;
@@ -26,6 +29,8 @@ export default class MoviesApiService {
       } catch (error) {
         // Error handling
         console.log(error);
+      } finally {
+        refs.spinner.classList.add('is-hidden');
       }
     }
   }
@@ -44,11 +49,14 @@ export default class MoviesApiService {
     try {
       const url = `${API_URL}trending/movie/week?api_key=${API_USER_KEY}&page=${this.page}`;
       console.log(url);
+      refs.spinner.classList.remove('is-hidden');
       const response = await axios.get(url);
       return response.data;
     } catch (error) {
       // Error handling
       console.log(error);
+    } finally {
+      refs.spinner.classList.add('is-hidden');
     }
   }
 
@@ -73,12 +81,15 @@ export default class MoviesApiService {
         include_adult: false,
       });
       const url = `${API_URL}search/movie?${searchParams}&page=${this.page}`;
+      refs.spinner.classList.remove('is-hidden');
 
       const response = await axios.get(url);
       return response.data;
     } catch (error) {
       // Error handling
       console.log(error);
+    } finally {
+      refs.spinner.classList.add('is-hidden');
     }
   }
 
@@ -95,11 +106,14 @@ export default class MoviesApiService {
   async getMovieInfo(id) {
     try {
       const url = `${API_URL}movie/${id}?api_key=${API_USER_KEY}`;
+      refs.spinner.classList.remove('is-hidden');
       const response = await axios.get(url);
       return response.data;
     } catch (error) {
       console.log(error);
       // Error handling
+    } finally {
+      refs.spinner.classList.add('is-hidden');
     }
   }
 
@@ -116,11 +130,14 @@ export default class MoviesApiService {
   async getMovieVideos(id) {
     try {
       const url = `${API_URL}movie/${id}/videos?api_key=${API_USER_KEY}`;
+      refs.spinner.classList.remove('is-hidden');
       const response = await axios.get(url);
       return response.data;
     } catch (error) {
       console.log(error);
       // Error handling
+    } finally {
+      refs.spinner.classList.add('is-hidden');
     }
   }
 
