@@ -38,4 +38,5 @@ export const refs = {
   signOut: document.querySelector('.logOutJs'),
   removeAccount: document.querySelector('.removeAccountJs'),
   myLibrary: document.querySelector('.library-js'),
+  scrollToTop: document.querySelector('.isShownBtn_hide'),
 };
