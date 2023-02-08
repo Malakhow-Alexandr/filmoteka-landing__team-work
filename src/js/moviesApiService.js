@@ -1,5 +1,10 @@
 import axios from 'axios';
+
 import searchNotificashka from './notifikashka';
+
+import { refs } from './refs';
+
+
 export const API_URL = 'https://api.themoviedb.org/3/';
 export const API_USER_KEY = 'ea73d929c285b7e8f7948351eebc9766';
 
@@ -21,6 +26,7 @@ export default class MoviesApiService {
 
   async fetchTrendingMovies() {
     try {
+      refs.spinner.classList.remove('is-hidden');
       const url = `${API_URL}trending/movie/week?api_key=${API_USER_KEY}&page=${this.page}`;
       console.log(url);
       const response = await axios.get(url);
@@ -28,6 +34,8 @@ export default class MoviesApiService {
     } catch (error) {
       // Error handling
       console.log(error);
+    } finally {
+      refs.spinner.classList.add('is-hidden');
     }
   }
 
@@ -45,6 +53,7 @@ export default class MoviesApiService {
 
   async fetchMoviesByName() {
     try {
+      refs.spinner.classList.remove('is-hidden');
       const searchParams = new URLSearchParams({
         api_key: API_USER_KEY,
         query: this.searchQuery,
@@ -60,6 +69,8 @@ export default class MoviesApiService {
     } catch (error) {
       // Error handling
       console.log(error);
+    } finally {
+      refs.spinner.classList.add('is-hidden');
     }
   }
 
