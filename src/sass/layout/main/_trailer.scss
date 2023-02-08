@@ -1,38 +1,39 @@
-.modal-trailer {
-  position: absolute;
+.trailer__backdrop {
+  z-index: 5000;
+  background: black;
+}
+
+.trailer__modal {
+  max-width: 1200px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 32px;
+  display: flex;
+  position: relative;
 
   top: 50%;
   left: 50%;
   translate: -50% -50%;
 }
 
-.trailer-iframe {
+.trailer__box {
+  width: 100%;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.trailer__iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   border-radius: 4px;
-
-  @media screen and (min-width: 320px) {
-    width: 300px;
-  }
-
-  @media screen and (min-width: 480px) {
-    width: 450px;
-    height: 315px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 700px;
-    height: 515px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    width: 780px;
-  }
 }
 
-.js-backdrop {
-  z-index: 5000;
-}
-
-.btn__trailer--close {
+.trailer__btn-close {
   position: absolute;
   top: 50px;
   right: 50px;
@@ -43,31 +44,43 @@
   width: 30px;
   height: 30px;
   top: 8px;
-  right: 8px;
+  right: 40px;
   padding: 0;
-  fill: #fff;
+  stroke: #fff;
+  //   stroke-width: 2px;
   background-color: transparent;
   border: none;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
 
-  @media screen and (max-width: 480px) {
-    top: 2px;
-    right: 2px;
+  //   @media screen and (max-width: 318px) {
+  //     top: 2px;
+  //     right: 2px;
+  //   }
+
+  .trailer__modal:focus &,
+  .trailer__modal:hover & {
+    stroke: #ff6b08;
+    opacity: 1;
+    visibility: visible;
   }
 }
 
-.btn__trailer--close:focus,
-.btn__trailer--close:hover {
-  fill: #ff6b08;
-}
-
-.icon__trailer-close {
-  @media screen and (max-width: 480px) {
+.trailer__btn-close {
+  @media screen and (max-width: 320px) {
+    z-index: 100;
     width: 15px;
     height: 15px;
+    top: 5px;
+    right: 35px;
   }
 
   @media screen and (min-width: 480px) and (max-width: 768px) {
+    z-index: 100;
     width: 23px;
     height: 23px;
+    top: 10px;
+    right: 40px;
   }
 }
