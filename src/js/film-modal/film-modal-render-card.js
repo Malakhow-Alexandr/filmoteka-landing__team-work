@@ -9,6 +9,7 @@ import {
 import { refs } from '../refs';
 import LocalStorage from '../localStorage';
 import { authentitification } from '../account';
+import { onOpenTrailer } from '../trailer';
 
 export const localStorage = new LocalStorage();
 
@@ -249,7 +250,7 @@ function onFilmModalOpen(event) {
 
     createFilmModalCardMarkup(filmArrWatched);
 
-    refs.btnTrailer.setAttribute('data-id', `${filmCardObjWatch.id}`);
+    refs.trailerBtn.setAttribute('data-id', `${filmCardObjWatch.id}`);
 
     chekButton(filmCardObjWatch);
   }
