@@ -1,4 +1,6 @@
 import { filmIndex } from '../renderMoviesGallery';
+import { filmIndexWatchedQueue } from '../watchQueueBtns';
+import { onOpenTrailer } from '../trailer';
 import { filmIndexWatched, filmIndexQueue } from '../watchQueueBtns';
 import {
   createLibralyQueueMarkup,
@@ -20,6 +22,7 @@ filmModalOpen.addEventListener('click', onFilmModalOpen);
 filmModalCloseBtn.addEventListener('click', onFilmModalClose);
 filmModalBackdrop.addEventListener('click', onFilmModalBackdrop);
 refs.backdropForm.addEventListener('click', onFilmModalBackdrop);
+refs.trailerBtn.addEventListener('click', onOpenTrailer);
 
 //*======================================================
 refs.addRemoveWatchedQueueBtn.addEventListener('click', onAddWatchedBtnClick);
@@ -230,7 +233,7 @@ function onFilmModalOpen(event) {
 
     createFilmModalCardMarkup(filmIndexArr);
 
-    refs.btnTrailer.setAttribute('data-id', `${filmCardObject.id}`);
+    refs.trailerBtn.setAttribute('data-id', `${filmCardObject.id}`);
 
     chekButton(filmCardObject);
   }
@@ -327,8 +330,8 @@ function createFilmModalCardMarkup(arr) {
                     <tbody class="modal-card__info">
                         <tr>
                             <td class="modal-card__info-name">Vote / Votes</td>
-                            <td class="modal-card__info-value  modal-card__info-value--mod"> 
-                            <span class="vote-value">${vote_average}</span> 
+                            <td class="modal-card__info-value  modal-card__info-value--mod">
+                            <span class="vote-value">${vote_average}</span>
                             <span class="votes-value">${vote_count}</span> </td>
                         </tr>
                     </tbody>
