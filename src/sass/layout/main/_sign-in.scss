@@ -1,5 +1,5 @@
 .form {
-  padding: 40px 41px;
+  padding: 21px 23px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7,7 +7,7 @@
 
   transform: translate(-50%, -50%);
   transition-property: opacity, visibility;
-  background-color: #fff;
+  background-color: gray;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -24,6 +24,10 @@
   //   width: 550px;
   //   height: 600px;
   // }
+}
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: black;
 }
 .backdrop_form {
   z-index: 10000;
@@ -47,7 +51,7 @@
   cursor: pointer;
   width: 30px;
   height: 30px;
-  background-color: #fff;
+  background-color: gray;
   border: none;
   justify-content: center;
   align-items: center;
@@ -72,11 +76,13 @@
   width: 100%;
   padding: 15px 0px 15px 10px;
   border-radius: 5px;
-  border: 1px solid #ff6b08;
+  outline: none;
+  border: 2px solid #ff6b08;
+  background-color: gray;
 }
 .form__input:hover,
 .form__input:focus {
-  border: 1px solid rgb(39, 9, 205);
+  border: 2px solid rgb(39, 9, 205);
 }
 .form__field {
   display: flex;
@@ -102,15 +108,16 @@
   align-items: center;
   margin: auto;
   margin-bottom: 15px;
-  width: 100px;
+  width: 200px;
   height: 50px;
   border: none;
-  border-radius: 3px;
+  border-radius: 10px;
   background-color: #ff6b08;
   cursor: pointer;
 
   &:hover {
     color: aliceblue;
+    background-color: #ff6b0862;
   }
 }
 .choice__login {
@@ -122,17 +129,22 @@
   cursor: pointer;
 }
 .google__auth {
-  width: 100%;
+  width: 200px;
   height: 45px;
-  border: none;
-  border-radius: 3px;
+  border-color: blue;
+  display: flex;
+  margin: auto;
+  border-radius: 10px;
+  align-items: center;
+  outline: #ff6b08;
+  justify-content: center;
   cursor: pointer;
-  background-color: #2196f3;
+  background-color: gray;
   margin-bottom: 15px;
 
   &:hover {
     color: #fff;
-    background-color: #ff6b08a4;
+    background-color: blue;
   }
 }
 .create-acc__btn {
@@ -141,7 +153,7 @@
   cursor: pointer;
   background-color: #ff6b08;
   border: none;
-  border-radius: 3px;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
   margin: auto auto 15px;
@@ -159,7 +171,7 @@
   cursor: pointer;
   background-color: #ff6b08;
   border: none;
-  border-radius: 3px;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
   margin: auto auto;
@@ -167,6 +179,6 @@
 
   &:hover {
     color: #fff;
-    background-color: rgb(215, 126, 37);
+    background-color: #ff6b0862;
   }
 }
