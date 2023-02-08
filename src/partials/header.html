@@ -1,43 +1,68 @@
 <header>
   <div class="container header-bg">
-  <div class="navigation ">
-    <div class="wrapper-logo animate__animated animate__flipInY">
-    <a href="#" class="navigation_logo logo" id="navigation-logo">
-      <svg class="logo-icon" width="24px" heigth="24px">
-        <use href="./images/sprite-svg.svg#film-icon"></use>
-      </svg>
-      <h1 class="page-title">Filmoteka</h1>
-    </a>
-    </div>
-   
-  <ul class="navigation_list">
-    <li class="navigation_list-item">
-      <a href="#" class="navigation_list-item-link home"
-        >HOME</a
-      >
-    </li>
-    <li class="navigation_list-item">
-      <a href="" class="navigation_list-item-link library">MY LIBRARY</a>
-    </li>
-  </ul>
-
-    <div class="autorization">
-    <button type="button" class="header-movie_button checkIn openRegisterModalJs">Check In</button>
-      <ul class="profile_menu">
-        <button type="button" class="profile_menu-child logOutJs"><a href="#" class="btn-exit">LogOut</a></li>
-        <button type="button" class="profile_menu-child removeAccountJs"><a  href="#" class="btn-delete">deleteAccount</a></li>
-      </ul>
-    </ul></div>
-    </div>
-     <div class="header_form">
-    <form class="header-form__search" autocomplete="off">
-      <input class="header-form__input" type="text" name="search" placeholder="Search film..." />
-      <button class="header-form__btn" type="submit" aria-label="Search">
-        <svg class="header-form__icon" width="12" height="12">
-          <use href="./images/sprite-svg.svg#icon-search-2"></use>
+    <div class="navigation">
+      <div class="wrapper-logo animate__animated animate__flipInY">
+        <!-- <a href="#" class="navigation_logo logo" id="navigation-logo"> -->
+        <svg class="logo-icon" width="24px" heigth="24px">
+          <use href="./images/sprite-svg.svg#film-icon"></use>
         </svg>
-      </button>
-    </form>
+        <h1 class="page-title">Filmoteka</h1>
+        <!-- </a> -->
+      </div>
+
+      <ul class="navigation_list">
+        <li class="navigation_list-item navigation_list-item-link home">
+          HOME
+        </li>
+        <li
+          class="navigation_list-item navigation_list-item-link library myLibrary"
+        >
+          MY LIBRARY
+        </li>
+      </ul>
+
+      <div class="autorization">
+        <button
+          type="button"
+          class="header-movie_button checkIn openRegisterModalJs"
+        >
+          Check In
+        </button>
+        <ul class="profile_menu">
+          <li>
+            <button type="button" class="profile_menu-child logOutJs btn-exit">
+              LogOut
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="profile_menu-child removeAccountJs btn-delete"
+            >
+              deleteAccount
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="header_form">
+      <ul class="btn-watched-queue visually-hidden">
+        <li><button class="js-btnWatched is-active">Watched</button></li>
+        <li><button class="js-btnQueue">Queue</button></li>
+      </ul>
+      <form class="header-form__search" autocomplete="off">
+        <input
+          class="header-form__input"
+          type="text"
+          name="search"
+          placeholder="Search film..."
+        />
+        <button class="header-form__btn" type="submit" aria-label="Search">
+          <svg class="header-form__icon" width="12" height="12">
+            <use href="./images/sprite-svg.svg#icon-search-2"></use>
+          </svg>
+        </button>
+      </form>
+    </div>
   </div>
-</div>
 </header>
