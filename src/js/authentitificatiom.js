@@ -18,8 +18,9 @@ export default class AccountManagment {
       email: '',
       password: '',
       user: {},
-      isOnline: false,
-      hasAccount: false,
+      watched: [],
+      queue: [],
+      obj: {},
     };
     this.firebaseConfig = {
       apiKey: 'AIzaSyDeT-dGvxxhBoToHkpCqsX7i-ne2DJAg_c',
@@ -38,17 +39,23 @@ export default class AccountManagment {
     this.state.password = newPassword;
   }
 
-  userOnline(bool) {
-    this.state.isOnline = bool;
+  userSetWatched(arr) {
+    const { watched } = this.state;
+    const length = watched.length;
+    watched.splice(0, length);
+    arr.map(el => watched.unshift(el));
   }
 
-  userHasAccount(bool) {
-    this.state.hasAccount = bool;
+  userSetQueue(arr) {
+    const { queue } = this.state;
+    const length = queue.length;
+    queue.splice(0, length);
+    arr.map(el => queue.unshift(el));
   }
 
   userName() {
     const nameEmail = this.state.email.split('');
-    const idx = newEmail.indexOf('@');
+    const idx = nameEmail.indexOf('@');
     return nameEmail.slice(0, idx).join('');
   }
 
@@ -131,6 +138,8 @@ export default class AccountManagment {
           refs.checkInButton.classList.add('visually-hidden');
         }
         refs.profile.classList.remove('visually-hidden');
+        this.state.email = user.email;
+        this.state.user = user;
       } else {
         refs.profile.classList.add('visually-hidden');
         refs.checkInButton.classList.remove('visually-hidden');
@@ -138,11 +147,32 @@ export default class AccountManagment {
     });
   }
 
-  //   async readDatabase() {
-  //     const databaseRef = ref(getDatabase());
-  //     const userName = this.userName();
-  //     const { user } = this.state;
+  async readData() {
+    const db = getDatabase();
+    const auth = getAuth();
 
-  //     get(child(databaseRef, `${userName}${user.uid}`));
-  //   }
+    const { user } = this.state;
+
+    const userId = auth.currentUser.uid;
+    return onValue(
+      ref(db, this.userName() + userId),
+      snapshot => {
+        this.state.obj = snapshot.exportVal();
+        return snapshot.exportVal();
+      },
+      {
+        onlyOnce: true,
+      }
+    );
+  }
+  writeToDataBase() {
+    const db = getDatabase();
+    const userName = this.userName();
+
+    const { watched, queue, user } = this.state;
+    set(ref(db, userName + user.uid), {
+      watched: watched,
+      queue: queue,
+    });
+  }
 }

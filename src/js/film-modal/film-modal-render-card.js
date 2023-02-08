@@ -1,13 +1,16 @@
-import MoviesApiService from '../moviesApiService';
 import { filmIndex } from '../renderMoviesGallery';
 import { filmIndexWatchedQueue } from '../watchQueueBtns';
 import { onOpenTrailer } from '../trailer';
+import { filmIndexWatched, filmIndexQueue } from '../watchQueueBtns';
+import {
+  createLibralyQueueMarkup,
+  createLibralyWatchedMarkup,
+} from '../watchQueueBtns';
 import { refs } from '../refs';
-//*=================
 import LocalStorage from '../localStorage';
+import { authentitification } from '../account';
 
 export const localStorage = new LocalStorage();
-//*=====================
 
 const filmModalBackdrop = document.querySelector('.film-backdrop');
 const filmModalInfo = document.querySelector('.modal-card');
@@ -28,23 +31,184 @@ function onAddWatchedBtnClick(e) {
   e.preventDefault();
 
   if (e.target.name === 'addToWatched') {
-    addToLocalStorage('watched');
+    const array = [];
+    if (localStorage.load('watched') !== undefined) {
+      localStorage.load('watched').map(el => array.unshift(el));
+    }
+
+    if (
+      !refs.btnWatched.className.includes('isOpenWatched') &&
+      !refs.btnQueue.className.includes('isOpenQueue')
+    ) {
+      filmIndex.newObject();
+      array.unshift(filmIndex.object);
+
+      localStorage.save('watched', array);
+    }
+
+    if (refs.btnQueue.className.includes('isOpenQueue')) {
+      filmIndexQueue.newObject();
+      array.unshift(filmIndexQueue.object);
+
+      localStorage.save('watched', array);
+    }
+    if (refs.btnWatched.className.includes('isOpenWatched')) {
+      const arrWatched = [];
+
+      localStorage.load('watched').map(el => arrWatched.unshift(el));
+
+      arrWatched.unshift(filmIndexWatched.removeEl[0]);
+
+      localStorage.save('watched', arrWatched);
+      createLibralyWatchedMarkup(arrWatched);
+    }
+
     refs.addWatchedBtn.classList.add('visually-hidden');
     refs.removeWatchedBtn.classList.remove('visually-hidden');
   }
+  //********************* */
+
   if (e.target.name === 'addToQueue') {
-    addToLocalStorage('queue');
+    const array = [];
+    if (localStorage.load('queue') !== undefined) {
+      localStorage.load('queue').map(el => {
+        return array.unshift(el);
+      });
+    }
+    if (
+      !refs.btnWatched.className.includes('isOpenWatched') &&
+      !refs.btnQueue.className.includes('isOpenQueue')
+    ) {
+      filmIndex.newObject();
+      array.unshift(filmIndex.object);
+
+      localStorage.save('queue', array);
+      authentitification.userSetQueue(array);
+      authentitification.writeToDataBase();
+    }
+    if (refs.btnWatched.className.includes('isOpenWatched')) {
+      filmIndexWatched.newObject();
+      array.unshift(filmIndexWatched.object);
+
+      localStorage.save('queue', array);
+    }
+    if (refs.btnQueue.className.includes('isOpenQueue')) {
+      const arrQueue = [];
+
+      localStorage.load('queue').map(el => arrQueue.unshift(el));
+
+      arrQueue.unshift(filmIndexQueue.removeEl[0]);
+
+      localStorage.save('queue', arrQueue);
+      createLibralyQueueMarkup(arrQueue);
+    }
+
     refs.addQueue.classList.add('visually-hidden');
     refs.removeQueue.classList.remove('visually-hidden');
   }
+
   if (e.target.name === 'removeFromWatched') {
-    removeFromStorage('watched');
+    const array = [];
+    let index = 0;
+    localStorage.load('watched').map(el => array.unshift(el));
+    if (
+      !refs.btnWatched.className.includes('isOpenWatched') &&
+      !refs.btnQueue.className.includes('isOpenQueue')
+    ) {
+      filmIndex.newObject();
+
+      array.map((el, idx) => {
+        if (el.id === filmIndex.object.id) {
+          index = idx;
+          return index;
+        }
+      });
+
+      array.splice(index, 1);
+      localStorage.save('watched', array);
+    }
+    if (refs.btnQueue.className.includes('isOpenQueue')) {
+      filmIndexQueue.newObject();
+
+      array.map((el, idx) => {
+        if (el.id === filmIndexQueue.object.id) {
+          index = idx;
+          return index;
+        }
+      });
+
+      array.splice(index, 1);
+      localStorage.save('watched', array);
+    }
+    if (refs.btnWatched.className.includes('isOpenWatched')) {
+      filmIndexWatched.newObject();
+
+      array.map((el, idx) => {
+        if (el.id === filmIndexWatched.object.id) {
+          index = idx;
+          return index;
+        }
+      });
+
+      const remEl = array.splice(index, 1);
+      filmIndexWatched.removeEl = remEl;
+
+      localStorage.save('watched', array);
+
+      createLibralyWatchedMarkup(array);
+    }
     refs.addWatchedBtn.classList.remove('visually-hidden');
     refs.removeWatchedBtn.classList.add('visually-hidden');
   }
   if (e.target.name === 'removeFromQueue') {
-    removeFromStorage('queue');
+    const arrays = localStorage.load('queue');
+    let index = 0;
 
+    if (
+      !refs.btnWatched.className.includes('isOpenWatched') &&
+      !refs.btnQueue.className.includes('isOpenQueue')
+    ) {
+      filmIndex.newObject();
+
+      arrays.map((el, idx) => {
+        if (el.id === filmIndex.object.id) {
+          index = idx;
+          return index;
+        }
+      });
+
+      arrays.splice(index, 1);
+      localStorage.save('queueu', arrays);
+    }
+
+    if (refs.btnWatched.className.includes('isOpenWatched')) {
+      filmIndexWatched.newObject();
+
+      arrays.map((el, idx) => {
+        if (el.id === filmIndexWatched.object.id) {
+          index = idx;
+          return index;
+        }
+      });
+
+      arrays.splice(index, 1);
+      localStorage.save('watched', arrays);
+    }
+    if (refs.btnQueue.className.includes('isOpenQueue')) {
+      filmIndexQueue.newObject();
+
+      arrays.map((el, idx) => {
+        if (el.id === filmIndexQueue.object.id) {
+          index = idx;
+          return index;
+        }
+      });
+
+      const remEl = arrays.splice(index, 1);
+      filmIndexQueue.removeEl = remEl;
+      localStorage.save('queue', arrays);
+      createLibralyQueueMarkup(arrays);
+    }
     refs.addQueue.classList.remove('visually-hidden');
     refs.removeQueue.classList.add('visually-hidden');
   }
@@ -74,23 +238,36 @@ function onFilmModalOpen(event) {
     chekButton(filmCardObject);
   }
 
-  if (
-    refs.btnWatched.className.includes('isOpenWatched') ||
-    refs.btnQueue.className.includes('isOpenQueue')
-  ) {
-    const filmArrWatchedQueue = [];
+  if (refs.btnWatched.className.includes('isOpenWatched')) {
+    const filmArrWatched = [];
 
-    filmIndexWatchedQueue.id = numberId;
+    filmIndexWatched.id = numberId;
 
-    const filmCardObjWatchQueue = filmIndexWatchedQueue.arr[numberId];
+    const filmCardObjWatch = filmIndexWatched.arr[numberId];
 
-    filmArrWatchedQueue.push(filmCardObjWatchQueue);
+    filmArrWatched.unshift(filmCardObjWatch);
 
-    createFilmModalCardMarkup(filmArrWatchedQueue);
+    createFilmModalCardMarkup(filmArrWatched);
 
-    refs.btnTrailer.setAttribute('data-id', `${filmCardObjWatchQueue.id}`);
+    refs.btnTrailer.setAttribute('data-id', `${filmCardObjWatch.id}`);
 
-    chekButton(filmCardObjWatchQueue);
+    chekButton(filmCardObjWatch);
+  }
+
+  if (refs.btnQueue.className.includes('isOpenQueue')) {
+    const filmArrQueue = [];
+
+    filmIndexQueue.id = numberId;
+
+    const filmCardObjQueue = filmIndexQueue.arr[numberId];
+
+    filmArrQueue.unshift(filmCardObjQueue);
+
+    createFilmModalCardMarkup(filmArrQueue);
+
+    refs.btnTrailer.setAttribute('data-id', `${filmCardObjQueue.id}`);
+
+    chekButton(filmCardObjQueue);
   }
 
   window.addEventListener('keydown', onEscBtn);
@@ -196,36 +373,6 @@ function createFilmModalCardMarkup(arr) {
 // export {onFilmModalOpen}
 
 //*==========================================
-
-function addToLocalStorage(keyToLocalStorage) {
-  const array = [];
-  if (localStorage.load(keyToLocalStorage) !== undefined) {
-    localStorage.load(keyToLocalStorage).map(el => array.push(el));
-  }
-  filmIndex.newObject();
-  array.push(filmIndex.object);
-
-  localStorage.save(keyToLocalStorage, array);
-}
-
-function removeFromStorage(keyFromLocalStorage) {
-  const array = [];
-  let index = 0;
-  localStorage.load(keyFromLocalStorage).map(el => array.push(el));
-  filmIndex.newObject();
-
-  array.map((el, idx) => {
-    if (el.id === filmIndex.object.id) {
-      index = idx;
-      return index;
-    }
-  });
-
-  array.splice(index, 1);
-  console.log(array);
-  localStorage.save(keyFromLocalStorage, array);
-}
-//*=====================================================
 
 function chekButton(filmObj) {
   if (localStorage.load('watched') !== undefined) {
