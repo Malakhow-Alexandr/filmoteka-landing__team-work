@@ -69,7 +69,6 @@ function onAddWatchedBtnClick(e) {
     const array = [];
     if (localStorage.load('queue') !== undefined) {
       localStorage.load('queue').map(el => {
-        console.log(el);
         return array.unshift(el);
       });
     }
@@ -194,7 +193,6 @@ function onAddWatchedBtnClick(e) {
     }
     if (refs.btnQueue.className.includes('isOpenQueue')) {
       filmIndexQueue.newObject();
-      console.log(filmIndexQueue.object);
 
       arrays.map((el, idx) => {
         if (el.id === filmIndexQueue.object.id) {
@@ -202,11 +200,9 @@ function onAddWatchedBtnClick(e) {
           return index;
         }
       });
-      console.log(index);
 
       const remEl = arrays.splice(index, 1);
       filmIndexQueue.removeEl = remEl;
-      console.log(filmIndexQueue.removeEl);
       localStorage.save('queue', arrays);
       createLibralyQueueMarkup(arrays);
     }
