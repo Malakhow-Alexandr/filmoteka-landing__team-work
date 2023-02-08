@@ -39,4 +39,5 @@ export const refs = {
   removeAccount: document.querySelector('.removeAccountJs'),
   myLibrary: document.querySelector('.library-js'),
   scrollToTop: document.querySelector('.isShownBtn_hide'),
+  spinner: document.querySelector('.spinner'),
 };
