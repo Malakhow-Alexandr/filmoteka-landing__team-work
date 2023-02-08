@@ -7,12 +7,16 @@ export function renderMoviesCard(movies, genres) {
   
   refs.gallery.innerHTML = '';
   filmIndex.newArr(movies);
+  // filmIndex.newGenres(genres);
 
+  
   const markup = movies.map(({ id, title, poster_path, genre_ids, release_date, vote_average }, index) => {
+
 
      // array id of genres transform to array of genres
     let genresList = genre_ids.map(genreId => genres.find(item => item.id === genreId).name);
     genresList.length === 0 ? genresList.push('unknown genre') : genresList;
+
     
     const releasedDate = release_date === undefined ? 'No release date provided' : release_date.slice(0, 4);
 
