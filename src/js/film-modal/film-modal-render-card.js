@@ -275,6 +275,7 @@ function onFilmModalOpen(event) {
   window.addEventListener('keydown', onEscBtn);
   filmModalBackdrop.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
+  refs.scrollToTop.classList.add('isShownBtn_hide');
 
   //* =======================================
 
@@ -285,6 +286,7 @@ function onFilmModalClose(event) {
   refs.backdropForm.classList.add('is-hidden');
   filmModalBackdrop.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
+  refs.scrollToTop.classList.remove('isShownBtn_hide');
   window.removeEventListener('keydown', onEscBtn);
 
   //*===============================================
