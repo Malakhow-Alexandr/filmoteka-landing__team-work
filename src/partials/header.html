@@ -16,41 +16,20 @@
             >HOME</a
           >
         </li>
-        <li class="navigation_list-item navigation_list-item-link library-js">
+        <li class="navigation_list-item navigation_list-item-link library-js" style="cursor: pointer;">
           MY LIBRARY
         </li>
       </ul>
 
-      <div class="autorization">
-        <button
-          type="button"
-          class="header-movie_button checkIn openRegisterModalJs"
-        >
-          Check In
-        </button>
-        <ul class="profile_menu">
-          <li>
-            <button type="button" class="profile_menu-child logOutJs btn-exit">
-              Log Out
-            </button>
-          </li>
-          <li>
-            <button
-              type="button"
-              class="profile_menu-child removeAccountJs btn-delete"
-            >
-              Delete Account
-            </button>
-          </li>
-        </ul>
-      </div>
     </div>
     <div class="header_form">
+
       <div class="header-lib__menu ">
       <ul class="btn-watched-queue lib__btns visually-hidden">
         <li ><button class="js-btnWatched is-active">Watched</button></li>
         <li class="header-lib_btn"><button class="js-btnQueue">Queue</button></li>
       </ul>
+
       <form class="header-form__search" autocomplete="off">
         <input
           class="header-form__input"
@@ -64,6 +43,35 @@
           </svg>
         </button>
       </form>
+
+      <div class="autorization">
+        <button
+          type="button"
+          class="header-movie_button checkIn openRegisterModalJs"
+        >
+          Check In
+        </button>
+        <div  class="profile">
+        <button >Account</button>
+      </div>
+        <div >
+        <ul class="profile_menu-btns">
+          <li class="profile_menu-child">
+            <button type="button" class=" profile_menu-child_btn logOutJs btn-exit">
+              Log Out
+            </button>
+          </li>
+          <li class="profile_menu-child">
+            <button 
+              type="button"
+              class=" profile_menu-child_btn removeAccountJs btn-delete"
+            >
+              Delete Account
+            </button>
+          </li>
+        </ul>
+      </div>
+      </div>
     </div>
   </div>
 </header>
