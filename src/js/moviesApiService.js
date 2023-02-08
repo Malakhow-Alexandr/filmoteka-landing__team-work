@@ -1,5 +1,9 @@
 import axios from 'axios';
+
+import searchNotificashka from './notifikashka';
+
 import { refs } from './refs';
+
 
 export const API_URL = 'https://api.themoviedb.org/3/';
 export const API_USER_KEY = 'ea73d929c285b7e8f7948351eebc9766';
@@ -59,6 +63,8 @@ export default class MoviesApiService {
       const url = `${API_URL}search/movie?${searchParams}&page=${this.page}`;
 
       const response = await axios.get(url);
+      searchNotificashka(response.data.total_results);
+
       return response.data;
     } catch (error) {
       // Error handling
