@@ -12,6 +12,9 @@ import { GENRES } from '../fetch-genres';
 import { authentitification } from '../account';
 import { onOpenTrailer } from '../trailer';
 
+// import { checkInNotifikashka } from '../notifikashka';
+import Notiflix from 'notiflix';
+
 export const localStorage = new LocalStorage();
 
 const filmModalBackdrop = document.querySelector('.film-backdrop');
@@ -404,3 +407,5 @@ function chekButton(filmObj) {
     });
   }
 }
+
+// Notiflix.Notify.success('text', { checkInNotifikashka });
