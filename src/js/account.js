@@ -2,33 +2,44 @@ import { async } from '@firebase/util';
 import { ref } from 'firebase/database';
 import AccountManagment from './authentitificatiom';
 import { onEscBtn } from './film-modal/film-modal-render-card';
+import { refs } from './refs';
 
-const authentitification = new AccountManagment();
+export const authentitification = new AccountManagment();
 
 authentitification.auth();
 authentitification.database();
 authentitification.checkStatusAcc();
 
-const refs = {
-  openRegisterModal: document.querySelector('.openRegisterModalJs'),
-  signInButton: document.querySelector('.signInJs'),
-  signUpButton: document.querySelector('.signUpJs'),
-  hiddenSignUp: document.querySelectorAll('.hiddenSignUp'),
-  hiddenSignIn: document.querySelectorAll('.hiddenSignIn'),
-  backdropForm: document.querySelector('.backdrop_form'),
+// export const read = async () => {
+//   try {
+//     const readObj = await authentitification.readData();
+//     // const read = await readObj.getThisObj();
+//     console.log(authentitification.state.obj);
+//     return readObj;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// read();
 
-  formSign: document.querySelector('.formSignJs'),
-  profile: document.querySelector('.profile_menu'),
-  signOut: document.querySelector('.logOutJs'),
-  removeAccount: document.querySelector('.removeAccountJs'),
-};
+// const refs = {
+//   openRegisterModal: document.querySelector('.openRegisterModalJs'),
+//   signInButton: document.querySelector('.signInJs'),
+//   signUpButton: document.querySelector('.signUpJs'),
+//   hiddenSignUp: document.querySelectorAll('.hiddenSignUp'),
+//   hiddenSignIn: document.querySelectorAll('.hiddenSignIn'),
+//   backdropForm: document.querySelector('.backdrop_form'),
+
+//   formSign: document.querySelector('.formSignJs'),
+//   profile: document.querySelector('.profile_menu'),
+//   signOut: document.querySelector('.logOutJs'),
+//   removeAccount: document.querySelector('.removeAccountJs'),
+// };
 
 refs.openRegisterModal.addEventListener(
   'click',
   onOpenRegisterModalButtonClick
 );
-
-console.log(refs.openRegisterModal)
 
 refs.signUpButton.addEventListener('click', onSignUpButtonClick);
 refs.signInButton.addEventListener('click', onSignInButtonClick);
@@ -40,13 +51,12 @@ refs.formSign.addEventListener('submit', onFormSignSubmit);
 
 function onOpenRegisterModalButtonClick(e) {
   e.preventDefault();
-  
+
   window.addEventListener('keydown', onEscBtn);
   document.body.classList.add('modal-open');
-  
-  refs.formSign.classList.remove('visually-hidden');
-  refs.backdropForm.classList.remove('is-hidden')
 
+  refs.formSign.classList.remove('visually-hidden');
+  refs.backdropForm.classList.remove('is-hidden');
 }
 
 function onSignUpButtonClick(e) {
@@ -70,7 +80,7 @@ function onSignOutClick(e) {
   refs.openRegisterModal.classList.remove('visually-hidden');
 
   authentitification.logOut();
-  authentitification.userOnline(false);
+  // authentitification.userOnline(false);
 
   // authentitification.writeToDataBase();
 }
@@ -82,9 +92,6 @@ function onRemoveClick(e) {
     try {
       const removeUser = await authentitification.deleteAccount();
       refs.profile.classList.add('visually-hidden');
-      authentitification.userHasAccount(false);
-      authentitification.userOnline(false);
-      // authentitification.writeToDataBase();
       return removeUser;
     } catch (error) {
       console.log(error.code);
@@ -119,9 +126,6 @@ async function signUp() {
     const createAcc = await authentitification.createUser();
 
     authentitification.state.user = createAcc.user;
-    authentitification.userOnline(true);
-    authentitification.userHasAccount(true);
-    // writeToDataBase();
 
     refs.profile.classList.remove('visually-hidden');
     refs.formSign.classList.add('visually-hidden');
@@ -138,8 +142,6 @@ async function signIn() {
     const loginUser = await authentitification.loginWithEmailAndPassword();
 
     authentitification.state.user = loginUser.user;
-    authentitification.userOnline(true);
-    authentitification.userHasAccount(true);
     // authentitification.writeToDataBase();
 
     refs.profile.classList.remove('visually-hidden');
@@ -157,9 +159,6 @@ async function googleLogin() {
     const signWithGoogle = await authentitification.loginWithGoogle();
 
     authentitification.state.user = signWithGoogle.user;
-    authentitification.userOnline(true);
-    authentitification.userHasAccount(true);
-    // authentitification.writeToDataBase();
 
     refs.profile.classList.remove('visually-hidden');
     refs.formSign.classList.add('visually-hidden');
