@@ -6,6 +6,7 @@ import {
 } from '../watchQueueBtns';
 import { refs } from '../refs';
 import LocalStorage from '../localStorage';
+import { GENRES } from '../fetch-genres';
 import { authentitification } from '../account';
 
 export const localStorage = new LocalStorage();
@@ -315,8 +316,15 @@ function createFilmModalCardMarkup(arr) {
         popularity,
         overview,
         genre_ids,
-      }) =>
-        `
+      }) => {
+        let genresList = genre_ids.map(
+          genreId => GENRES.find(item => item.id === genreId).name
+        );
+        genresList.length === 0
+          ? genresList.push('unknown genre')
+          : genresList.join(', ');
+
+        return `
             <div class="modal-card__poster">
                 <img class="modal-card__poster--img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" loading="lazy"/>
             </div>
@@ -351,7 +359,7 @@ function createFilmModalCardMarkup(arr) {
                     <tbody>
                         <tr>
                             <td class="modal-card__info-name">Genre</td>
-                            <td class="modal-card__info-value modal-card__info-value--lh"> ${genre_ids} </td>
+                            <td class="modal-card__info-value modal-card__info-value--lh"> ${genresList} </td>
                         </tr>
                     </tbody>
                 </table>
@@ -360,7 +368,8 @@ function createFilmModalCardMarkup(arr) {
                 <p class="modal-card__desc-text">
                     ${overview}
                 </p>
-            `
+            `;
+      }
     )
     .join('');
 

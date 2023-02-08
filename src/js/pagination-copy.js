@@ -43,21 +43,17 @@ function createAPagination(data) {
 
       if (!moviesApiService.searchQuery) {
         moviesApiService.setPage(page);
-        moviesApiService.fetchGenres().then(genres => {
-          moviesApiService.fetchTrendingMovies().then(data => {
-            console.log(data, genres);
-            renderMoviesCard(data.results, genres);
-          });
+        moviesApiService.fetchTrendingMovies().then(data => {
+          console.log(data);
+          renderMoviesCard(data.results);
         });
         return
       }
       
         moviesApiService.setPage(page);
-        moviesApiService.fetchGenres().then(genres => {
-          moviesApiService.fetchMoviesByName().then(data => {
-            console.log(data, genres);
-            renderMoviesCard(data.results, genres);
-          });
+        moviesApiService.fetchMoviesByName().then(data => {
+          console.log(data);
+          renderMoviesCard(data.results);
         });
     
       

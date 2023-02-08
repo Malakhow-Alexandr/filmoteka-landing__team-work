@@ -1,33 +1,12 @@
 import axios from 'axios';
 
-const API_URL = 'https://api.themoviedb.org/3/';
-const API_USER_KEY = 'ea73d929c285b7e8f7948351eebc9766';
+export const API_URL = 'https://api.themoviedb.org/3/';
+export const API_USER_KEY = 'ea73d929c285b7e8f7948351eebc9766';
 
 export default class MoviesApiService {
-  static GenresList = null;
-
   constructor() {
     this.searchQuery = '';
     this.page = 1;
-  }
-
-  // функція для відображення жанрів
-  async fetchGenres() {
-    if (MoviesApiService.GenresList) {
-      return MoviesApiService.GenresList;
-    } else {
-      try {
-        const url = `${API_URL}genre/movie/list?api_key=${API_USER_KEY}`;
-        const response = await axios.get(url);
-
-        MoviesApiService.GenresList = response.data.genres;
-
-        return MoviesApiService.GenresList;
-      } catch (error) {
-        // Error handling
-        console.log(error);
-      }
-    }
   }
 
   // Get movie array by searching word

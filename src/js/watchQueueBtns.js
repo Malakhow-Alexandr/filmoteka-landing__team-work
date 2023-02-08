@@ -1,6 +1,7 @@
 import { renderMoviesCard } from './renderMoviesGallery';
 import { refs } from './refs';
 import FilmIndex from './film-index';
+import { GENRES } from './fetch-genres';
 import { authentitification } from './account';
 import { read } from './account';
 
@@ -94,6 +95,13 @@ export function createLibralyWatchedMarkup(arr) {
         { id, title, poster_path, genre_ids, release_date, vote_average },
         index
       ) => {
+        let genresList = genre_ids.map(
+          genreId => GENRES.find(item => item.id === genreId).name
+        );
+        genresList.length === 0
+          ? genresList.push('unknown genre')
+          : genresList.join(', ');
+        
         const releasedDate = release_date.slice(0, 4) || '';
         const poster =
           poster_path === null
@@ -114,7 +122,7 @@ export function createLibralyWatchedMarkup(arr) {
             <div class="movie-card__info">
               <h2 class="movie-card__title">${title}</h2>
               <p class="movie-card__text">
-                ${genre_ids}  |  ${releasedDate}
+                ${genresList}  |  ${releasedDate}
                 <span class="movie-card__rating">${movieRating}</span>
               </p>
             </div>
@@ -135,6 +143,13 @@ export function createLibralyQueueMarkup(arr) {
         { id, title, poster_path, genre_ids, release_date, vote_average },
         index
       ) => {
+        let genresList = genre_ids.map(
+          genreId => GENRES.find(item => item.id === genreId).name
+        );
+        genresList.length === 0
+          ? genresList.push('unknown genre')
+          : genresList.join(', ');
+        
         const releasedDate = release_date.slice(0, 4) || '';
         const poster =
           poster_path === null
@@ -155,7 +170,7 @@ export function createLibralyQueueMarkup(arr) {
             <div class="movie-card__info">
               <h2 class="movie-card__title">${title}</h2>
               <p class="movie-card__text">
-                ${genre_ids}  |  ${releasedDate}
+                ${genresList}  |  ${releasedDate}
                 <span class="movie-card__rating">${movieRating}</span>
               </p>
             </div>
