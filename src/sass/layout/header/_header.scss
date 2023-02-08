@@ -44,17 +44,32 @@ header {
     }
   }
   }
-  
+
+.is-active{
+  @extend %color-button;
+  }
   
   .navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    &_list-item{
+      font-size: 14px;}
+    &_list-item:hover, &_list-item:focus {
+      transform: scale(1.1);
+    }
+  &_list-item button{
+    font-weight: 500;
+    font-size: 14px;
+  }
   }
   .checkIn {
   cursor: pointer;
-   @extend %color-button;
+   @extend %transparent-button;
+   &:hover,&:focus{
+    @extend %color-button;
+   }
    @media screen and (min-width:320px){
 height: 50;
 
@@ -100,12 +115,17 @@ animation: flipInY;
   .header-form{
     display: block;
     display: flex;
+    justify-content: center;
     align-items: baseline;
   }
   .profile_menu-child{
-    background-color: $accent-color;
+@extend %color-button;
     border-radius: 5;
     height: 50px;
+    color:$secondary-text-color;
+    &:hover, &:focus{
+      @extend %transparent-button
+    }
   }
   .header-form__input {
     width: 100%;
@@ -153,87 +173,72 @@ animation: flipInY;
 //   header library
 
 .header-lib {
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 40px;
-    padding-bottom: 62px;
-  
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-color: #000000;
-  
-    @media screen and (max-width: 320px)
-    {background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(../images/header-lib/header-lib-bg-img@1x_s.jpg);
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
-        url(../images/header-lib/header-lib-bg-img@2x_s.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 100%;
+  margin: 0 auto;
+  height: 250px; 
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url('../images/header-lib/library_bg_img_desktop_1x-min.jpg');
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/header-lib/library_bg_img_mobile_2x-min.jpg');
+  }
+  @media (min-device-pixel-ratio: 3), (min-resolution: 384dpi), (min-resolution: 3dppx) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/header-lib/library_bg_img_mobile_3x-min.jpg');
+  }
+  @media screen and (min-width: 768px) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/header-lib/library_bg_img_tablet_1x-min.jpg');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/header-lib/library_bg_img_tablet_2x-min.jpg');
+    }
+    @media (min-device-pixel-ratio: 3), (min-resolution: 384dpi), (min-resolution: 3dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/header-lib/library_bg_img_tablet_3x-min.jpg');
     }
   }
-    @media screen and (min-width: 321px) and (max-width: 768px) {
-      padding-top: 40px;
-      padding-bottom: 60px;
-  
-      background-image: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
-        url(../images/header-lib/header-lib-bg-img@1x_m.jpg);
-      @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.56),
-            rgba(0, 0, 0, 0.56)
-          ),
-          url(../images/header-lib/header-lib-bg-img@2x_m.jpg);
-      }
+  @media screen and (min-width: 1024px) {
+    max-width: 1600px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/header-lib/library_bg_img_desktop_1x-min.jpg');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/header-lib/library_bg_img_desktop_2x-min.jpg');
     }
-  
-    @media screen and (min-width: 769px) {
-      background-image: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
-        url(../images/header-lib/header-lib-bg-img@1x_l.jpg);
-      @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.56),
-            rgba(0, 0, 0, 0.56)
-          ),
-          url(../images/header-lib/header-lib-bg-img@2x_l.jpg);
-      }
+    @media (min-device-pixel-ratio: 3), (min-resolution: 384dpi), (min-resolution: 3dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/header-lib/library_bg_img_desktop_3x-min.jpg');
     }
+  }
   }
   
   .header-lib__menu {
-    margin-bottom: 60px;
-  
+    justify-content: center;
     display: flex;
     align-items: center;
+  } 
+ 
+  .lib__btns{
+    display: flex;
+    column-gap:40 px;
   
-    @media screen and (min-width: 768px) {
-      margin-bottom: 40px;
-    }
-  }
-  
+  & .header-lib_btn{
+    margin-left: 40px;
+    & button{
+      @extend %transparent-button;
+      cursor: pointer;
+      &:hover,&:focus{
+    @extend %color-button}}
+  }}
+
+ 
+.current{
+  transform: scale(1.1);
+  text-decoration: 2px underline solid $accent-color;
+}
   .logo {
     margin-right: auto;
   
@@ -289,7 +294,6 @@ animation: flipInY;
       column-gap: 39px;
     }
   }
-  
   .navigation_list-item-link {
     display: block;
   
@@ -387,6 +391,13 @@ animation: flipInY;
       width: calc((100% - 2 * 16px) / 3);
     }
   }
+  
+ .library{
+  background-color: transparent;
+  border: 0;
+  color: $secondary-text-color;
+  cursor: pointer;
+ }
   
 .hide{
   display: none;
