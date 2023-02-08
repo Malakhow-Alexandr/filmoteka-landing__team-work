@@ -9,9 +9,10 @@ export const refs = {
   paginationRightDots: document.querySelector('.js-right-dots'),
   paginationLeftDots: document.querySelector('.js-left-dots'),
   filmsEl: document.querySelector('.films'),
-  btnTrailer: document.querySelector('.btn-trailer'),
-  trailerBox: document.querySelector('.trailer-box'),
-  backdrop: document.querySelector('.js-backdrop'),
+  trailerBtn: document.querySelector('.trailer__btn'),
+  trailerBox: document.querySelector('.trailer__box'),
+  trailerBackdrop: document.querySelector('.trailer__backdrop'),
+  trailerBtnClose: document.querySelector('.trailer__btn-close'),
   headerForm: document.querySelector('.header-form__search'),
   addRemoveWatchedQueueBtn: document.querySelector(
     '.add-remove-watched-queue-js'
@@ -22,6 +23,19 @@ export const refs = {
   addQueue: document.querySelector('.add-queue-js'),
   removeWatchedBtn: document.querySelector('.remove-watched-js'),
   removeQueue: document.querySelector('.remove-queue-js'),
+  btnWatchedQueue: document.querySelector('.btn-watched-queue'),
   btnWatched: document.querySelector('.js-btnWatched'),
   btnQueue: document.querySelector('.js-btnQueue'),
+  openRegisterModal: document.querySelector('.openRegisterModalJs'),
+  signInButton: document.querySelector('.signInJs'),
+  signUpButton: document.querySelector('.signUpJs'),
+  hiddenSignUp: document.querySelectorAll('.hiddenSignUp'),
+  hiddenSignIn: document.querySelectorAll('.hiddenSignIn'),
+  backdropForm: document.querySelector('.backdrop_form'),
+
+  formSign: document.querySelector('.formSignJs'),
+  profile: document.querySelector('.profile_menu'),
+  signOut: document.querySelector('.logOutJs'),
+  removeAccount: document.querySelector('.removeAccountJs'),
+  myLibrary: document.querySelector('.library-js'),
 };

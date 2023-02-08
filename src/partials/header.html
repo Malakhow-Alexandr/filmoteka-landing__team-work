@@ -1,5 +1,5 @@
 <header>
-  <div class="container header header-bg ">
+  <div class="container header-bg">
     <div class="navigation">
       <div class="wrapper-logo animate__animated animate__flipInY">
         <a href="./" class="navigation_logo logo" id="navigation-logo">
@@ -12,42 +12,58 @@
 
       <ul class="navigation_list">
         <li class="navigation_list-item">
-          <a href="./" class="navigation_list-item-link home"
+          <a href="#" class="navigation_list-item-link home"
             >HOME</a
           >
         </li>
-        <li
-        class="navigation_list-item js-btnWatched navigation_list-item-link library myLibrary"
-      >
-        MY LIBRARY
-      </li>
+        <li class="navigation_list-item navigation_list-item-link library-js">
+          MY LIBRARY
+        </li>
       </ul>
 
-<div class="header_form">
-    <form class="header-form__search " autocomplete="off">
-      <input class="header-form__input" type="text" name="search" placeholder="Search film..." />
-      <button class="header-form__btn" type="submit" aria-label="Search">
-        <svg class="header-form__icon" width="12" height="12">
-          <use href="./images/sprite-svg.svg#icon-search-2"></use>
-        </svg>
-      </button>
-    </form>
-
-    <div class="header-lib__menu">
+      <div class="autorization">
+        <button
+          type="button"
+          class="header-movie_button checkIn openRegisterModalJs"
+        >
+          Check In
+        </button>
+        <ul class="profile_menu">
+          <li>
+            <button type="button" class="profile_menu-child logOutJs btn-exit">
+              Log Out
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="profile_menu-child removeAccountJs btn-delete"
+            >
+              Delete Account
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="header_form">
+      <div class="header-lib__menu ">
       <ul class="btn-watched-queue lib__btns visually-hidden">
-        <li class="header-lib_btn"><button class="js-btnWatched is-active">Watched</button></li>
+        <li ><button class="js-btnWatched is-active">Watched</button></li>
         <li class="header-lib_btn"><button class="js-btnQueue">Queue</button></li>
       </ul>
-      </div>
-  </div>
-    <div class="autorization">
-    <button type="button" class="header-movie_button checkIn openRegisterModalJs">Check In</button>
-      <ul class="profile_menu">
-        <li><button type="button" class="profile_menu-child logOutJs">Log Out</button></li>
-        <li><button type="button" class="profile_menu-child removeAccountJs">Delete Account</button></li>
-      </ul>
+      <form class="header-form__search" autocomplete="off">
+        <input
+          class="header-form__input"
+          type="text"
+          name="search"
+          placeholder="Search film..."
+        />
+        <button class="header-form__btn" type="submit" aria-label="Search">
+          <svg class="header-form__icon" width="12" height="12">
+            <use href="./images/sprite-svg.svg#icon-search-2"></use>
+          </svg>
+        </button>
+      </form>
     </div>
-  
-</div>
-
+  </div>
 </header>

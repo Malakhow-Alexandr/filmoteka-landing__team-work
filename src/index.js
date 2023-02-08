@@ -17,11 +17,7 @@ import './js/moviesApiService';
 import './js/entryPoint';
 
 // footer
-import './js/footer/footer-heart';
 import './js/footer/footer-modal';
-
-// pagination
-import './js/pagination';
 
 // scroll to top
 import './js/scrollToTop';
@@ -42,3 +38,4 @@ import './js/localStorage';
 
 import './js/watchQueueBtns';
 
+// test
