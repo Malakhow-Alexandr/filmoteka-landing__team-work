@@ -4,7 +4,6 @@ import searchNotificashka from './notifikashka';
 
 import { refs } from './refs';
 
-
 export const API_URL = 'https://api.themoviedb.org/3/';
 export const API_USER_KEY = 'ea73d929c285b7e8f7948351eebc9766';
 
@@ -28,7 +27,6 @@ export default class MoviesApiService {
     try {
       refs.spinner.classList.remove('is-hidden');
       const url = `${API_URL}trending/movie/week?api_key=${API_USER_KEY}&page=${this.page}`;
-      console.log(url);
       const response = await axios.get(url);
       return response.data;
     } catch (error) {

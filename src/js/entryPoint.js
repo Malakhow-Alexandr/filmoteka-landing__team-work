@@ -8,7 +8,6 @@ export async function loadTrendingMoviesOnHomePage() {
   try {
     const data = await moviesApiService.fetchTrendingMovies();
     moviesApiService.setPage(data.page);
-    console.log(moviesApiService.getPage());
     renderMoviesCard(data.results);
     createAPagination(data);
   } catch (error) {
