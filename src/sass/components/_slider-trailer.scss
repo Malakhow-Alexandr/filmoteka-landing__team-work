@@ -7,9 +7,9 @@
   padding-top: 20px;
   font-size: 13px;
 
-  // @media screen and (max-width: 1023px) {
-  //   display: none;
-  // }
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 }
 
 .glide__arrow {
