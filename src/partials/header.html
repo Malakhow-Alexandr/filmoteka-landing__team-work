@@ -12,7 +12,7 @@
 
       <ul class="navigation_list">
         <li class="navigation_list-item">
-          <a href="./" class="navigation_list-item-link home">HOME</a>
+          <a href="./" class="navigation_list-item-link current">HOME</a>
         </li>
         <li
           class="navigation_list-item navigation_list-item-link library-js"
@@ -45,43 +45,36 @@
             </svg>
           </button>
         </form>
-        <div class="autorization">
-          <button
-            type="button"
-            class="header-movie_button checkIn openRegisterModalJs hide"
-          >
-            Check In
-          </button>
+      </div>
+    </div>
 
-          <ul class="profile_menu hide">
-            <div class="profile_menu_div">
-              <li class="profile">Account</li>
-              <li>
-                <!-- <button
-                  type="button"
-                  class="profile_menu-child logOutJs btn-exit"
-                > -->
-                <a href="./" class="home profile_menu-child logOutJs btn-exit"
-                  >Log Out</a
-                >
-                <!-- </button> -->
-              </li>
-              <li>
-                <!-- <button
-                  type="button"
-                  class="profile_menu-child removeAccountJs btn-delete"
-                > -->
-                <a
-                  href="./"
-                  class="home profile_menu-child removeAccountJs btn-delete"
-                  >Delete Account</a
-                >
-                <!-- </button> -->
-              </li>
-            </div>
-          </ul>
+    <div class="autorization">
+      <button
+        type="button"
+        class="header-movie_button checkIn openRegisterModalJs hide"
+      >
+        Check In
+      </button>
+
+<!-- Випадаюче меню -->
+      <div class="dropdown toggle profile_menu hide">
+          <input class="dropdown-menu" id="t1" type="checkbox" checked>
+      <label  for="t1" class="profile">ACCOUNT</label>
+      <ul>   
+      <li class="profile_menu-child">
+            <a href="./" class="  logOutJs btn-exit"
+              >Log Out</a>
+          </li>
+          <li class="profile_menu-child">
+            <a href="./"
+              class="home profile_menu-child removeAccountJs btn-delete"
+              >Delete Account</a
+            >
+          </li>
+        </ul>
         </div>
       </div>
     </div>
+</div>
   </div>
 </header>

@@ -5,8 +5,7 @@ import debounce from 'lodash.debounce';
 // scrollToTopFunction
 import './js/scrollToTop';
 
-// header
-// import './js/header.js';
+
 import './js/movieSearch';
 
 // slider-trailer
@@ -41,3 +40,5 @@ import './js/watchQueueBtns';
 import './js/notifikashka';
 
 // test
+// header
+import './js/header.js';
