@@ -41,6 +41,8 @@ function onMyLibraryClick(e) {
   refs.headerContainer.classList.remove('header-bg');
   refs.headerContainer.classList.add('header-lib');
 
+  document.querySelector('.pagination-hide').classList.add('hide');
+
   const array = load('watched');
 
   if (!array || array.length === 0) {
@@ -97,7 +99,7 @@ function onBtnQueueClick() {
 
 export function clearLibrary() {
   refs.gallery.innerHTML = `
-  <li>
+  <li style="margin-left: auto; margin-right: auto;">
       <img 
       src='https://www.askideas.com/media/12/Add-Me-Please-Kitten-Face-Picture.jpg' 
       alt=''
