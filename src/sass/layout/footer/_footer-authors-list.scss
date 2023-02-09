@@ -29,7 +29,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 15px;
+  padding: 5px;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   backdrop-filter: blur(4px);
@@ -41,6 +41,12 @@
     transform: translateY(0);
   }
 }
+.authors-list__overlay-text {
+  color: $footer-bg-color;
+  font-family: $primary-font;
+  font-size: 13.5px;
+}
+
 .author-list__author-picture {
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
