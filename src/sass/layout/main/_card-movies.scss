@@ -36,10 +36,7 @@
   margin: 0 auto;
   border-radius: 5px;
   margin-bottom: 10px;
-  @media screen and (max-width: $mobile) {
-    height: 402px;
-    width: 280px;
-  }
+  width: 398px;
   @media screen and (min-width: $tablet) {
     height: 455px;
     width: 336px;
@@ -51,10 +48,14 @@
 }
 .movie-card__title,
 .movie-card__text {
+  margin-left: 30px;
   font-family: $primary-font;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.33;
+  @media screen and (min-width: $tablet) {
+    margin-left: 10px;
+  }
 }
 .movie-card__title {
   text-transform: uppercase;
@@ -69,8 +70,7 @@
 .movie-card__rating {
   position: absolute;
   top: 30;
-  left: 15;
-
+  left: 40;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,4 +84,8 @@
   color: $secondary-text-color;
   background-color: $accent-color;
   border-radius: 5px;
+  @media screen and (min-width: $tablet) {
+    top: 30;
+    left: 15;
+  }
 }
