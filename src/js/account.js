@@ -66,8 +66,6 @@ function onSignUpButtonClick(e) {
   refs.hiddenSignIn.forEach(el => el.classList.add('visually-hidden'));
 }
 
-//! РОЗБЕРИСЬ З ФОРМОЮ
-
 function onSignInButtonClick(e) {
   e.preventDefault();
 
@@ -133,7 +131,11 @@ async function signUp() {
     refs.profile.classList.remove('notAcces');
 
     refs.formSign.classList.add('visually-hidden');
-    refs.openRegisterModal.classList.add('visually-hidden');
+    refs.openRegisterModal.classList.add('hide');
+    refs.backdropForm.classList.add('is-hidden');
+    const body = document.querySelector('body');
+
+    body.classList.remove('modal-open');
 
     return createAcc;
   } catch (error) {
@@ -150,8 +152,13 @@ async function signIn() {
 
     refs.profile.classList.remove('hide');
     refs.profile.classList.remove('notAcces');
+
     refs.formSign.classList.add('visually-hidden');
-    refs.openRegisterModal.classList.add('visually-hidden');
+    refs.openRegisterModal.classList.add('hide');
+    refs.backdropForm.classList.add('is-hidden');
+    const body = document.querySelector('body');
+
+    body.classList.remove('modal-open');
 
     return loginUser;
   } catch (error) {
@@ -169,7 +176,11 @@ async function googleLogin() {
     refs.profile.classList.remove('notAcces');
 
     refs.formSign.classList.add('visually-hidden');
-    refs.openRegisterModal.classList.add('visually-hidden');
+    refs.openRegisterModal.classList.add('hide');
+    refs.backdropForm.classList.add('is-hidden');
+    const body = document.querySelector('body');
+
+    body.classList.remove('modal-open');
 
     return signWithGoogle;
   } catch (error) {
