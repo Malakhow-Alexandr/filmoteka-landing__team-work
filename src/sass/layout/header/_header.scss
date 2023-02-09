@@ -152,7 +152,12 @@ animation: flipInY;
   }
   .profile_menu_div{
     margin-left:335px;
-  }
+    @media screen and (min-width: $mobile){
+      margin-left:10px;
+    }
+      
+    }
+  
   // список профілю
  .profile-menu_btns{
    background-color: $accent-color;
