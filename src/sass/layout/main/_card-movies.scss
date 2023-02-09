@@ -1,7 +1,10 @@
 .gallery {
+  width: 280px;
+  margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 40px;
   @media screen and (min-width: $tablet) {
+    width: auto;
     padding-bottom: 50px;
     display: flex;
     column-gap: 30px;
@@ -22,11 +25,11 @@
     }
   }
   @media screen and (min-width: $tablet) {
-    flex-basis: calc((100% - 2 * 30px) / 2);
+    flex-basis: calc((100% - 1 * 30px) / 2);
   }
 
   @media screen and (min-width: $desktop) {
-    flex-basis: calc((100% - 3 * 30px) / 3);
+    flex-basis: calc((100% - 2 * 30px) / 3);
   }
 }
 
@@ -36,10 +39,11 @@
 }
 
 .movie-card__image-container img {
-  // margin: 0 auto;
+  margin: 0 auto;
   border-radius: 5px;
   margin-bottom: 10px;
-  width: 398px;
+  height: 398px;
+  width: 280px;
   @media screen and (min-width: $tablet) {
     height: 455px;
     width: 336px;
@@ -60,8 +64,8 @@
   }
 }
 .movie-card__title {
-  text-transform: uppercase;
   color: $primary-text-color;
+  text-transform: uppercase;
 }
 .movie-card__text {
   color: $accent-color;
@@ -71,8 +75,8 @@
 }
 .movie-card__rating {
   position: absolute;
-  top: 30;
-  left: 40;
+  top: 20;
+  left: 15;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,8 +90,8 @@
   color: $secondary-text-color;
   background-color: $accent-color;
   border-radius: 5px;
-  @media screen and (min-width: $tablet) {
-    top: 30;
-    left: 15;
-  }
+}
+
+.vertical-line {
+  color: $primary-text-color;
 }
