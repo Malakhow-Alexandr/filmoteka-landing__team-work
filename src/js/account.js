@@ -3,6 +3,8 @@ import { ref } from 'firebase/database';
 import AccountManagment from './authentitificatiom';
 import { onEscBtn } from './film-modal/film-modal-render-card';
 import { refs } from './refs';
+import { checkInNotifikashka } from './notifikashka';
+import Notiflix from 'notiflix';
 
 export const authentitification = new AccountManagment();
 
@@ -136,10 +138,16 @@ async function signUp() {
     const body = document.querySelector('body');
 
     body.classList.remove('modal-open');
+    Notiflix.Notify.info('Success Create Account', {
+      checkInNotifikashka,
+    });
 
     return createAcc;
   } catch (error) {
-    console.log(error);
+    Notiflix.Notify.warning('This email is already registered. Log in Please', {
+      checkInNotifikashka,
+    });
+    // console.log(error);
   }
 }
 
@@ -160,9 +168,16 @@ async function signIn() {
 
     body.classList.remove('modal-open');
 
+    Notiflix.Notify.info('Success Login', {
+      checkInNotifikashka,
+    });
+
     return loginUser;
   } catch (error) {
-    console.log(error);
+    Notiflix.Notify.failure('Wrong Email or Password', {
+      checkInNotifikashka,
+    });
+    // console.log(error);
   }
 }
 
@@ -182,8 +197,15 @@ async function googleLogin() {
 
     body.classList.remove('modal-open');
 
+    Notiflix.Notify.info('Success Login', {
+      checkInNotifikashka,
+    });
+
     return signWithGoogle;
   } catch (error) {
-    console.log(error);
+    Notiflix.Notify.failure('Somthing Wrong. Please try again', {
+      checkInNotifikashka,
+    });
+    // console.log(error);
   }
 }
