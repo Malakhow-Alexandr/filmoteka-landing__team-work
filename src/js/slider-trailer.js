@@ -1,6 +1,7 @@
 import Glide from '@glidejs/glide';
 import filmsCardSliderTpl from '../templates/card-films-slider.hbs';
-import trailer from './trailer.js';
+// import trailer from './trailer.js';
+
 
 const sliderContainer = document.querySelector('.js-slider-container');
 renderTrendy();
@@ -15,12 +16,12 @@ const glide = new Glide('.glide', {
 
 
   breakpoints: {
-    // 1024: {
-    //   perView: 5
-    // },
-    768: {
-      perView: 5
-    }
+    1279: {
+      perView: 4
+    },
+    // 768: {
+    //   perView: 4
+    // }
   }    
 });
 
@@ -41,6 +42,5 @@ function renderTrendy() {
 
 function renderSliderFilms(articles) {
   sliderContainer.innerHTML = filmsCardSliderTpl(articles);
-  trailer.onOpenTrailer(document.querySelectorAll('.btn-youtube-slider'));
+  // trailer.onOpenTrailer(document.querySelectorAll('.btn-youtube-slider'));
 }
-
