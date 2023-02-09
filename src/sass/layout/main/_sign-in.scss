@@ -1,55 +1,3 @@
-.form {
-  //   padding: 40px 41px;
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 50%;
-  //   width: 300px;
-
-  //   transform: translate(-50%, -50%);
-  //   transition-property: opacity, visibility;
-  //   background-color: #221f1c;
-  //   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-  //     0px 2px 1px rgba(0, 0, 0, 0.2);
-  //   border-radius: 4px;
-
-  //   @media screen and(min-width: 320px) {
-  //     width: 320px;
-  //   }
-
-  //   @media screen and(min-width: 480px) {
-  //     width: 400px;
-  //   }
-
-  //   @media screen and(min-width: 768px) {
-  //     width: 450px;
-  //   }
-
-  //   // @media screen and(min-width: 1280px) {
-  //   //   width: 550px;
-  //   //   height: 600px;
-  //   // }
-
-  padding: 40px 41px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  //   width: 300px;
-  height: 575px;
-  width: 430px;
-  background: linear-gradient(rgba(158, 90, 31, 0.75), rgba(14, 14, 14, 0.95)),
-    url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/clouds-cloudy-forest-mountain.jpg)
-      no-repeat center center;
-  background-size: cover;
-  margin-left: auto;
-  margin-right: auto;
-  border-top: solid 1px rgba(255, 112, 3, 0.5);
-  border-radius: 5px;
-  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  transition: all 0.5s ease;
-}
-
 .backdrop_form {
   z-index: 10000;
   position: fixed;
@@ -57,22 +5,54 @@
   left: 0;
   width: 100%;
   height: 100%;
-  //   background-color: #0003;
+
   transition-property: opacity, visibility;
   transition-duration: 250ms;
   transition-timing-function: var(--timing-function);
 
-  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(10, 10, 10, 0.8)),
-    url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/sky-clouds-cloudy-mountain.jpg)
-      no-repeat center center fixed;
-  background-size: cover;
+background: rgba(0, 0, 0, 0.7);
 
   &.is-hidden {
     opacity: -2;
     pointer-events: none;
     visibility: hidden;
   }
+    
+    
 }
+
+
+
+
+.form {
+  padding: 40px 41px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 575px;
+  width: 350px;
+  background: linear-gradient(rgba(82, 46, 23, 0.75), rgba(59, 34, 12, 0.95));
+   
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: solid 1px rgba(112, 70, 37, 0.5);
+  border-radius: 5px;
+  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.5s ease;
+
+     @media screen and(min-width: 480px) {
+       width: 400px;
+     }
+  
+     @media screen and(min-width: 768px) {
+       width: 450px;
+     }
+}
+
+
 
 .close__sign-in {
   position: absolute;
@@ -100,31 +80,27 @@
   margin-bottom: 20px;
   padding-bottom: 10px;
   color: #ffffff;
-  font-size: 25px;
+  font-size: 20px;
   text-decoration: none;
-  border-bottom: solid 2px $accent-color;
+  border-bottom: solid 2px #7f5842;
 }
 
 .form__input {
-  // width: 100%;
-  // padding: 15px 0px 15px 10px;
-  // border-radius: 5px;
-  // border: 1px solid #ff6b08;
-
   width: 100%;
   height: 35px;
   padding-left: 15px;
   border: none;
   border-radius: 20px;
   margin-bottom: 20px;
-  background: rgba(251, 249, 249, 0.2);
+  background: rgba(255, 253, 253, 0.2);
   color: #ffffff;
-  border: 1px solid white;
+  border: 2px solid #7f5842;
 }
 
 .form__input:hover,
 .form__input:focus {
   border: 1px solid white;
+  outline: none;
 }
 
 .form__field {
@@ -137,6 +113,7 @@
 .form__label {
   margin-bottom: 8px;
   color: #fff;
+  font-size: 15px;
 }
 
 .checkbox__link {
@@ -155,6 +132,8 @@
   justify-content: center;
   margin-bottom: 15px;
   color: #fff;
+  font-size: 15px;
+ font-weight: 500;
 }
 
 .create-acc__btn {
@@ -162,7 +141,7 @@
   align-items: center;
   display: flex;
   width: 100%;
-  height: 50px;
+  height: 40px;
   margin: auto auto 15px;
   cursor: pointer;
 
@@ -171,7 +150,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 1.3;
-  background-color: $accent-color;
+  background-color: #d16f28;
   color: #fff;
  
   border-radius: 20px;
@@ -193,7 +172,7 @@ border: 1px solid $accent-color;
       align-items: center;
       display: flex;
       width: 100%;
-      height: 50px;
+      height: 40px;
       margin: auto auto 15px;
       cursor: pointer;
     
@@ -202,7 +181,7 @@ border: 1px solid $accent-color;
       font-weight: 500;
       font-size: 20px;
       line-height: 1.3;
-      background-color: $accent-color;
+      background-color:#d16f28;
       color: #fff;
     
       border-radius: 20px;
@@ -226,7 +205,7 @@ border: 1px solid $accent-color;
     align-items: center;
     display: flex;
     width: 100%;
-    height: 50px;
+    height: 40px;
     margin: auto auto 15px;
     cursor: pointer;
   
@@ -235,7 +214,7 @@ border: 1px solid $accent-color;
     font-weight: 500;
     font-size: 20px;
     line-height: 1.3;
-    background-color: $accent-color;
+    background-color: #d16f28;
   
     border-radius: 20px;
     color: #fff;
@@ -258,7 +237,7 @@ border: 1px solid $accent-color;
       align-items: center;
       display: flex;
       width: 100%;
-      height: 50px;
+      height: 40px;
       margin: auto auto 15px;
       cursor: pointer;
     
@@ -267,13 +246,13 @@ border: 1px solid $accent-color;
       font-weight: 500;
       font-size: 15px;
       line-height: 1.3;
-      background-color: rgb(75, 120, 245);
+      background-color: rgb(109, 144, 242);
     
       border-radius: 20px;
       color: white;
     
     
-      border: 1px solid rgb(75, 120, 245);
+      border: 1px solid rgb(109, 144, 242);
       filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
       transition: transform 250ms ease;
     
@@ -284,8 +263,21 @@ border: 1px solid $accent-color;
       }
 }
 
+.entry-btn {
+  cursor: pointer;
+}
 
 
+.checkbox__link {
+  color: #ff6b08;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.checkbox {
+  flex-direction: row;
+  gap: 4px;
+}
 
 
 
@@ -349,9 +341,7 @@ border: 1px solid $accent-color;
 //   color: #fff;
 // }
 
-// .entry-btn {
-//   cursor: pointer;
-// }
+
 
 // .google__auth {
 //   font-family: $primary-font;
@@ -531,15 +521,7 @@ border: 1px solid $accent-color;
 // .form__label {
 //   margin-bottom: 8px;
 // }
-.checkbox__link {
-  color: #ff6b08;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.checkbox {
-  flex-direction: row;
-  gap: 4px;
-}
+
 // .login__btn {
 //   display: flex;
 //   justify-content: center;
@@ -557,14 +539,14 @@ border: 1px solid $accent-color;
 //     color: aliceblue;
 //   }
 // }
-.choice__login {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
-}
-.entry-btn {
-  cursor: pointer;
-}
+// .choice__login {
+//   display: flex;
+//   justify-content: center;
+//   margin-bottom: 15px;
+// }
+// .entry-btn {
+//   cursor: pointer;
+// }
 // .google__auth {
 //   width: 100%;
 //   height: 45px;
