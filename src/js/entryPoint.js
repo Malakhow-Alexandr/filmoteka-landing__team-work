@@ -12,6 +12,7 @@ export async function loadTrendingMoviesOnHomePage() {
     createAPagination(data);
   } catch (error) {
     console.log(error);
+    document.location.reload();
   }
 }
 
