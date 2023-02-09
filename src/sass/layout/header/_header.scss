@@ -8,6 +8,7 @@ header {
   background-position-y: 100%;
   margin: 0 auto;
   height: 250px; 
+  position: relative;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url('../images/header-main/main_bg_img_mobile_1x-min.jpg');
   @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
@@ -49,7 +50,118 @@ header {
   @extend %color-button;
   margin-left: 90;
   }
-  
+  // випадаюче меню
+  .autorization{
+    position: absolute;
+    right: 0;
+    bottom: 90;
+
+  }
+  .dropdown {
+    width: 130px;
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+  }
+  .dropdown.toggle > input {
+    display: none;
+  }
+   .dropdown.toggle > label {
+    border-radius: 2px;
+    box-shadow: 0 6px 5px -5px rgba(0,0,0,0.3);
+  }
+  .dropdown.toggle > label::after {
+    content: "";
+    float: right;
+    margin: 15px 15px 0 0;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid $accent-color;
+  }
+  .dropdown ul {
+    list-style-type: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    box-shadow: 0 6px 5px -5px rgba(0,0,0,0.3);
+    overflow: hidden;
+  }
+  .dropdown.toggle > label {
+    display: block;
+    padding: 0 0 0 10px;
+    text-decoration: none;
+    line-height: 40px;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: $secondary-text-color;
+    background-color: rgba(236, 126, 8, 0.2);
+  }
+  .dropdown li {
+    padding:0;
+    overflow: hidden;
+    transition: all 500ms;
+  }
+  .dropdown li:first-child a {
+    border-radius: 2px 2px 0 0;
+
+  }
+  .dropdown li:last-child a {
+    border-radius: 0 0 2px 2px;
+  }
+  .dropdown li:first-child a::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgba(236, 126, 8, 0.2);
+    margin: -10px 0 0 30px;
+  }
+  .dropdown li {
+    height: 0;
+    overflow: hidden;
+    transition: all 500ms;
+  }
+  .dropdown.hover li {
+    transition-delay: 300ms;
+  }
+  .dropdown li:first-child a {
+    border-radius: 2px 2px 0 0;
+  }
+  .dropdown li:last-child a {
+    border-radius: 0 0 2px 2px;
+  }
+  .dropdown li:first-child a::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #FFF;
+    margin: -10px 0 0 30px;
+  }
+  .dropdown.toggle > label:hover, .dropdown.toggle > input:checked ~ label {
+    background-color:rgba(236, 126, 8, 0.4);
+    color: $secondary-text-color;
+  }
+  .dropdown li:first-child a:hover::before {
+    border-bottom-color: rgba(236, 126, 8, 0.4);
+  }
+  .dropdown.toggle > input:checked ~ ul li {          
+    height: 30px;
+  }
+  .dropdown.toggle > input:checked ~ ul li:first-child {
+    padding-top: 15px;
+  }
+
   .navigation {
     display: flex;
     justify-content: space-between;
@@ -150,44 +262,32 @@ animation: flipInY;
     
   // }
   }
-  .profile_menu_div{
-    
-    @media screen and (min-width: $mobile){
-      margin-left:30px;
-    }
-    @media screen and (min-width: $tablet) {
-      margin-left: 50px;
-      
-    } @media screen and (min-width: $desktop){
-      margin-left:335px;
-    }
-  }
+  
   // список профілю
- .profile-menu_btns{
-   background-color: $accent-color;
-    position:absolute;
-    display: flex;
-    flex-direction: column;
-    width:69px;
-    & li{
-      display:none;
-    }
-  } 
-  .profile > button:focus .profile-menu_child, 
-  .profile > button:hover .profile-menu_child{
-    display: block;
-    background-color: $accent-color;
-  }
+//  .profile-menu_btns{
+//    background-color: $accent-color;
+//     position:absolute;
+//     display: flex;
+//     flex-direction: column;
+//     width:69px;
+//     & li{
+//       display:none;
+//     }
+//   } 
+  // .profile > button:focus .profile-menu_child, 
+  // .profile > button:hover .profile-menu_child{
+  //   display: block;
+  //   background-color: $accent-color;
+  // }
   
   .profile_menu-child{ 
     cursor: pointer;
 border: 0;
-background-color: transparent;
+background-color: rgb(255, 153, 0.1);
     color:$secondary-text-color;
     &:hover, &:focus{
       color:$primary-text-color;
       transform: scale(1.1);
-      background-color: $accent-color;
     }
   }
   .header-form__input {
@@ -279,7 +379,7 @@ background-color: transparent;
   }
   
   .header-lib__menu {
-    justify-content: flex-end;
+    justify-content: center;
     display: flex;
     align-items: center;
   } 
@@ -288,7 +388,7 @@ background-color: transparent;
     display: flex;
     column-gap:40 px;
     @media screen and (min-width:$mobile) {
-flex-direction: column;
+flex-direction:row;
     }
     @media screen and (min-width: $tablet){
       flex-direction: row;
