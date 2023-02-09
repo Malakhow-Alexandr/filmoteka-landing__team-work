@@ -1,26 +1,24 @@
-import { refs } from "./refs";
-import { moviesApiService } from "./entryPoint";
-import { renderMoviesCard } from "./renderMoviesGallery";
-import { createAPagination } from "./pagination-copy";
-
+import { refs } from './refs';
+import { moviesApiService } from './entryPoint';
+import { renderMoviesCard } from './renderMoviesGallery';
+import { createAPagination } from './pagination-copy';
 
 refs.headerForm.addEventListener('submit', onSearchFormSubmit);
 async function onSearchFormSubmit(e) {
-    e.preventDefault();
-    const searchInput = e.currentTarget.elements.search.value.trim();
-    moviesApiService.searchQuery = searchInput;
+  e.preventDefault();
+  const searchInput = e.currentTarget.elements.search.value.trim();
+  moviesApiService.searchQuery = searchInput;
 
-    moviesApiService.setPage(1);
+  moviesApiService.setPage(1);
 
-    if (searchInput !== '') {
-
-        try {
-            const data = await moviesApiService.fetchMoviesByName(searchInput);
-            renderMoviesCard(data.results);
-            createAPagination(data);
-        } catch (error) {
-            console.log(error)
-        }
+  if (searchInput !== '') {
+    try {
+      const data = await moviesApiService.fetchMoviesByName(searchInput);
+      renderMoviesCard(data.results);
+      createAPagination(data);
+    } catch (error) {
+      console.log(error);
     }
+  }
 }
-// 
+//

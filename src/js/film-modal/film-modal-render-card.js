@@ -11,8 +11,9 @@ import LocalStorage from '../localStorage';
 import { GENRES } from '../fetch-genres';
 import { authentitification } from '../account';
 import { onOpenTrailer } from '../trailer';
+import { clearLibrary } from '../watchQueueBtns';
 
-// import { checkInNotifikashka } from '../notifikashka';
+import { checkInNotifikashka } from '../notifikashka';
 import Notiflix from 'notiflix';
 
 export const localStorage = new LocalStorage();
@@ -45,6 +46,12 @@ function onAddWatchedBtnClick(e) {
       !refs.btnWatched.className.includes('isOpenWatched') &&
       !refs.btnQueue.className.includes('isOpenQueue')
     ) {
+      if (refs.profile.className.includes('notAcces')) {
+        return Notiflix.Notify.success('Login please, for use the library', {
+          checkInNotifikashka,
+        });
+      }
+
       filmIndex.newObject();
       array.unshift(filmIndex.object);
 
@@ -84,6 +91,12 @@ function onAddWatchedBtnClick(e) {
       !refs.btnWatched.className.includes('isOpenWatched') &&
       !refs.btnQueue.className.includes('isOpenQueue')
     ) {
+      if (refs.profile.className.includes('notAcces')) {
+        return Notiflix.Notify.success('Login please, for use the library', {
+          checkInNotifikashka,
+        });
+      }
+
       filmIndex.newObject();
       array.unshift(filmIndex.object);
 
@@ -160,6 +173,10 @@ function onAddWatchedBtnClick(e) {
 
       localStorage.save('watched', array);
 
+      if (array.length === 0) {
+        return clearLibrary();
+      }
+
       createLibralyWatchedMarkup(array);
     }
     refs.addWatchedBtn.classList.remove('visually-hidden');
@@ -212,6 +229,9 @@ function onAddWatchedBtnClick(e) {
       const remEl = arrays.splice(index, 1);
       filmIndexQueue.removeEl = remEl;
       localStorage.save('queue', arrays);
+      if (arrays.length === 0) {
+        return clearLibrary();
+      }
       createLibralyQueueMarkup(arrays);
     }
     refs.addQueue.classList.remove('visually-hidden');
@@ -240,7 +260,9 @@ function onFilmModalOpen(event) {
 
     refs.trailerBtn.setAttribute('data-id', `${filmCardObject.id}`);
 
-    chekButton(filmCardObject);
+    if (!refs.profile.className.includes('notAcces')) {
+      chekButton(filmCardObject);
+    }
   }
 
   if (refs.btnWatched.className.includes('isOpenWatched')) {
@@ -270,7 +292,7 @@ function onFilmModalOpen(event) {
 
     createFilmModalCardMarkup(filmArrQueue);
 
-    refs.btnTrailer.setAttribute('data-id', `${filmCardObjQueue.id}`);
+    refs.trailerBtn.setAttribute('data-id', `${filmCardObjQueue.id}`);
 
     chekButton(filmCardObjQueue);
   }

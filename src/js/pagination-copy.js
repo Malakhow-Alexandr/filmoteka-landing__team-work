@@ -47,16 +47,14 @@ function createAPagination(data) {
           console.log(data);
           renderMoviesCard(data.results);
         });
-        return
+        return;
       }
-      
-        moviesApiService.setPage(page);
-        moviesApiService.fetchMoviesByName().then(data => {
-          console.log(data);
-          renderMoviesCard(data.results);
-        });
-    
-      
+
+      moviesApiService.setPage(page);
+      moviesApiService.fetchMoviesByName().then(data => {
+        console.log(data);
+        renderMoviesCard(data.results);
+      });
     } catch (error) {
       console.log(error);
     }
@@ -64,4 +62,4 @@ function createAPagination(data) {
 }
 
 export { createAPagination };
-// 
+//
