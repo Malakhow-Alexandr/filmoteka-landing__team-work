@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Notiflix from 'notiflix';
 import { refs } from './refs';
 import MoviesApiService from './moviesApiService';
@@ -10,8 +9,6 @@ const youTubeTrailer = refs.trailerBox;
 export function onOpenTrailer(e) {
   let id = e.currentTarget.dataset.id;
 
-  //  window.addEventListener('keydown', onEscBtn);
-
   moviesApiService
     .getMovieVideos(id)
     .then(({ results }) => {
@@ -19,6 +16,11 @@ export function onOpenTrailer(e) {
       const youtubeSite = results.find(
         ({ site }) => site.toUpperCase() === SITE
       );
+
+      if (!youtubeSite) {
+        Notiflix.Notify.failure('No trailer found');
+      }
+
       const keyTrailer = youtubeSite.key;
 
       createMarkupTrailer(keyTrailer);
@@ -37,7 +39,7 @@ function createMarkupTrailer(keyTrailer) {
    allowfullscreen
    ></iframe>
   `;
-  refs.trailerBtnClose;
+
   youTubeTrailer.classList.remove('visually-hidden');
   refs.trailerBackdrop.classList.remove('is-hidden');
   youTubeTrailer.classList.add('active');
@@ -59,8 +61,8 @@ function onCloseTrailer() {
 function removeYouTubeTrailer() {
   youTubeTrailer.innerHTML = '';
   youTubeTrailer.classList.add('visually-hidden');
-  refs.trailerBackdrop.classList.add('is-hidden');
   youTubeTrailer.classList.remove('active');
+  refs.trailerBackdrop.classList.add('is-hidden');
   window.removeEventListener('keydown', onEscTrailer);
 }
 
@@ -68,14 +70,10 @@ function onEscTrailer(e) {
   console.log('ESC', e);
   const ESC_KEY_CODE = 'Escape';
   const active = youTubeTrailer.classList.contains('active');
-  console.log('active', active);
-  if (youTubeTrailer.classList.contains('active')) {
+
+  if (active) {
     if (e.code === ESC_KEY_CODE) {
       removeYouTubeTrailer();
-      return;
     }
-  }
-  if (e.code === ESC_KEY_CODE) {
-    removeYouTubeTrailer();
   }
 }
