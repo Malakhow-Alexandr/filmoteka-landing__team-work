@@ -1,6 +1,6 @@
-header {
+.header {
  background-color: #000001;
- 
+ position: relative;
 }
 .header-bg {
   background-size: cover;
@@ -8,7 +8,7 @@ header {
   background-position-y: 100%;
   margin: 0 auto;
   height: 250px; 
-  position: relative;
+  
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url('../images/header-main/main_bg_img_mobile_1x-min.jpg');
   @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
@@ -45,17 +45,21 @@ header {
     }
   }
   }
-
+  .header-btn-watched{
+margin-right: 90px;
+  }
 .is-active{
   @extend %color-button;
-  margin-left: 90;
+  // margin-left: 90;
   }
   // випадаюче меню
   .autorization{
     position: absolute;
     right: 0;
-    bottom: 90;
-
+    bottom: 40;
+@media screen and (min-width: $tablet) {
+  bottom: 90;
+}
   }
   .dropdown {
     width: 130px;
@@ -101,7 +105,8 @@ header {
     background-color: rgba(236, 126, 8, 0.2);
   }
   .dropdown li {
-    padding:0;
+   line-height:2;
+   padding: 0 4;
     overflow: hidden;
     transition: all 500ms;
   }
@@ -156,7 +161,7 @@ header {
     border-bottom-color: rgba(236, 126, 8, 0.4);
   }
   .dropdown.toggle > input:checked ~ ul li {          
-    height: 30px;
+    height: 40px;
   }
   .dropdown.toggle > input:checked ~ ul li:first-child {
     padding-top: 15px;
