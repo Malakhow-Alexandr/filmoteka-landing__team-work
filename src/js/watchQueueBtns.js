@@ -42,6 +42,8 @@ function onMyLibraryClick(e) {
   refs.headerContainer.classList.add('header-lib');
 
   document.querySelector('.pagination-hide').classList.add('hide');
+  document.querySelector('.home-current').classList.remove('current');
+  refs.myLibrary.classList.add('current');
 
   const array = load('watched');
 
