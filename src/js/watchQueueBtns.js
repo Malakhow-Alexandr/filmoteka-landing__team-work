@@ -4,6 +4,8 @@ import FilmIndex from './film-index';
 import { GENRES } from './fetch-genres';
 import { authentitification } from './account';
 import { read } from './account';
+import { checkInNotifikashka } from './notifikashka';
+import Notiflix from 'notiflix';
 
 export const filmIndexWatched = new FilmIndex();
 export const filmIndexQueue = new FilmIndex();
@@ -22,12 +24,22 @@ const load = key => {
 };
 
 function onMyLibraryClick(e) {
+  if (refs.profile.className.includes('notAcces')) {
+    return Notiflix.Notify.success('Login please, for use the library', {
+      checkInNotifikashka,
+    });
+  }
+
   if (!refs.btnWatched.className.includes('isOpenWatched')) {
     refs.btnWatched.classList.add('isOpenWatched');
   }
   refs.btnQueue.classList.remove('isOpenQueue');
-  refs.headerForm.classList.add('visually-hidden');
-  refs.btnWatchedQueue.classList.remove('visually-hidden');
+  refs.headerForm.classList.add('hide');
+  refs.btnWatchedQueue.classList.remove('hide');
+  refs.headerQueueAcive.classList.add('header-lib_btn');
+
+  refs.headerContainer.classList.remove('header-bg');
+  refs.headerContainer.classList.add('header-lib');
 
   const array = load('watched');
 
@@ -41,6 +53,9 @@ function onMyLibraryClick(e) {
 function onBtnWatchedClick() {
   refs.btnWatched.classList.add('isOpenWatched');
   refs.btnQueue.classList.remove('isOpenQueue');
+
+  refs.headerWatchedAcive.classList.remove('header-lib_btn');
+  refs.headerQueueAcive.classList.add('header-lib_btn');
 
   // read();
   // const read = async () => {
@@ -68,6 +83,9 @@ function onBtnQueueClick() {
   refs.btnQueue.classList.add('isOpenQueue');
   refs.btnWatched.classList.remove('isOpenWatched');
 
+  refs.headerWatchedAcive.classList.add('header-lib_btn');
+  refs.headerQueueAcive.classList.remove('header-lib_btn');
+
   const array = load('queue');
 
   if (!array || array.length === 0) {
@@ -77,10 +95,12 @@ function onBtnQueueClick() {
   }
 }
 
-function clearLibrary() {
+export function clearLibrary() {
   refs.gallery.innerHTML = `
   <li>
-      <p> There are no films!</p>
+      <img 
+      src='https://www.askideas.com/media/12/Add-Me-Please-Kitten-Face-Picture.jpg' 
+      alt=''
   </li>
   `;
 }
@@ -101,7 +121,7 @@ export function createLibralyWatchedMarkup(arr) {
         genresList.length === 0
           ? genresList.push('unknown genre')
           : genresList.join(', ');
-        
+
         const releasedDate = release_date.slice(0, 4) || '';
         const poster =
           poster_path === null
@@ -149,7 +169,7 @@ export function createLibralyQueueMarkup(arr) {
         genresList.length === 0
           ? genresList.push('unknown genre')
           : genresList.join(', ');
-        
+
         const releasedDate = release_date.slice(0, 4) || '';
         const poster =
           poster_path === null

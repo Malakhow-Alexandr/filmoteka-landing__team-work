@@ -40,4 +40,7 @@ export const refs = {
   myLibrary: document.querySelector('.library-js'),
   scrollToTop: document.querySelector('.isShownBtn_hide'),
   spinner: document.querySelector('.spinner'),
+  headerWatchedAcive: document.querySelector('.header-btn-watched'),
+  headerQueueAcive: document.querySelector('.header-btn-queue'),
+  headerContainer: document.querySelector('.container'),
 };

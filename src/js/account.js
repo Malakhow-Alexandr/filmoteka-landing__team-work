@@ -66,6 +66,8 @@ function onSignUpButtonClick(e) {
   refs.hiddenSignIn.forEach(el => el.classList.add('visually-hidden'));
 }
 
+//! РОЗБЕРИСЬ З ФОРМОЮ
+
 function onSignInButtonClick(e) {
   e.preventDefault();
 
@@ -91,7 +93,7 @@ function onRemoveClick(e) {
   const removeAccount = async () => {
     try {
       const removeUser = await authentitification.deleteAccount();
-      refs.profile.classList.add('visually-hidden');
+      refs.profile.classList.add('hide');
       return removeUser;
     } catch (error) {
       console.log(error.code);
@@ -127,7 +129,9 @@ async function signUp() {
 
     authentitification.state.user = createAcc.user;
 
-    refs.profile.classList.remove('visually-hidden');
+    refs.profile.classList.remove('hide');
+    refs.profile.classList.remove('notAcces');
+
     refs.formSign.classList.add('visually-hidden');
     refs.openRegisterModal.classList.add('visually-hidden');
 
@@ -144,7 +148,8 @@ async function signIn() {
     authentitification.state.user = loginUser.user;
     // authentitification.writeToDataBase();
 
-    refs.profile.classList.remove('visually-hidden');
+    refs.profile.classList.remove('hide');
+    refs.profile.classList.remove('notAcces');
     refs.formSign.classList.add('visually-hidden');
     refs.openRegisterModal.classList.add('visually-hidden');
 
@@ -160,7 +165,9 @@ async function googleLogin() {
 
     authentitification.state.user = signWithGoogle.user;
 
-    refs.profile.classList.remove('visually-hidden');
+    refs.profile.classList.remove('hide');
+    refs.profile.classList.remove('notAcces');
+
     refs.formSign.classList.add('visually-hidden');
     refs.openRegisterModal.classList.add('visually-hidden');
 

@@ -131,18 +131,22 @@ export default class AccountManagment {
     const refs = {
       profile: document.querySelector('.profile_menu'),
       checkInButton: document.querySelector('.openRegisterModalJs'),
+      auth: document.querySelector('autorization'),
     };
     return onAuthStateChanged(authe, user => {
       if (user) {
-        if (!refs.checkInButton.classList.value.includes('visually-hidden')) {
-          refs.checkInButton.classList.add('visually-hidden');
-        }
-        refs.profile.classList.remove('visually-hidden');
+        // if (!refs.checkInButton.classList.value.includes('visually-hidden')) {
+        //   refs.checkInButton.classList.add('visually-hidden');
+        // }
+        refs.profile.classList.remove('hide');
+
         this.state.email = user.email;
         this.state.user = user;
       } else {
-        refs.profile.classList.add('visually-hidden');
-        refs.checkInButton.classList.remove('visually-hidden');
+        refs.checkInButton.classList.remove('hide');
+        refs.profile.classList.add('notAcces');
+
+        // refs.header.classList.add('notAccess');
       }
     });
   }
