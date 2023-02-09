@@ -14,14 +14,15 @@
         <li class="navigation_list-item">
           <a href="./" class="navigation_list-item-link home">HOME</a>
         </li>
-        <li class="navigation_list-item navigation_list-item-link library-js" style="cursor: pointer">
+        <li
+          class="navigation_list-item navigation_list-item-link library-js"
+          style="cursor: pointer"
+        >
           MY LIBRARY
         </li>
       </ul>
-
-    
-   
-  </div><div class="header_form">
+    </div>
+    <div class="header_form">
       <div class="header-lib__menu">
         <ul class="btn-watched-queue lib__btns hide">
           <li class="header-btn-watched">
@@ -53,26 +54,34 @@
           </button>
 
           <ul class="profile_menu hide">
-            <div class="profile_menu_div"><li class="profile">Account</li>
-            <li>
-              <button type="button" class="profile_menu-child logOutJs btn-exit">
-                <a href="./" class=" home">Log Out</a>
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                class="profile_menu-child removeAccountJs btn-delete"
-              >
-                <a href="./" class=" home"
+            <div class="profile_menu_div">
+              <li class="profile">Account</li>
+              <li>
+                <!-- <button
+                  type="button"
+                  class="profile_menu-child logOutJs btn-exit"
+                > -->
+                <a href="./" class="home profile_menu-child logOutJs btn-exit"
+                  >Log Out</a
+                >
+                <!-- </button> -->
+              </li>
+              <li>
+                <!-- <button
+                  type="button"
+                  class="profile_menu-child removeAccountJs btn-delete"
+                > -->
+                <a
+                  href="./"
+                  class="home profile_menu-child removeAccountJs btn-delete"
                   >Delete Account</a
                 >
-              </button>
-            </li>
+                <!-- </button> -->
+              </li>
+            </div>
           </ul>
         </div>
-        </div>
-      </div>
       </div>
     </div>
+  </div>
 </header>

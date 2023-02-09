@@ -31,7 +31,6 @@ export const refs = {
   signUpButton: document.querySelector('.signUpJs'),
   hiddenSignUp: document.querySelectorAll('.hiddenSignUp'),
   hiddenSignIn: document.querySelectorAll('.hiddenSignIn'),
-  backdropForm: document.querySelector('.backdrop_form'),
 
   formSign: document.querySelector('.formSignJs'),
   profile: document.querySelector('.profile_menu'),
