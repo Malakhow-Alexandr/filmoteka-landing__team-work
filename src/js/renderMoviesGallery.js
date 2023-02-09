@@ -15,10 +15,6 @@ export function renderMoviesCard(movies) {
         // array id of genres transform to array of genres
     let genresList = genre_ids.map(genreId => GENRES.find(item => item.id === genreId).name);
     genresList.length === 0 ? genresList.push('unknown genre') : genresList;
-        
-        genresList.length === 0
-          ? genresList.push('unknown genre')
-          : genresList.join(', ');
 
     const releasedDate = release_date === undefined ? 'No release date provided' : release_date.slice(0, 4);
 
@@ -37,7 +33,7 @@ export function renderMoviesCard(movies) {
             <div class="movie-card__info">
               <h2 class="movie-card__title">${title}</h2>
               <p class="movie-card__text">
-                ${genresList}  |  ${releasedDate}
+                ${genresList.join(', ')}  <span class='vertical-line'>|</span>  ${releasedDate}
                 <span class="movie-card__rating">${movieRating}</span>
               </p>
             </div>
