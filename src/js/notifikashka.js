@@ -5,7 +5,7 @@ export const checkInNotifikashka = Notiflix.Notify.init({
   fontSize: '14px',
   messageMaxLength: 400,
   width: '180px',
-
+  // distance: '100px',
   opacity: 1,
   cssAnimationStyle: 'from-top',
   useIcon: false,
@@ -17,7 +17,7 @@ export const checkInNotifikashka = Notiflix.Notify.init({
   },
 
   failure: {
-    background: '#FF6B02',
+    background: '#e20202',
     textColor: '#fff',
   },
   // ...
@@ -33,7 +33,7 @@ const body = document.querySelector('body');
 
 export default function searchNotificashka(result) {
   const murkup = `<div class="notif-container">
-  <p class="notif-text">За вашим запитом знайдено ${result} результатів</p>
+  <p class="notif-text">We found ${result} movies for you</p>
   </div>`;
   body.insertAdjacentHTML('beforeend', murkup);
   const container = document.querySelector('.notif-container');
