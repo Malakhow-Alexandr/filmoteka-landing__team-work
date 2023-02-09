@@ -151,13 +151,17 @@ animation: flipInY;
   // }
   }
   .profile_menu_div{
-    margin-left:335px;
+    
     @media screen and (min-width: $mobile){
-      margin-left:10px;
+      margin-left:30px;
     }
+    @media screen and (min-width: $tablet) {
+      margin-left: 50px;
       
+    } @media screen and (min-width: $desktop){
+      margin-left:335px;
     }
-  
+  }
   // список профілю
  .profile-menu_btns{
    background-color: $accent-color;
@@ -283,6 +287,12 @@ background-color: transparent;
   .lib__btns{
     display: flex;
     column-gap:40 px;
+    @media screen and (min-width:$mobile) {
+flex-direction: column;
+    }
+    @media screen and (min-width: $tablet){
+      flex-direction: row;
+    }
   
   & .header-lib_btn{
     margin-left: 40px;
