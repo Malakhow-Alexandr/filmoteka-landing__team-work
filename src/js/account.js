@@ -76,7 +76,7 @@ function onSignInButtonClick(e) {
 }
 
 function onSignOutClick(e) {
-  e.preventDefault();
+  // e.preventDefault();
 
   refs.profile.classList.add('visually-hidden');
   refs.openRegisterModal.classList.remove('visually-hidden');
@@ -88,7 +88,7 @@ function onSignOutClick(e) {
 }
 
 function onRemoveClick(e) {
-  e.preventDefault();
+  // e.preventDefault();
 
   const removeAccount = async () => {
     try {
