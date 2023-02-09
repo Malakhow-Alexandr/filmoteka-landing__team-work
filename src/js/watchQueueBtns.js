@@ -25,7 +25,7 @@ const load = key => {
 
 function onMyLibraryClick(e) {
   if (refs.profile.className.includes('notAcces')) {
-    return Notiflix.Notify.success('Login please, for use the library', {
+    return Notiflix.Notify.failure('Login please, for use the library', {
       checkInNotifikashka,
     });
   }
