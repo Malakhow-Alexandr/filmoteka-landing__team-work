@@ -1,15 +1,11 @@
 // Функціонал пагінації
 import Pagination from './tui-pagination-rework';
 import { renderMoviesCard } from './renderMoviesGallery';
-// import { reloadOnPageChange, clearMarkup } from './films-render';
+
 import { moviesApiService } from './entryPoint';
 import { refs } from './refs';
 
 function createAPagination(data) {
-  // if (data.total_results <= 20) {
-  //   console.log(data);
-  //   return;
-  // }
 
   const pagination = new Pagination(document.getElementById('pagination'), {
     page: data.page,
@@ -52,7 +48,6 @@ function createAPagination(data) {
 
       moviesApiService.setPage(page);
       moviesApiService.fetchMoviesByName().then(data => {
-        console.log(data);
         renderMoviesCard(data.results);
       });
     } catch (error) {
