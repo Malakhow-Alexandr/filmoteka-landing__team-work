@@ -18,7 +18,7 @@ header {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/header-main/main_bg_img_mobile_3x-min.jpg');
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/header-main/main_bg_img_tablet_1x-min.jpg');
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
@@ -30,7 +30,7 @@ header {
         url('../images/header-main/main_bg_img_tablet_3x-min.jpg');
     }
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: $desktop) {
     max-width: 1600px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/header-main/main_bg_img_desktop_1x-min.jpg');
@@ -47,6 +47,7 @@ header {
 
 .is-active{
   @extend %color-button;
+  margin-left: 90;
   }
   
   .navigation {
@@ -54,6 +55,7 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    height: 100px;
     &_list-item{
       font-size: 14px;}
     &_list-item:hover, &_list-item:focus {
@@ -65,14 +67,24 @@ header {
   }
   }
   .checkIn {
+    // display: none;
   cursor: pointer;
    @extend %transparent-button;
-   &:hover,&:focus{
-    @extend %color-button;
-   }
-   @media screen and (min-width:320px){
-height: 50;
+   @extend %color-button;
+    cursor: pointer;
+    position:relative;
+    background-color: transparent;
+    border: 0;
+    color: $secondary-text-color;
+    font-family: $primary-font;
+    font-size: 14px;
 
+    &:hover,&:focus{
+    transform: scale(1.1);
+    text-decoration: 2px underline solid $accent-color;
+    }
+   @media screen and (min-width:$mobile){
+height: 50;
 margin-left: 5px;
    }
   }
@@ -82,12 +94,12 @@ margin-left: 5px;
     margin-right: auto;
     margin-left: auto;
   
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       width: 336px;
       margin-bottom: 20px;
     }
   
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: $desktop) {
       width: 394px;
     }
   }
@@ -96,10 +108,10 @@ margin-left: 5px;
   }
   .logo-icon{
 
-    @media screen and (min-width: 320px)
+    @media screen and (min-width: $mobile)
     {margin-right: 30px;
   }
-  @media screen and (min-width: 1024px)
+  @media screen and (min-width: $desktop)
   {margin-right: 5px;
 }}
   .page-title{
@@ -118,13 +130,55 @@ animation: flipInY;
     justify-content: center;
     align-items: baseline;
   }
-  .profile_menu-child{
-@extend %color-button;
-    border-radius: 5;
-    height: 50px;
+  // Account button
+  .profile{
+    @extend %color-button;
+    cursor: pointer;
+    position:relative;
+    background-color: transparent;
+    border: 0;
+    color: $secondary-text-color;
+    font-family: $primary-font;
+    font-size: 14px;
+    text-decoration: 2px underline solid $accent-color;
+    &:hover,&:focus{
+    transform: scale(1.1);
+    
+    }
+  // &:hover(.profile-menu_child), 
+  // &:focus(.profile-menu_child){
+    
+  // }
+  }
+  .profile_menu_div{
+    margin-left:335px;
+  }
+  // список профілю
+ .profile-menu_btns{
+   background-color: $accent-color;
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    width:69px;
+    & li{
+      display:none;
+    }
+  } 
+  .profile > button:focus .profile-menu_child, 
+  .profile > button:hover .profile-menu_child{
+    display: block;
+    background-color: $accent-color;
+  }
+  
+  .profile_menu-child{ 
+    cursor: pointer;
+border: 0;
+background-color: transparent;
     color:$secondary-text-color;
     &:hover, &:focus{
-      @extend %transparent-button
+      color:$primary-text-color;
+      transform: scale(1.1);
+      background-color: $accent-color;
     }
   }
   .header-form__input {
@@ -179,7 +233,7 @@ animation: flipInY;
   margin: 0 auto;
   height: 250px; 
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url('../images/header-lib/library_bg_img_desktop_1x-min.jpg');
+    url('../images/header-lib/library_bg_img_mobile_1x-min.jpg');
   @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/header-lib/library_bg_img_mobile_2x-min.jpg');
@@ -188,7 +242,7 @@ animation: flipInY;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/header-lib/library_bg_img_mobile_3x-min.jpg');
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/header-lib/library_bg_img_tablet_1x-min.jpg');
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
@@ -200,7 +254,7 @@ animation: flipInY;
         url('../images/header-lib/library_bg_img_tablet_3x-min.jpg');
     }
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: $desktop) {
     max-width: 1600px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/header-lib/library_bg_img_desktop_1x-min.jpg');
@@ -216,7 +270,7 @@ animation: flipInY;
   }
   
   .header-lib__menu {
-    justify-content: center;
+    justify-content: flex-end;
     display: flex;
     align-items: center;
   } 
@@ -247,7 +301,7 @@ animation: flipInY;
   
     transition: transform 250ms ease;
   
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       gap: 10px;
     }
   
@@ -266,7 +320,7 @@ animation: flipInY;
     line-height: 1.17;
     text-align: center;
   
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       display: block;
     }
   }
@@ -286,11 +340,11 @@ animation: flipInY;
     text-align: center;
     text-transform: uppercase;
   
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       column-gap: 40px;
     }
   
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: $desktop) {
       column-gap: 39px;
     }
   }
@@ -307,7 +361,7 @@ animation: flipInY;
     }
   }
   
-  .navigation_list-item-link.current {
+  .navigation_list-item-link:hover, .navigation_list-item-link:focus {
     position: relative;
   
     &::after {
@@ -319,9 +373,25 @@ animation: flipInY;
       width: 100%;
       height: 3px;
       background-color: $accent-color;
+
     }
   }
+
+  .current{
+    position: relative;
   
+    &::after {
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: $accent-color;
+
+    }
+  }
   .header-lib-button {
     display: flex;
     justify-content: center;
@@ -329,7 +399,7 @@ animation: flipInY;
     flex-wrap: wrap;
     gap: 20px;
   
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       column-gap: 32px;
     }
   }
@@ -357,11 +427,11 @@ animation: flipInY;
     line-height: 1.33;
     text-transform: uppercase;
   
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       min-width: 152px;
     }
   
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: $desktop) {
       min-width: 147px;
     }
   
@@ -383,11 +453,11 @@ animation: flipInY;
     border-radius: 10px;
     overflow: hidden;
   
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       width: calc((100% - 32px) / 2);
     }
   
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: $desktop) {
       width: calc((100% - 2 * 16px) / 3);
     }
   }
