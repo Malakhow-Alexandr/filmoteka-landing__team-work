@@ -15,6 +15,7 @@
   margin-top: 20px;
   transform: scale(1);
   transition: transform 250ms linear;
+  overflow: hidden;
 
   @media screen and (max-width: $mobile) {
     &:not(:last-child) {
