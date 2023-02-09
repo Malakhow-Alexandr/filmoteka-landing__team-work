@@ -12,12 +12,14 @@ const glide = new Glide('.glide', {
   autoplay: 1500,
   hoverpause: true,
   bound: true,
+
+
   breakpoints: {
-    1024: {
-      perView: 2
-    },
-    600: {
-      perView: 1
+    // 1024: {
+    //   perView: 5
+    // },
+    768: {
+      perView: 5
     }
   }    
 });
@@ -39,6 +41,6 @@ function renderTrendy() {
 
 function renderSliderFilms(articles) {
   sliderContainer.innerHTML = filmsCardSliderTpl(articles);
-  // trailer.createTrailerLink(document.querySelectorAll('.btn-youtube-slider'));
+  trailer.onOpenTrailer(document.querySelectorAll('.btn-youtube-slider'));
 }
 
